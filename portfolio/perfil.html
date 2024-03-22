@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Meu Perfil</title>
+</head>
+<body>
+    <!-- Conteudo do Header -->
+    <header class="container mt-5">
+        <section>
+          <div class="d-flex align-items-center justify-content-center">
+            <h2>Perfil</h2>
+          </div>
+          <!-- <div>
+            <img id="fotoPerfil" src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png" alt="Foto de Perfil">
+          </div> -->
+        </section>
+    </header>
+    <!-- Conteudo do Main -->
+    <main class="container mt-5">
+        <section>
+            <form>
+                <div class="form-group">
+                    <label for="enviarArq">Inserir Foto de Perfil: </label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="enviarArq" accept=".png" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <label class="custom-file-label" for="enviarArq">Escolha da Imagem</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="index.html" class="btn btn-primary btn-sm">Voltar Para a Pagina Inicial</a>
+                    <a href="#deslogarConta" class="btn btn-primary btn-sm">Deslogar</a>
+                    <a href="#excluirConta" class="btn btn-danger btn-sm">Excluir Conta</a>
+                </div>
+            </form>
+            <form>
+                <div class="form-group">
+                    <label for="sobre">Sobre mim:</label>
+                    <textarea class="form-control" id="sobre" rows="10" cols="30"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" id="btsalvar">Salvar Alterações</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+<style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+    }
+    h2{
+      padding: 20px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+    main section{
+      padding: 20px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+</style>

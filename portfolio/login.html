@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Login</title>
+</head>
+<body>
+  <!-- Conteudo do Header -->
+  <header>
+    <section>
+      <div class="d-flex align-items-center justify-content-center">
+        <h2>Login</h2>
+      </div>
+    </section>
+  </header>
+  <!-- Conteudo do Main -->
+  <main>
+    <section>
+        <form>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+          </div>
+          <div class="form-group">
+              <label for="senhaLogin">Senha:</label>
+              <input type="password" class="form-control" id="senhaLogin" placeholder="Digite sua senha" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <a href="index.html" class="btn btn-primary">Voltar ao Site</a><br>
+          <a href="cadastro.html">Não possui Cadastro?</a>
+        </form>
+    </section>
+  </main>
+</body>
+</html>
+<style>
+  body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      
+    }
+    main {
+      display: flex;
+      justify-content: center;
+    }
+    main section{
+      padding: 20px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+    header div h2{
+        padding: 20px;
+        margin: 20px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+</style>
