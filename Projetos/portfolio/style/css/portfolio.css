@@ -1,0 +1,66 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 30px;
+}
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+.section {
+    margin-bottom: 40px;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.skill {
+    background-color: #eaeaea;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+.contact a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin-right: 15px;
+}
+.contact a:hover {
+    color: #007bff;
+}
+.cta {
+    text-align: center;
+    margin-top: 30px;
+}
+.cta button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.cta button:hover {
+    background-color: #0056b3;
+}
