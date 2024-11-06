@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Online Simples</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style/css/loja.css">
+</head>
+
+<body>
+
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Loja Online</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="cart-btn">
+                            <i class="bi bi-cart"></i> Carrinho (0)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Produtos -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://acdn.mitiendanube.com/stores/002/308/407/products/capas-jpg-sempre-1000x150021-ca5dc6790f213a637116722488318543-640-0.jpg" class="card-img-top" alt="Livro da Vida" height="531">
+                    <div class="card-body">
+                        <h5 class="card-title">Livro da Vida</h5>
+                        <p class="card-text">Preço: R$ 50,00</p>
+                        <div class="text-center">
+                            <button class="btn btn-primary add-to-cart" data-product="Livro da Vida" data-price="50">
+                                <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" class="card-img-top" alt="O Segredo nas Sombras" height="531">
+                    <div class="card-body">
+                        <h5 class="card-title">O Segredo nas Sombras</h5>
+                        <p class="card-text">Preço: R$ 30,00</p>
+                        <div class="text-center">
+                            <button class="btn btn-primary add-to-cart" data-product="O Segredo nas Sombras" data-price="30">
+                                <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://editoraflutuante.com.br/wp-content/uploads/2018/08/Quarta-Capa-Frente-1.jpg" class="card-img-top" alt="Quarta Capa O Livro Sobre Livros" height="531">
+                    <div class="card-body">
+                        <h5 class="card-title">Quarta Capa O Livro Sobre Livros</h5>
+                        <p class="card-text">Preço: R$ 80,00</p>
+                        <div class="text-center">
+                            <button class="btn btn-primary add-to-cart" data-product="Quarta Capa O Livro Sobre Livros" data-price="80">
+                                <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho -->
+    <div class="container">
+        <h3><i class="bi bi-cart"></i> Carrinho de Compras</h3>
+        <div id="cart-items"></div>
+        <hr>
+        <div class="cart-total">
+            Total: R$ <span id="cart-total-value">0</span>
+        </div>
+        <br>
+        <button class="btn btn-success" id="checkout-btn">
+            <i class="bi bi-check-circle"></i> Finalizar Compra
+        </button>
+        <button class="btn btn-danger" id="cancel-btn">
+            <i class="bi bi-x-circle"></i> Cancelar Compra
+        </button>
+    </div>
+
+    <!-- Modal de confirmação -->
+    <div class="modal fade" id="checkout-modal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">
+                        <i class="bi bi-check-circle"></i> Confirmação de Compra
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Obrigado pela sua compra! Seu pedido foi realizado com sucesso.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cancelamento -->
+    <div class="modal fade" id="cancel-modal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelModalLabel">
+                        <i class="bi bi-x-circle"></i> Cancelamento da Compra
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Compra cancelada com sucesso!.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="style/js/loja.js"></script>
+</body>
+
+</html>
