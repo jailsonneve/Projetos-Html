@@ -39,7 +39,7 @@
 <p align="left">Confira alguns dos projetos que estão disponíveis neste repositório:</p>
 
 <ul>
-    <li><strong><a href="https://link-do-projeto-1">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos, com animações em CSS e layout fluido.</li>
+    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos com CSS.</li>
     <li><strong><a href="https://link-do-projeto-2">Landing Page</a></strong> - Página de aterrissagem para um produto fictício, com foco em conversões e design moderno.</li>
     <li><strong><a href="https://link-do-projeto-3">Calculadora Interativa</a></strong> - Calculadora simples, desenvolvida com HTML, CSS e JavaScript, utilizando manipulação do DOM para interatividade.</li>
     <li><strong><a href="https://link-do-projeto-4">Galeria de Imagens</a></strong> - Galeria com visualização em lightbox e animações suaves para uma experiência de usuário agradável.</li>
