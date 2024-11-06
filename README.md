@@ -40,7 +40,7 @@
 
 <ul>
     <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.</li>
-    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/calc1.html">Calculadora Interativa</a></strong> - Este projeto consiste em uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript. A calculadora oferece uma interface amigável e funcional, permitindo ao usuário realizar operações matemáticas básicas como soma, subtração, multiplicação, divisão, exponenciação, radiciação, e porcentagem.</li>
+    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/calc1.html">Calculadora Interativa</a></strong> - Este projeto consiste em uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript</li>
 </ul>
 
 ###
@@ -97,8 +97,8 @@
 <p align="left">Aqui estão algumas capturas de tela de alguns projetos em andamento:</p>
 
 <div align="center">
-    <img src="link-da-imagem-1.jpg" alt="Screenshot do Projeto 1" style="max-width: 100%; height: auto;"/>
-    <img src="link-da-imagem-2.jpg" alt="Screenshot do Projeto 2" style="max-width: 100%; height: auto; margin-top: 20px;"/>
+    <img src="Projetos/portfolio/style/img/Captura de tela de 2024-11-06 10-16-02.png" alt="Screenshot do Portfólio" style="max-width: 100%; height: auto;"/>
+    <img src="Projetos/calculadora/img/Captura de tela de 2024-11-06 10-16-47.png" alt="Screenshot da Calculadora" style="max-width: 100%; height: auto; margin-top: 20px;"/>
 </div>
 
 ###
