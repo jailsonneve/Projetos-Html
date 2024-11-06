@@ -90,20 +90,6 @@
 
 ###
 
-<h2 align="left">📸 Capturas de Tela</h2>
-
-###
-
-<p align="left">Aqui estão algumas capturas de tela de alguns projetos em andamento:</p>
-
-<div align="center">
-    <img src="Projetos/portfolio/style/img/Captura de tela de 2024-11-06 10-16-02.png" alt="Screenshot do Portfólio" width="350px" height="450" />
-    <img width="30" /> <!-- Espaço entre as imagens -->
-    <img src="Projetos/calculadora/img/Captura de tela de 2024-11-06 10-34-52.png" alt="Screenshot da Calculadora" width="350px" height="450" />
-</div>
-
-###
-
 <h2 align="left">📬 Contato</h2>
 
 ###
