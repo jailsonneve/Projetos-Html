@@ -1,131 +1,134 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Repositório de Projetos HTML5 desenvolvidos com foco em responsividade e design moderno.">
-    <title>Projetos HTML5</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #0056b3;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        section {
-            padding: 20px;
-            margin: 0 10%;
-        }
-        h2 {
-            color: #0056b3;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 10px 0;
-        }
-        footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-        a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        code {
-            background-color: #f5f5f5;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
+<h1 align="center">Projetos HTML5 - Desenvolvidos com Criatividade e Eficiência</h1>
 
-<header>
-    <h1>Projetos HTML5</h1>
-    <p>Repositório de projetos web desenvolvidos com HTML5, CSS3 e JavaScript</p>
-</header>
+###
 
-<section>
-    <h2>Sobre este repositório</h2>
-    <p>Este repositório contém diversos projetos web criados utilizando HTML5, CSS3 e JavaScript. O objetivo é compartilhar os aprendizados e as boas práticas no desenvolvimento web moderno, além de contribuir para a comunidade com projetos acessíveis e de fácil adaptação.</p>
-    
-    <h2>🛠️ Tecnologias utilizadas</h2>
-    <ul>
-        <li><strong>HTML5</strong>: Estruturação e marcação semântica</li>
-        <li><strong>CSS3</strong>: Estilo e layout responsivo utilizando Flexbox e Grid</li>
-        <li><strong>JavaScript</strong>: Adicionando interatividade e dinamismo</li>
-        <li><strong>Font Awesome</strong>: Ícones para enriquecer a interface</li>
-        <li><strong>Google Fonts</strong>: Tipografia personalizada</li>
-    </ul>
+<p align="center">Bem-vindo ao meu repositório de <strong>Projetos HTML5</strong>! Aqui você encontrará uma coleção de websites, layouts e aplicações web desenvolvidas utilizando as melhores práticas de HTML5, CSS3 e JavaScript. Todos os projetos são focados em responsividade, design moderno e interatividade.</p>
 
-    <h2>📂 Projetos disponíveis</h2>
-    <ul>
-        <li><strong><a href="#">Portfólio Pessoal</a></strong> - Um portfólio responsivo e minimalista, com animações e transições suaves.</li>
-        <li><strong><a href="#">Página de Landing</a></strong> - Uma página otimizada para conversões com foco em SEO e design atrativo.</li>
-        <li><strong><a href="#">Calculadora Simples</a></strong> - Calculadora funcional utilizando apenas HTML, CSS e JavaScript.</li>
-        <li><strong><a href="#">Galeria de Imagens</a></strong> - Uma galeria interativa com efeitos de lightbox e animações CSS.</li>
-    </ul>
+###
 
-    <h2>⚡ Como executar os projetos</h2>
-    <p>Para rodar os projetos localmente, basta seguir os seguintes passos:</p>
-    <ol>
-        <li>Clone o repositório para o seu computador:</li>
-        <pre><code>git clone https://github.com/seu-usuario/projetos-html5.git</code></pre>
-        <li>Abra o diretório do projeto:</li>
-        <pre><code>cd projetos-html5</code></pre>
-        <li>Abra o arquivo <code>index.html</code> em seu navegador preferido.</li>
-    </ol>
+<h2 align="left">Sobre os Projetos</h2>
 
-    <h2>📸 Screenshots</h2>
-    <p>Abaixo estão algumas capturas de tela dos projetos:</p>
-    <img src="link-da-imagem-1.jpg" alt="Screenshot do projeto 1" style="max-width: 100%; height: auto;">
-    <img src="link-da-imagem-2.jpg" alt="Screenshot do projeto 2" style="max-width: 100%; height: auto; margin-top: 20px;">
+###
 
-    <h2>🔄 Contribuindo</h2>
-    <p>Se você deseja contribuir com este repositório, siga os passos abaixo:</p>
-    <ol>
-        <li>Faça um <strong>fork</strong> deste repositório.</li>
-        <li>Crie uma branch para suas alterações:</li>
-        <pre><code>git checkout -b minha-nova-feature</code></pre>
-        <li>Faça commit das suas alterações:</li>
-        <pre><code>git commit -am 'Adicionando uma nova feature'</code></pre>
-        <li>Envia suas alterações para o seu repositório:</li>
-        <pre><code>git push origin minha-nova-feature</code></pre>
-        <li>Abra um <strong>pull request</strong>.</li>
-    </ol>
+<p align="left">Este repositório contém vários projetos que estou desenvolvendo como forma de praticar e melhorar minhas habilidades no desenvolvimento web. A maioria dos projetos é baseada nas tecnologias mais recentes e melhores práticas de desenvolvimento front-end. O objetivo é criar experiências ricas para o usuário, com interfaces simples, limpas e responsivas.</p>
 
-    <h2>📬 Contato</h2>
-    <p>Se você tiver dúvidas ou quiser conversar sobre os projetos, sinta-se à vontade para entrar em contato:</p>
-    <ul>
-        <li><a href="https://www.linkedin.com/in/seu-usuario">LinkedIn</a></li>
-        <li><a href="https://twitter.com/seu-usuario">Twitter</a></li>
-        <li><a href="mailto:seu-email@dominio.com">Email</a></li>
-    </ul>
+###
 
-</section>
+<h2 align="left">🛠️ Tecnologias Utilizadas</h2>
 
-<footer>
-    <p>&copy; 2024 - Todos os direitos reservados.</p>
-</footer>
+###
 
-</body>
-</html>
+<p align="left">Aqui estão as tecnologias principais que você encontrará em cada um dos meus projetos:</p>
+
+<div align="center">
+    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" height="40" alt="html logo" title="HTML5"/>
+    <img width="12" />
+    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" height="40" alt="css logo" title="CSS3"/>
+    <img width="12" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo" title="JavaScript"/>
+    <img width="12" />
+    <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="40" alt="Bootstrap logo" title="Bootstrap"/>
+</div>
+
+###
+
+<h2 align="left">📂 Projetos Disponíveis</h2>
+
+###
+
+<p align="left">Confira alguns dos projetos que estão disponíveis neste repositório:</p>
+
+<ul>
+    <li><strong><a href="https://link-do-projeto-1">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos, com animações em CSS e layout fluido.</li>
+    <li><strong><a href="https://link-do-projeto-2">Landing Page</a></strong> - Página de aterrissagem para um produto fictício, com foco em conversões e design moderno.</li>
+    <li><strong><a href="https://link-do-projeto-3">Calculadora Interativa</a></strong> - Calculadora simples, desenvolvida com HTML, CSS e JavaScript, utilizando manipulação do DOM para interatividade.</li>
+    <li><strong><a href="https://link-do-projeto-4">Galeria de Imagens</a></strong> - Galeria com visualização em lightbox e animações suaves para uma experiência de usuário agradável.</li>
+</ul>
+
+###
+
+<h2 align="left">⚡ Como Executar os Projetos</h2>
+
+###
+
+<p align="left">Para visualizar os projetos localmente, siga as instruções abaixo:</p>
+
+<ol>
+    <li>Clone este repositório em seu computador:</li>
+    <pre><code>git clone https://github.com/seu-usuario/projetos-html5.git</code></pre>
+    <li>Entre no diretório do projeto:</li>
+    <pre><code>cd projetos-html5</code></pre>
+    <li>Abra o arquivo HTML desejado em seu navegador favorito.</li>
+</ol>
+
+<p align="left">Estes projetos são estáticos, então você pode rodá-los diretamente em qualquer navegador.</p>
+
+###
+
+<h2 align="left">🎯 Objetivo dos Projetos</h2>
+
+###
+
+<p align="left">O principal objetivo desse repositório é compartilhar minha jornada no desenvolvimento de websites e aplicações simples, mas práticas. Estou sempre em busca de melhorar meus conhecimentos em front-end e quero que outras pessoas possam aprender e se inspirar com esses projetos.</p>
+
+###
+
+<h2 align="left">🔄 Contribuindo</h2>
+
+###
+
+<p align="left">Se você deseja contribuir com este repositório, sinta-se à vontade para abrir uma *pull request*. Abaixo estão os passos para contribuir:</p>
+
+<ol>
+    <li>Faça um fork deste repositório.</li>
+    <li>Crie uma branch para suas alterações:</li>
+    <pre><code>git checkout -b minha-nova-feature</code></pre>
+    <li>Faça commit das suas alterações:</li>
+    <pre><code>git commit -am 'Adicionando nova funcionalidade'</code></pre>
+    <li>Envie suas alterações para o seu repositório:</li>
+    <pre><code>git push origin minha-nova-feature</code></pre>
+    <li>Abra um pull request.</li>
+</ol>
+
+###
+
+<h2 align="left">📸 Capturas de Tela</h2>
+
+###
+
+<p align="left">Aqui estão algumas capturas de tela de alguns projetos em andamento:</p>
+
+<div align="center">
+    <img src="link-da-imagem-1.jpg" alt="Screenshot do Projeto 1" style="max-width: 100%; height: auto;"/>
+    <img src="link-da-imagem-2.jpg" alt="Screenshot do Projeto 2" style="max-width: 100%; height: auto; margin-top: 20px;"/>
+</div>
+
+###
+
+<h2 align="left">📬 Contato</h2>
+
+###
+
+<p align="left">Caso você queira entrar em contato comigo, aqui estão minhas redes sociais e outras formas de comunicação:</p>
+
+<div align="center">
+    <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Instagram" />
+    <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Twitter" />
+    <img src="https://img.shields.io/static/v1?message=Email&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Email" />
+</div>
+
+###
+
+<div align="center">
+    <img src="https://profile-counter.glitch.me/seu-usuario/count.svg?" />
+</div>
+
+###
+
+<h3 align="left">🔥 Status dos Projetos</h3>
+
+<div align="center">
+    <img src="https://streak-stats.demolab.com?user=seu-usuario&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph" />
+</div>
+
+###
