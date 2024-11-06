@@ -42,12 +42,10 @@
 <<<<<<< HEAD
     <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.</li>
     <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/atividade1.html">Calculadora Interativa</a></strong> - Este projeto consiste em uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript. A calculadora oferece uma interface amigável e funcional, permitindo ao usuário realizar operações matemáticas básicas como soma, subtração, multiplicação, divisão, exponenciação, radiciação, e porcentagem.</li>
-=======
     <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos com CSS.</li>
     <li><strong><a href="https://link-do-projeto-2">Landing Page</a></strong> - Página de aterrissagem para um produto fictício, com foco em conversões e design moderno.</li>
     <li><strong><a href="https://link-do-projeto-3">Calculadora Interativa</a></strong> - Calculadora simples, desenvolvida com HTML, CSS e JavaScript, utilizando manipulação do DOM para interatividade.</li>
     <li><strong><a href="https://link-do-projeto-4">Galeria de Imagens</a></strong> - Galeria com visualização em lightbox e animações suaves para uma experiência de usuário agradável.</li>
->>>>>>> 8fb5edb349345f3206fe8214321fc6ff33d9b952
 </ul>
 
 ###
