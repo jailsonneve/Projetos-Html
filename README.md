@@ -41,6 +41,7 @@
 <ul>
     <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.</li>
     <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/calc1.html">Calculadora Interativa</a></strong> - Este projeto consiste em uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript</li>
+    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/loja/loja.html">Loja Simples e Interativa</a></strong> - Este projeto consiste em uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possivel adicionar e remover itens do carrinho, terá atualizações</li>
 </ul>
 
 ###
