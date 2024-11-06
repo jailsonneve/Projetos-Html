@@ -97,8 +97,8 @@
 <p align="left">Aqui estão algumas capturas de tela de alguns projetos em andamento:</p>
 
 <div align="center">
-    <img src="Projetos/portfolio/style/img/Captura de tela de 2024-11-06 10-16-02.png" alt="Screenshot do Portfólio" style="max-width: 100%; height: auto;"/>
-    <img src="Projetos/calculadora/img/Captura de tela de 2024-11-06 10-16-47.png" alt="Screenshot da Calculadora" style="max-width: 100%; height: auto; margin-top: 20px;"/>
+    <img src="Projetos/portfolio/style/img/Captura de tela de 2024-11-06 10-16-02.png" alt="Screenshot do Portfólio" width="45%" style="margin-right: 10px;"/>
+    <img src="Projetos/calculadora/img/Captura de tela de 2024-11-06 10-16-47.png" alt="Screenshot da Calculadora" width="45%" />
 </div>
 
 ###
