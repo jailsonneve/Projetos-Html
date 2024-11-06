@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Arthur">
     <title>Portfólio de Arthur</title>
-    <link rel="stylesheet" href="style/css/portfolio.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/css/portfolio.css">
 </head>
 <body>
     <header>
@@ -18,7 +19,7 @@
 
         <!-- Seção sobre mim -->
         <section class="section" id="sobre">
-            <h2>Sobre Mim</h2>
+            <h2 class="section-title">Sobre Mim</h2>
             <p>Olá, me chamo <strong>Arthur</strong>, tenho 17 anos e sou estudante do <strong>Instituto Federal do Paraná (IFPR)</strong> no campus Cascavel, cursando o técnico em Informática. Tenho um grande interesse por tecnologia, programação e desenvolvimento de sistemas.</p>
             <p>Atualmente, estou me aprofundando em várias linguagens de programação, com destaque para <strong>HTML5, CSS3, JavaScript, Java, Python, Arduino, Django, Bootstrap, Firebase e Jupyter Notebook</strong>. Embora tenha começado com essas tecnologias, também estou começando a aprender <strong>PHP</strong>, e tenho grandes planos de expandir meus conhecimentos e habilidades nesse campo.</p>
             <p>Minha maior paixão é desenvolver soluções tecnológicas que possam impactar positivamente as pessoas. Estou sempre em busca de novos desafios e oportunidades de aprendizado.</p>
@@ -26,44 +27,79 @@
 
         <!-- Seção habilidades -->
         <section class="section" id="habilidades">
-            <h2>Minhas Habilidades</h2>
+            <h2 class="section-title">Minhas Habilidades</h2>
             <div class="skills">
-                <div class="skill">HTML5</div>
-                <div class="skill">CSS3</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">Java</div>
-                <div class="skill">Python</div>
-                <div class="skill">Arduino</div>
-                <div class="skill">Django</div>
-                <div class="skill">Bootstrap</div>
-                <div class="skill">Firebase</div>
-                <div class="skill">Jupyter Notebook</div>
-                <div class="skill">PHP (em aprendizado)</div>
+                <div class="badge bg-primary text-white p-2 m-1">HTML5</div>
+                <div class="badge bg-secondary text-white p-2 m-1">CSS3</div>
+                <div class="badge bg-success text-white p-2 m-1">JavaScript</div>
+                <div class="badge bg-danger text-white p-2 m-1">Java</div>
+                <div class="badge bg-warning text-white p-2 m-1">Python</div>
+                <div class="badge bg-info text-white p-2 m-1">Arduino</div>
+                <div class="badge bg-dark text-white p-2 m-1">Django</div>
+                <div class="badge bg-primary text-white p-2 m-1">Bootstrap</div>
+                <div class="badge bg-secondary text-white p-2 m-1">Firebase</div>
+                <div class="badge bg-success text-white p-2 m-1">Jupyter Notebook</div>
+                <div class="badge bg-danger text-white p-2 m-1">PHP (em aprendizado)</div>
+            </div>
+        </section>
+
+        <!-- Seção de projetos -->
+        <section class="section" id="projetos">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <h3>Meu Portfólio</h3>
+                        <p>Este projeto é um portfólio digital que reúne e exibe uma seleção dos melhores trabalhos e realizações de Arthur, destacando suas habilidades, experiência e criatividade. Com um design clean e intuitivo, o portfólio abrange diferentes áreas de atuação, como [design gráfico, desenvolvimento web, fotografia, redação, entre outras], e serve como uma vitrine para mostrar seu talento e visão única. O objetivo é apresentar de forma clara e impactante as capacidades de Arthur a potenciais clientes, parceiros e empregadores.</p>
+                        <a href="https://github.com/seuusuario/projeto1" target="_blank" class="btn btn-primary text-center">Ver no GitHub</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <h3>Projeto 2</h3>
+                        <p>Descrição do projeto...</p>
+                        <a href="https://github.com/seuusuario/projeto2" target="_blank" class="btn btn-primary">Ver no GitHub</a>
+                    </div>
+                </div>
+                <!-- Adicione mais projetos conforme necessário -->
             </div>
         </section>
 
         <!-- Seção de planos futuros -->
         <section class="section" id="planos">
-            <h2>Meus Planos Futuros</h2>
+            <h2 class="section-title">Meus Planos Futuros</h2>
             <p>Após concluir o curso técnico no IFPR, meu objetivo é ingressar em um curso superior. Estou muito interessado em seguir na área de <strong>Ciências da Computação</strong> no <strong>Unioeste</strong> campus Cascavel, ou talvez seguir para o curso de <strong>Tecnologia em Análise e Desenvolvimento de Sistemas (TADS)</strong> no próprio IFPR.</p>
             <p>Meu maior objetivo é me tornar um profissional capaz de desenvolver soluções inovadoras, seja no desenvolvimento de softwares, aplicativos ou sistemas web, e poder contribuir para a sociedade com a minha paixão por tecnologia.</p>
         </section>
 
-        <!-- Seção de contato -->
-        <section class="section" id="contato">
-            <h2>Como Entrar em Contato</h2>
-            <p>Se você quiser conversar, trocar ideias ou discutir sobre tecnologia, ficarei feliz em receber uma mensagem! Você pode me encontrar através das seguintes plataformas:</p>
-            <div class="contact">
-                <a href="https://www.instagram.com/arthur.dai.52" target="_blank">Instagram</a>
-                <a href="mailto:daiarthur053@gmail.com">Email</a>
-            </div>
+        <!-- Seção de estatísticas -->
+        <section class="section" id="estatisticas">
+            <h2 class="section-title">Minhas Estatísticas</h2>
+            <!-- <p><strong>Projetos no GitHub:</strong> 10+</p>
+            <p><strong>Horas de programação por semana:</strong> 20+</p>
+            <p><strong>Contribuições para projetos open-source:</strong> 5+</p> -->
         </section>
 
-        <!-- Chamada para ação -->
-        <div class="cta">
-            <button onclick="window.location.href='mailto:daiarthur053@gmail.com'">Entre em Contato</button>
-        </div>
+        <!-- Seção de certificados -->
+        <section class="section" id="certificados">
+            <h2 class="section-title">Certificados e Cursos</h2>
+            <ul>
+                <!-- <li><a href="https://www.coursera.org/learn/html-css-javascript-for-web-developers">Curso de HTML e CSS - Coursera</a></li>
+                <li><a href="https://www.udemy.com/course/java-para-iniciantes/">Curso de Java para Iniciantes - Udemy</a></li> -->
+            </ul>
+        </section>
 
     </div>
+
+    <!-- Rodapé com contato -->
+    <footer>
+        <h2>Entre em Contato</h2>
+        <div class="social-media-links">
+            <a href="https://www.instagram.com/arthur.dai.52" target="_blank">Instagram</a>
+            <a href="mailto:daiarthur053@gmail.com">Email</a>
+            <a href="https://github.com/jailsonneve" target="_blank">GitHub</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
