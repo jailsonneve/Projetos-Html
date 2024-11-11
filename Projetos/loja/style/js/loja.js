@@ -2,6 +2,7 @@ let cart = [];
 const cartBtn = document.getElementById('cart-btn');
 const cartItemsDiv = document.getElementById('cart-items');
 const cartTotalValue = document.getElementById('cart-total-value');
+// const cartFrete = document.getElementById('cart-items');
 const checkoutModal = new bootstrap.Modal(document.getElementById('checkout-modal'));
 const canceloutModal = new bootstrap.Modal(document.getElementById('cancel-modal'));
 
@@ -22,7 +23,7 @@ function updateCart() {
     });
 
     // Atualiza o total do carrinho
-    cartTotalValue.innerText = total.toFixed(2);
+    cartTotalValue.innerText = (total.toFixed(2)+"").replace('.', ',');
 }
 
 // Função para adicionar ao carrinho
@@ -50,7 +51,9 @@ document.getElementById('checkout-btn').addEventListener('click', () => {
 document.getElementById('cancel-btn').addEventListener('click', () => {
     if (cart.length > 0) {
         cart = [];
-        cartItemsDiv.innerHTML=""
+        cartItemsDiv.innerHTML="Por enquanto vazio, adicione algo poxa!!!"
+        cartTotalValue.innerText = "0,00";
+
         cartBtn.innerText = `Carrinho (${cart.length})`;
         canceloutModal.show();
     } else {
