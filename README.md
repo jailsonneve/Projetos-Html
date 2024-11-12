@@ -91,6 +91,14 @@
 
 ###
 
+<h3 align="left">🔥 Status dos Projetos</h3>
+
+<div align="center">
+    <img src="https://streak-stats.demolab.com?user=jailsonneve&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph" />
+</div>
+
+###
+
 <h2 align="left">📬 Contato</h2>
 
 ###
@@ -105,16 +113,7 @@
 
 ###
 
+<h2 align="left">👀 Quantas pessoas visitaram meu perfil?</h2>
 <div align="center">
-    <img src="https://profile-counter.glitch.me/seu-usuario/count.svg?" />
+  <img src="https://profile-counter.glitch.me/jailsonneve/count.svg?" />
 </div>
-
-###
-
-<h3 align="left">🔥 Status dos Projetos</h3>
-
-<div align="center">
-    <img src="https://streak-stats.demolab.com?user=jailsonneve&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph" />
-</div>
-
-###
