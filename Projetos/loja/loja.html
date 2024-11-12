@@ -87,25 +87,20 @@
             <hr>
             <h3><i class="bi bi-truck"></i> Seu Endereço</h3>
             <form>
-                <div class="mb-3 row">
-                    <label class="col-4 col-form-label" for="cepUser">CEP</label> 
-                    <div class="col-8">
-                        <div class="input-group">
-                            <div class="input-group-text">
-                                <i class="fa fa-home"></i>
-                            </div>
-                            <input id="cepUser" name="cepUser" placeholder="Digite seu CEP" type="text" class="form-control" required="required">
-                        </div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-house"></i>
+                        </span>
+                        <input id="cepUser" name="cepUser" placeholder="Digite seu CEP" type="text" class="form-control" required="required">
                     </div>
                 </div> 
-                <div class="mb-3 row">
-                    <div class="offset-4 col-8">
-                        <button name="submit" type="submit" class="btn btn-primary w-100">
-                            <i class="bi bi-house-add"></i> Cadastrar Endereço
-                        </button>
-                    </div>
-                </div>
-            </form>
+                <div class="mb-3">
+                    <button name="submit" type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-house-add"></i> Cadastrar Endereço
+                    </button>
+                </div>                
+            </form>            
             <hr>
             <div class="cart-total text-end mb-4">
                 <strong>Total:</strong> R$ <span id="cart-total-value">0,00</span>
@@ -159,6 +154,28 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal para exibir dados do CEP -->
+        <div class="modal fade" id="cep-modal" tabindex="-1" aria-labelledby="cepModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cepModalLabel">
+                            <i class="bi bi-geo-alt"></i> Confirme o Endereço Encontrado
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="cep-info">
+                        <!-- Informações do endereço serão exibidas aqui -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Salvar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Rodapé com contato -->
         <footer class="mt-4">
             <h2>Entre em Contato</h2>
