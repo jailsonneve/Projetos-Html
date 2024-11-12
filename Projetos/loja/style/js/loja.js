@@ -83,7 +83,6 @@ function buscarDadosCEP() {
                         <p><strong>Cidade:</strong> ${dados.localidade}</p>
                         <p><strong>Estado:</strong> ${dados.uf}</p>
                     `;
-                    pegouCEP = true; 
                 }
                 modalCEP.show(); 
             })
@@ -101,3 +100,8 @@ document.querySelector('form').addEventListener('submit', (evento) => {
     evento.preventDefault();
     buscarDadosCEP();
 });
+
+document.getElementById('btnConfirmar').addEventListener('click', (evento) =>{
+    evento.preventDefault();
+    pegouCEP = true; 
+})
