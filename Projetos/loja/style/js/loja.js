@@ -1,95 +1,102 @@
-let cart = [];
-const cartBtn = document.getElementById('cart-btn');
-const cartItemsDiv = document.getElementById('cart-items');
-const cartTotalValue = document.getElementById('cart-total-value');
-// const cartFrete = document.getElementById('cart-items');
-const checkoutModal = new bootstrap.Modal(document.getElementById('checkout-modal'));
-const canceloutModal = new bootstrap.Modal(document.getElementById('cancel-modal'));
+let carrinho = [];
+let pegouCEP = false;
+const botaoCarrinho = document.getElementById('cart-btn');
+const itensCarrinhoDiv = document.getElementById('cart-items');
+const totalCarrinhoValor = document.getElementById('cart-total-value');
+const modalFinalizarCompra = new bootstrap.Modal(document.getElementById('checkout-modal'));
+const modalCancelarCompra = new bootstrap.Modal(document.getElementById('cancel-modal'));
 
 // Função para atualizar o carrinho
-function updateCart() {
+function atualizarCarrinho() {
     // Atualiza o número de itens no carrinho
-    cartBtn.innerText = `Carrinho (${cart.length})`;
+    botaoCarrinho.innerText = `Carrinho (${carrinho.length})`;
 
     // Atualiza os itens no carrinho
-    cartItemsDiv.innerHTML = '';
+    itensCarrinhoDiv.innerHTML = '';
     let total = 0;
-    cart.forEach(item => {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        cartItem.innerHTML = `${item.product} - R$ ${item.price}`;
-        cartItemsDiv.appendChild(cartItem);
-        total += item.price;
+    carrinho.forEach(item => {
+        const itemCarrinho = document.createElement('div');
+        itemCarrinho.classList.add('cart-item');
+        itemCarrinho.innerHTML = `${item.produto} - R$ ${item.preco}`;
+        itensCarrinhoDiv.appendChild(itemCarrinho);
+        total += item.preco;
     });
 
     // Atualiza o total do carrinho
-    cartTotalValue.innerText = (total.toFixed(2)+"").replace('.', ',');
+    totalCarrinhoValor.innerText = (total.toFixed(2) + "").replace('.', ',');
 }
 
 // Função para adicionar ao carrinho
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const product = event.target.getAttribute('data-product');
-        const price = parseFloat(event.target.getAttribute('data-price'));
+document.querySelectorAll('.add-to-cart').forEach(botao => {
+    botao.addEventListener('click', (evento) => {
+        const produto = evento.target.getAttribute('data-product');
+        const preco = parseFloat(evento.target.getAttribute('data-price'));
 
         // Adiciona o produto ao carrinho
-        cart.push({ product, price });
+        carrinho.push({ produto, preco });
 
         // Atualiza o carrinho na interface
-        updateCart();
+        atualizarCarrinho();
     });
 });
 
 // Função para finalizar a compra
 document.getElementById('checkout-btn').addEventListener('click', () => {
-    if (cart.length > 0) {
-        checkoutModal.show();   
+    const cep = document.getElementById('cepUser').value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    if (carrinho.length > 0) {
+        modalFinalizarCompra.show();   
+    }else if (cep == '' || pegouCEP == false) {	
+        alert("Cadastre seu Endereço!! ");
     } else {
-        alert("Adicione algo no Carrinho para Comprar!! ")
+        alert("Adicione algo no Carrinho para Comprar!! ");
     }
 });
-document.getElementById('cancel-btn').addEventListener('click', () => {
-    if (cart.length > 0) {
-        cart = [];
-        cartItemsDiv.innerHTML="Por enquanto vazio, adicione algo poxa!!!"
-        cartTotalValue.innerText = "0,00";
 
-        cartBtn.innerText = `Carrinho (${cart.length})`;
-        canceloutModal.show();
+// Função para cancelar a compra
+document.getElementById('cancel-btn').addEventListener('click', () => {
+    if (carrinho.length > 0) {
+        carrinho = [];
+        itensCarrinhoDiv.innerHTML = "Por enquanto vazio &#128532;, adicione algo, poxa &#129402;";
+        totalCarrinhoValor.innerText = "0,00";
+
+        botaoCarrinho.innerText = `Carrinho (${carrinho.length})`;
+        modalCancelarCompra.show();
     } else {
-        alert("Adicione algo no Carrinho para Cancelar!! ")
+        alert("Adicione algo no Carrinho para Cancelar!! ");
     }
-})
+});
+
 // Modal para exibir os dados do CEP
-const cepModal = new bootstrap.Modal(document.getElementById('cep-modal'));
+const modalCEP = new bootstrap.Modal(document.getElementById('cep-modal'));
 
 // Função para buscar dados do CEP na API ViaCEP
-function fetchCEPData() {
+function buscarDadosCEP() {
     const cep = document.getElementById('cepUser').value.replace(/\D/g, ''); // Remove caracteres não numéricos
     if (cep.length === 8) { // Verifica se o CEP possui 8 dígitos
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
-            .then(response => {
-                if (!response.ok) throw new Error('Erro ao buscar o CEP.');
-                return response.json();
+            .then(resposta => {
+                if (!resposta.ok) throw new Error('Erro ao buscar o CEP.');
+                return resposta.json();
             })
-            .then(data => {
-                if (data.erro) {
+            .then(dados => {
+                if (dados.erro) {
                     document.getElementById('cep-info').innerHTML = "<p>CEP não encontrado.</p>";
                 } else {
                     // Exibe os dados no modal
                     document.getElementById('cep-info').innerHTML = `
-                        <p><strong>CEP:</strong> ${data.cep}</p>
-                        <p><strong>Rua:</strong> ${data.logradouro}</p>
-                        <p><strong>Bairro:</strong> ${data.bairro}</p>
-                        <p><strong>Cidade:</strong> ${data.localidade}</p>
-                        <p><strong>Estado:</strong> ${data.uf}</p>
+                        <p><strong>CEP:</strong> ${dados.cep}</p>
+                        <p><strong>Rua:</strong> ${dados.logradouro}</p>
+                        <p><strong>Bairro:</strong> ${dados.bairro}</p>
+                        <p><strong>Cidade:</strong> ${dados.localidade}</p>
+                        <p><strong>Estado:</strong> ${dados.uf}</p>
                     `;
+                    pegouCEP = true; // Marca que pegou o CEP
                 }
-                cepModal.show(); // Exibe o modal
+                modalCEP.show(); // Exibe o modal
             })
-            .catch(error => {
+            .catch(erro => {
                 document.getElementById('cep-info').innerHTML = "<p>Erro ao buscar o CEP.</p>";
-                cepModal.show();
+                modalCEP.show();
             });
     } else {
         alert("Digite um CEP válido com 8 dígitos.");
@@ -97,7 +104,7 @@ function fetchCEPData() {
 }
 
 // Evento para capturar o submit do formulário e buscar o CEP
-document.querySelector('form').addEventListener('submit', (event) => {
-    event.preventDefault(); // Evita o recarregamento da página
-    fetchCEPData(); // Chama a função para buscar os dados do CEP
+document.querySelector('form').addEventListener('submit', (evento) => {
+    evento.preventDefault(); // Evita o recarregamento da página
+    buscarDadosCEP(); // Chama a função para buscar os dados do CEP
 });
