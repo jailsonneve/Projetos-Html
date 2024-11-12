@@ -113,7 +113,8 @@
 
 ###
 
-<h2 align="left">👀 Quantas pessoas visitaram meu perfil?</h2>
+<h2 align="left">👀 Quantas pessoas visitaram meu repositório?</h2>
 <div align="center">
-  <img src="https://profile-counter.glitch.me/jailsonneve/count.svg?" />
+  <img src="https://profile-counter.glitch.me/Projetos-Html/count.svg?" />
 </div>
+
