@@ -8,10 +8,8 @@ const modalCancelarCompra = new bootstrap.Modal(document.getElementById('cancel-
 
 // Função para atualizar o carrinho
 function atualizarCarrinho() {
-    // Atualiza o número de itens no carrinho
     botaoCarrinho.innerText = `Carrinho (${carrinho.length})`;
 
-    // Atualiza os itens no carrinho
     itensCarrinhoDiv.innerHTML = '';
     let total = 0;
     carrinho.forEach(item => {
@@ -22,7 +20,6 @@ function atualizarCarrinho() {
         total += item.preco;
     });
 
-    // Atualiza o total do carrinho
     totalCarrinhoValor.innerText = (total.toFixed(2) + "").replace('.', ',');
 }
 
@@ -32,10 +29,8 @@ document.querySelectorAll('.add-to-cart').forEach(botao => {
         const produto = evento.target.getAttribute('data-product');
         const preco = parseFloat(evento.target.getAttribute('data-price'));
 
-        // Adiciona o produto ao carrinho
         carrinho.push({ produto, preco });
 
-        // Atualiza o carrinho na interface
         atualizarCarrinho();
     });
 });
@@ -66,13 +61,12 @@ document.getElementById('cancel-btn').addEventListener('click', () => {
     }
 });
 
-// Modal para exibir os dados do CEP
 const modalCEP = new bootstrap.Modal(document.getElementById('cep-modal'));
 
 // Função para buscar dados do CEP na API ViaCEP
 function buscarDadosCEP() {
     const cep = document.getElementById('cepUser').value.replace(/\D/g, ''); // Remove caracteres não numéricos
-    if (cep.length === 8) { // Verifica se o CEP possui 8 dígitos
+    if (cep.length === 8) { 
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then(resposta => {
                 if (!resposta.ok) throw new Error('Erro ao buscar o CEP.');
@@ -82,7 +76,6 @@ function buscarDadosCEP() {
                 if (dados.erro) {
                     document.getElementById('cep-info').innerHTML = "<p>CEP não encontrado.</p>";
                 } else {
-                    // Exibe os dados no modal
                     document.getElementById('cep-info').innerHTML = `
                         <p><strong>CEP:</strong> ${dados.cep}</p>
                         <p><strong>Rua:</strong> ${dados.logradouro}</p>
@@ -90,9 +83,9 @@ function buscarDadosCEP() {
                         <p><strong>Cidade:</strong> ${dados.localidade}</p>
                         <p><strong>Estado:</strong> ${dados.uf}</p>
                     `;
-                    pegouCEP = true; // Marca que pegou o CEP
+                    pegouCEP = true; 
                 }
-                modalCEP.show(); // Exibe o modal
+                modalCEP.show(); 
             })
             .catch(erro => {
                 document.getElementById('cep-info').innerHTML = "<p>Erro ao buscar o CEP.</p>";
@@ -105,6 +98,6 @@ function buscarDadosCEP() {
 
 // Evento para capturar o submit do formulário e buscar o CEP
 document.querySelector('form').addEventListener('submit', (evento) => {
-    evento.preventDefault(); // Evita o recarregamento da página
-    buscarDadosCEP(); // Chama a função para buscar os dados do CEP
+    evento.preventDefault();
+    buscarDadosCEP();
 });
