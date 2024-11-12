@@ -1,24 +1,18 @@
 <h1 align="center">Projetos HTML5 - Desenvolvidos com Criatividade e Eficiência</h1>
 
-###
-
 <p align="center">Bem-vindo ao meu repositório de <strong>Projetos HTML5</strong>! Aqui você encontrará uma coleção de websites, layouts e aplicações web desenvolvidas utilizando as melhores práticas de HTML5, CSS3 e JavaScript. Todos os projetos são focados em responsividade, design moderno e interatividade.</p>
 
-###
+---
 
-<h2 align="left">Sobre os Projetos</h2>
+## Sobre os Projetos
 
-###
+Este repositório contém vários projetos que estou desenvolvendo como forma de praticar e melhorar minhas habilidades no desenvolvimento web. A maioria dos projetos é baseada nas tecnologias mais recentes e melhores práticas de desenvolvimento front-end. O objetivo é criar experiências ricas para o usuário, com interfaces simples, limpas e responsivas.
 
-<p align="left">Este repositório contém vários projetos que estou desenvolvendo como forma de praticar e melhorar minhas habilidades no desenvolvimento web. A maioria dos projetos é baseada nas tecnologias mais recentes e melhores práticas de desenvolvimento front-end. O objetivo é criar experiências ricas para o usuário, com interfaces simples, limpas e responsivas.</p>
+---
 
-###
+## 🛠️ Tecnologias Utilizadas
 
-<h2 align="left">🛠️ Tecnologias Utilizadas</h2>
-
-###
-
-<p align="left">Aqui estão as tecnologias principais que você encontrará em cada um dos meus projetos:</p>
+Aqui estão as tecnologias principais que você encontrará em cada um dos meus projetos:
 
 <div align="center">
     <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" height="40" alt="html logo" title="HTML5"/>
@@ -30,80 +24,82 @@
     <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="40" alt="Bootstrap logo" title="Bootstrap"/>
 </div>
 
-###
+---
 
-<h2 align="left">📂 Projetos Disponíveis</h2>
+## 📂 Projetos Disponíveis
 
-###
+Confira alguns dos projetos que estão disponíveis neste repositório:
 
-<p align="left">Confira alguns dos projetos que estão disponíveis neste repositório:</p>
+- **[Portfólio Pessoal](https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html)** - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.
+- **[Calculadora Interativa](https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/calc1.html)** - Uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript.
+- **[Loja Simples e Interativa](https://jailsonneve.github.io/Projetos-Html/Projetos/loja/loja.html)** - Uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar e remover itens do carrinho. Em breve, mais atualizações!
 
-<ul>
-    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html">Portfólio Pessoal</a></strong> - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.</li>
-    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/calc1.html">Calculadora Interativa</a></strong> - Este projeto consiste em uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript</li>
-    <li><strong><a href="https://jailsonneve.github.io/Projetos-Html/Projetos/loja/loja.html">Loja Simples e Interativa</a></strong> - Este projeto consiste em uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possivel adicionar e remover itens do carrinho, terá atualizações</li>
-</ul>
+---
 
-###
+## ⚡ Como Executar os Projetos
 
-<h2 align="left">⚡ Como Executar os Projetos</h2>
+Para visualizar os projetos localmente, siga as instruções abaixo:
 
-###
+1. Clone este repositório em seu computador:
+    ```bash
+    git clone https://github.com/jailsonneve/Projetos-Html.git
+    ```
 
-<p align="left">Para visualizar os projetos localmente, siga as instruções abaixo:</p>
+2. Entre no diretório do projeto:
+    ```bash
+    cd Projetos-Html
+    ```
 
-<ol>
-    <li>Clone este repositório em seu computador:</li>
-    <pre><code>git clone https://github.com/seu-usuario/projetos-html5.git</code></pre>
-    <li>Entre no diretório do projeto:</li>
-    <pre><code>cd projetos-html5</code></pre>
-    <li>Abra o arquivo HTML desejado em seu navegador favorito.</li>
-</ol>
+3. Abra o arquivo HTML desejado em seu navegador favorito.
 
-<p align="left">Estes projetos são estáticos, então você pode rodá-los diretamente em qualquer navegador.</p>
+Estes projetos são estáticos, então você pode rodá-los diretamente em qualquer navegador.
 
-###
+---
 
-<h2 align="left">🎯 Objetivo dos Projetos</h2>
+## 🎯 Objetivo dos Projetos
 
-###
+O principal objetivo desse repositório é compartilhar minha jornada no desenvolvimento de websites e aplicações simples, mas práticas. Estou sempre em busca de melhorar meus conhecimentos em front-end e quero que outras pessoas possam aprender e se inspirar com esses projetos.
 
-<p align="left">O principal objetivo desse repositório é compartilhar minha jornada no desenvolvimento de websites e aplicações simples, mas práticas. Estou sempre em busca de melhorar meus conhecimentos em front-end e quero que outras pessoas possam aprender e se inspirar com esses projetos.</p>
+---
 
-###
+## 🔄 Contribuindo
 
-<h2 align="left">🔄 Contribuindo</h2>
+Se você deseja contribuir com este repositório, fique à vontade para enviar uma **pull request**! Abaixo estão os passos para contribuir:
 
-###
+1. Faça um fork deste repositório.
+2. Crie uma branch para suas alterações:
+    ```bash
+    git checkout -b minha-nova-feature
+    ```
+3. Faça commit das suas alterações:
+    ```bash
+    git commit -am 'Adicionando nova funcionalidade'
+    ```
+4. Envie suas alterações para o seu repositório:
+    ```bash
+    git push origin minha-nova-feature
+    ```
+5. Abra um pull request.
 
-<p align="left">Se você deseja contribuir com este repositório, sinta-se à vontade para abrir uma *pull request*. Abaixo estão os passos para contribuir:</p>
+Fique à vontade para abrir um **issue** se encontrar algum bug ou se tiver sugestões de melhoria! 😊
 
-<ol>
-    <li>Faça um fork deste repositório.</li>
-    <li>Crie uma branch para suas alterações:</li>
-    <pre><code>git checkout -b minha-nova-feature</code></pre>
-    <li>Faça commit das suas alterações:</li>
-    <pre><code>git commit -am 'Adicionando nova funcionalidade'</code></pre>
-    <li>Envie suas alterações para o seu repositório:</li>
-    <pre><code>git push origin minha-nova-feature</code></pre>
-    <li>Abra um pull request.</li>
-</ol>
+---
 
-###
+## 📝 Licença
 
-<h3 align="left">🔥 Status dos Projetos</h3>
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+## 🔥 Status dos Projetos
 
 <div align="center">
     <img src="https://streak-stats.demolab.com?user=jailsonneve&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph" />
 </div>
 
-###
+---
 
-<h2 align="left">📬 Contato</h2>
+## 📬 Contato
 
-###
-
-<p align="left">Caso você queira entrar em contato comigo, aqui estão minhas redes sociais e outras formas de comunicação:</p>
+Caso você queira entrar em contato comigo, aqui estão minhas redes sociais e outras formas de comunicação:
 
 <div align="center">
     <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Instagram" />
@@ -111,10 +107,22 @@
     <img src="https://img.shields.io/static/v1?message=Email&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Email" />
 </div>
 
-###
+---
 
-<h2 align="left">👀 Quantas pessoas visitaram meu repositório?</h2>
+## 👀 Quantas pessoas visitaram meu repositório?
+
 <div align="center">
   <img src="https://profile-counter.glitch.me/Projetos-Html/count.svg?" />
 </div>
 
+###
+
+---
+
+<div align="center">
+
+Se você deseja contribuir, siga as instruções na seção **Contribuindo** para enviar suas alterações. <br>
+Obrigado por visitar meu repositório!
+</div>
+
+---
