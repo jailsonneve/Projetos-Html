@@ -38,7 +38,7 @@ document.querySelectorAll('.add-to-cart').forEach(botao => {
 // Função para finalizar a compra
 document.getElementById('checkout-btn').addEventListener('click', () => {
     const cep = document.getElementById('cepUser').value.replace(/\D/g, ''); // Remove caracteres não numéricos
-    if (carrinho.length > 0) {
+    if (carrinho.length > 0 && pegouCEP == true) {
         modalFinalizarCompra.show();   
     }else if (cep == '' || pegouCEP == false) {	
         alert("Cadastre seu Endereço!! ");
