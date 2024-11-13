@@ -30,9 +30,9 @@ Aqui estão as tecnologias principais que você encontrará em cada um dos meus 
 
 Confira alguns dos projetos que estão disponíveis neste repositório:
 
-- **[Portfólio Pessoal](https://jailsonneve.github.io/Projetos-Html/Projetos/portfolio/portfolio.html)** - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.
-- **[Calculadora Interativa](https://jailsonneve.github.io/Projetos-Html/Projetos/calculadora/calc1.html)** - Uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript.
-- **[Loja Simples e Interativa](https://jailsonneve.github.io/Projetos-Html/Projetos/loja/loja.html)** - Uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar e remover itens do carrinho. Em breve, mais atualizações!
+- **[Portfólio Pessoal](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/portfolio)** - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.
+- **[Calculadora Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/calculadora)** - Uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript.
+- **[Loja Simples e Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/loja)** - Uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar e remover itens do carrinho. Em breve, mais atualizações!
 
 ---
 
