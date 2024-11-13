@@ -9,7 +9,6 @@ const modalCancelarCompra = new bootstrap.Modal(document.getElementById('cancel-
 // Função para atualizar o carrinho
 function atualizarCarrinho() {
     botaoCarrinho.innerText = `Carrinho (${carrinho.length})`;
-
     itensCarrinhoDiv.innerHTML = '';
     let total = 0;
     carrinho.forEach(item => {
