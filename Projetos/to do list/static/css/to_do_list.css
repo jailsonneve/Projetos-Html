@@ -1,0 +1,37 @@
+/* Estilo geral do corpo */
+body {
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+}
+
+/* Espaço ajustado para evitar que footer e header cubram o conteúdo */
+main {
+    min-height: calc(100vh - 140px);
+}
+
+/* Cores de prioridade mais evidentes */
+.prioridade-alta {
+    background-color: #ff6961 !important; /* Vermelho vivo */
+    color: white !important;
+}
+
+.prioridade-media {
+    background-color: #fdfd96 !important; /* Amarelo vivo */
+    color: black !important;
+}
+
+.prioridade-baixa {
+    background-color: #77dd77 !important; /* Verde vivo */
+    color: black !important;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Rodapé */
+footer p {
+    margin: 0;
+}
