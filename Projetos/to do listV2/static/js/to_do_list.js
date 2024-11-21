@@ -123,4 +123,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Funções para ordenar as tarefas
+    document.getElementById("ordenarAlfabetico").addEventListener("click", () => {
+        tarefas.sort((a, b) => a.nome.localeCompare(b.nome));
+        renderizarTarefas();
+    });
+
+    document.getElementById("ordenarPrioridadeAlta").addEventListener("click", () => {
+        tarefas.sort((a, b) => valorPrioridade(b.prioridade) - valorPrioridade(a.prioridade));
+        renderizarTarefas();
+    });
+
+    document.getElementById("ordenarPrioridadeBaixa").addEventListener("click", () => {
+        tarefas.sort((a, b) => valorPrioridade(a.prioridade) - valorPrioridade(b.prioridade));
+        renderizarTarefas();
+    });
+
+    // Função para obter o valor numérico da prioridade
+    const valorPrioridade = (prioridade) => {
+        if (prioridade === "alta") return 3;
+        if (prioridade === "media") return 2;
+        return 1;
+    };
 });
