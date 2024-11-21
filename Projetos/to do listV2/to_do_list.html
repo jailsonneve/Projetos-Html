@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerenciador de tarefas interativo com priorização e ordenação">
+    <title>Lista de Tarefas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/to_do_list.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Script principal -->
+    <script src="static/js/to_do_list.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Lista de Tarefas</a>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-4">
+        <div class="text-center">
+            <h1 class="mb-4">Gerenciador de Tarefas</h1>
+        </div>
+        <!-- Entrada de nova tarefa -->
+        <section aria-labelledby="sec-nova-tarefa" class="mb-4">
+            <h2 id="sec-nova-tarefa" class="h5">Adicionar nova tarefa</h2>
+            <input type="text" id="entradaTarefa" class="form-control" placeholder="Digite uma nova tarefa" aria-label="Nova tarefa">
+            <select id="entradaPrioridade" class="form-select mt-2" aria-label="Selecione a prioridade">
+                <option value="alta">Alta</option>
+                <option value="media">Média</option>
+                <option value="baixa">Baixa</option>
+            </select>
+            <button id="botaoAdicionar" class="btn btn-primary mt-2 w-100" aria-label="Adicionar tarefa">Adicionar Tarefa</button>
+        </section>
+        <!-- Botões de ordenação -->
+        <section aria-labelledby="sec-ordenar">
+            <h2 id="sec-ordenar" class="h5">Ordenar Tarefas</h2>
+            <div class="d-flex flex-wrap gap-2">
+                <button id="ordenarAlfabetico" class="btn btn-outline-secondary" aria-label="Ordenar alfabeticamente">Ordem Alfabética</button>
+                <button id="ordenarPrioridadeAlta" class="btn btn-outline-danger" aria-label="Ordenar por prioridade alta">Prioridade (Alta para Baixa)</button>
+                <button id="ordenarPrioridadeBaixa" class="btn btn-outline-success" aria-label="Ordenar por prioridade baixa">Prioridade (Baixa para Alta)</button>
+                <button id="botaoRemoverTodas" class="btn btn-danger" aria-label="Remover todas as tarefas">Remover Todas</button>
+            </div>
+        </section>
+        <!-- Lista de tarefas -->
+        <section aria-labelledby="sec-lista" class="mt-4">
+            <h2 id="sec-lista" class="h5">Lista de Tarefas</h2>
+            <ul id="listaTarefas" class="list-group mt-4"></ul>
+        </section>
+    </main>
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2024 Desenvolvido por Dani <3</p>
+    </footer>
+</body>
+</html>

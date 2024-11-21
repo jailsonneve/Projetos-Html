@@ -1,0 +1,51 @@
+/* Estilo geral */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    min-height: calc(100vh - 140px);
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.list-group-item:hover {
+    transform: scale(1.02);
+}
+
+/* Cores de prioridade */
+.prioridade-alta {
+    background-color: #ff6f61 !important;
+    color: #fff !important;
+}
+
+.prioridade-media {
+    background-color: #ffd54f !important;
+    color: #000 !important;
+}
+
+.prioridade-baixa {
+    background-color: #81c784 !important;
+    color: #000 !important;
+}
+
+/* Botões com hover */
+button {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}

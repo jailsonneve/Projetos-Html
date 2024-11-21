@@ -34,6 +34,7 @@ Confira alguns dos projetos que estão disponíveis neste repositório:
 - **[Calculadora Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/calculadora)** - Uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript.
 - **[Loja Simples e Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/loja)** - Uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar e remover itens do carrinho. Em breve, mais atualizações!
 - **[Uma Simples Lista de Tarefas](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20list)** - Uma lista web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar, alterar e remover itens da lista de tarefas. Possui ordenação alfabetica e por prioridade.
+- **[Lista de Tarefas com Adições](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2)** - Uma versão mais complexa da "Uma Simples Lista de Tarefas".
 
 ---
 
