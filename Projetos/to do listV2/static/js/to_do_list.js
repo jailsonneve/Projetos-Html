@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Swal.fire({
                 title: "Tem certeza?",
                 text: "Você realmente deseja remover todas as tarefas?",
-                icon: "success",
+                icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Sim, remover todas",
                 cancelButtonText: "Cancelar",
