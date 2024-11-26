@@ -1,108 +1,141 @@
 <h1 align="center">Projetos HTML5 - Desenvolvidos com Criatividade e Eficiência</h1>
 
-<p align="center">Bem-vindo ao meu repositório de <strong>Projetos HTML5</strong>! Aqui você encontrará uma coleção de websites, layouts e aplicações web desenvolvidas utilizando as melhores práticas de HTML5, CSS3 e JavaScript. Todos os projetos são focados em responsividade, design moderno e interatividade.</p>
+<p align="center">
+    Bem-vindo ao meu repositório de <strong>Projetos HTML5</strong>! Este espaço é dedicado a compartilhar uma coleção de websites, layouts e aplicações web criados com HTML5, CSS3 e JavaScript. O foco é oferecer experiências ricas e responsivas com design moderno e interativo.
+</p>
 
 ---
 
-## Sobre os Projetos
+## 🧐 Sobre os Projetos
 
-Este repositório contém vários projetos que estou desenvolvendo como forma de praticar e melhorar minhas habilidades no desenvolvimento web. A maioria dos projetos é baseada nas tecnologias mais recentes e melhores práticas de desenvolvimento front-end. O objetivo é criar experiências ricas para o usuário, com interfaces simples, limpas e responsivas.
+Este repositório contém projetos desenvolvidos para praticar e aprimorar minhas habilidades em front-end. Os projetos são baseados em tecnologias modernas e têm como objetivo principal criar soluções práticas e visualmente agradáveis. Cada projeto foi pensado para ser útil, seja como inspiração ou como exemplo de boas práticas.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-Aqui estão as tecnologias principais que você encontrará em cada um dos meus projetos:
+Aqui estão as principais tecnologias usadas em cada projeto:
 
 <div align="center">
-    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" height="40" alt="html logo" title="HTML5"/>
+    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" height="40" alt="HTML5 logo" title="HTML5" />
     <img width="12" />
-    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" height="40" alt="css logo" title="CSS3"/>
+    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" height="40" alt="CSS3 logo" title="CSS3" />
     <img width="12" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo" title="JavaScript"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript logo" title="JavaScript" />
     <img width="12" />
-    <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="40" alt="Bootstrap logo" title="Bootstrap"/>
+    <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="40" alt="Bootstrap logo" title="Bootstrap" />
 </div>
 
 ---
 
 ## 📂 Projetos Disponíveis
 
-Confira alguns dos projetos que estão disponíveis neste repositório:
+### Exemplos de Projetos
+1. **[Portfólio Pessoal](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/portfolio)**  
+   Um site responsivo que exibe minhas habilidades e projetos, desenvolvido com CSS e Bootstrap.
 
-- **[Portfólio Pessoal](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/portfolio)** - Um site responsivo que exibe minhas habilidades e projetos, usando CSS e BootStrap.
-- **[Calculadora Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/calculadora)** - Uma calculadora web interativa desenvolvida com HTML, CSS e JavaScript.
-- **[Loja Simples e Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/loja)** - Uma loja web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar e remover itens do carrinho. Em breve, mais atualizações!
-- **[Uma Simples Lista de Tarefas](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20list)** - Uma lista web interativa desenvolvida com HTML, CSS e JavaScript, onde é possível adicionar, alterar e remover itens da lista de tarefas. Possui ordenação alfabetica e por prioridade.
-- **[Lista de Tarefas com Adições](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2)** - Uma versão mais complexa da "Uma Simples Lista de Tarefas".
+2. **[Calculadora Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/calculadora)**  
+   Uma calculadora web funcional criada com HTML, CSS e JavaScript.
+
+3. **[Loja Simples e Interativa](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/loja)**  
+   Loja online fictícia com funcionalidades para adicionar e remover itens do carrinho.
+
+4. **[Uma Simples Lista de Tarefas](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20list)**  
+   Ferramenta para gerenciar tarefas, incluindo funcionalidades como adicionar, editar e excluir itens.
+
+5. **[Lista de Tarefas com Melhorias](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2)**  
+   Uma versão avançada da lista de tarefas, com novos recursos e melhorias no design e usabilidade.
 
 ---
 
 ## ⚡ Como Executar os Projetos
 
-Para visualizar os projetos localmente, siga as instruções abaixo:
+### Pré-requisitos:
+- Navegador moderno (ex: Chrome, Firefox, Edge).
+- [Git](https://git-scm.com/) instalado no computador (opcional, mas recomendado).
 
-1. Clone este repositório em seu computador:
+### Passos:
+1. **Clonar o repositório:**
     ```bash
     git clone https://github.com/jailsonneve/Projetos-Html.git
     ```
-
-2. Entre no diretório do projeto:
+2. **Acessar a pasta do repositório:**
     ```bash
     cd Projetos-Html
     ```
+3. **Abrir o arquivo HTML do projeto no navegador:**
+    - No Windows: Clique duas vezes no arquivo HTML.
+    - No Linux/MacOS: Use o comando `open` ou `xdg-open`:
+      ```bash
+      open index.html # ou xdg-open index.html
+      ```
 
-3. Abra o arquivo HTML desejado em seu navegador favorito.
-
-Estes projetos são estáticos, então você pode rodá-los diretamente em qualquer navegador.
-
----
-
-## 🎯 Objetivo dos Projetos
-
-O principal objetivo desse repositório é compartilhar minha jornada no desenvolvimento de websites e aplicações simples, mas práticas. Estou sempre em busca de melhorar meus conhecimentos em front-end e quero que outras pessoas possam aprender e se inspirar com esses projetos.
+Todos os projetos são estáticos e podem ser executados diretamente no navegador sem necessidade de instalação adicional.
 
 ---
 
-## 🔄 Contribuindo
+## 🔄 Como Contribuir
 
-Se você deseja contribuir com este repositório, fique à vontade para enviar uma **pull request**! Abaixo estão os passos para contribuir:
+Contribuir com este repositório é bem-vindo e incentivado! Para isso, siga os passos abaixo:
 
-1. Faça um fork deste repositório.
-2. Crie uma branch para suas alterações:
+1. **Faça um fork do repositório:**
+    - Clique em "Fork" no canto superior direito da página do repositório no GitHub.
+
+2. **Clone o repositório forkado:**
+    ```bash
+    git clone https://github.com/<seu-username>/Projetos-Html.git
+    ```
+3. **Crie uma nova branch para suas alterações:**
     ```bash
     git checkout -b minha-nova-feature
     ```
-3. Faça commit das suas alterações:
+4. **Implemente suas alterações:**
+    - Certifique-se de que seu código segue boas práticas e está funcionando corretamente.
+
+5. **Faça commit das alterações:**
     ```bash
-    git commit -am 'Adicionando nova funcionalidade'
+    git add .
+    git commit -m "Descrição das alterações realizadas"
     ```
-4. Envie suas alterações para o seu repositório:
+6. **Envie suas alterações para o repositório forkado:**
     ```bash
     git push origin minha-nova-feature
     ```
-5. Abra um pull request.
 
-Fique à vontade para abrir um **issue** se encontrar algum bug ou se tiver sugestões de melhoria! 😊
+7. **Abra um pull request:**
+    - Acesse o repositório no GitHub e clique em **"Compare & Pull Request"**.
+    - Adicione uma descrição clara e envie o pull request.
+
+---
+
+## 🛠️ Solução de Problemas: "Permissão Negada"
+
+Se você receber um erro de **"permission denied"** ao usar `git push` ou `git pull`, veja o que pode estar acontecendo:
+
+1. **Você não tem permissão no repositório original:**  
+   - Contribua a partir do fork como descrito acima.
+
+2. **Autenticação HTTPS solicitada:**  
+   - Certifique-se de usar seu **Personal Access Token** (não uma senha).  
+     Saiba mais sobre como criar um token [aqui](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+
+3. **Problemas de configuração do Git:**  
+   - Confirme que você está no repositório correto usando:
+     ```bash
+     git remote -v
+     ```
 
 ---
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
-
-## 🔥 Status dos Projetos
-
-<div align="center">
-    <img src="https://streak-stats.demolab.com?user=jailsonneve&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph" />
-</div>
+Este repositório está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](./LICENSE) para mais informações.
 
 ---
 
 ## 📬 Contato
 
-Caso você queira entrar em contato comigo, aqui estão minhas redes sociais e outras formas de comunicação:
-
+Caso tenha dúvidas ou queira trocar ideias, você pode me encontrar em:
 <div align="center">
   <a href="https://www.instagram.com/arthur.dai.52" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&style=for-the-badge" height="35" alt="Instagram" />
@@ -117,6 +150,12 @@ Caso você queira entrar em contato comigo, aqui estão minhas redes sociais e o
 
 ---
 
+<div align="center">
+Se você deseja contribuir, siga as instruções e envie suas ideias ou melhorias! 😊
+</div>
+
+---
+
 ## 👀 Quantas pessoas visitaram meu repositório?
 
 <div align="center">
@@ -124,13 +163,5 @@ Caso você queira entrar em contato comigo, aqui estão minhas redes sociais e o
 </div>
 
 ###
-
----
-
-<div align="center">
-
-Se você deseja contribuir, siga as instruções na seção **Contribuindo** para enviar suas alterações. <br>
-Obrigado por visitar meu repositório!
-</div>
 
 ---
