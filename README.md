@@ -63,12 +63,7 @@ Aqui estão as principais tecnologias usadas em cada projeto:
     ```bash
     cd Projetos-Html
     ```
-3. **Abrir o arquivo HTML do projeto no navegador:**
-    - No Windows: Clique duas vezes no arquivo HTML.
-    - No Linux/MacOS: Use o comando `open` ou `xdg-open`:
-      ```bash
-      open index.html # ou xdg-open index.html
-      ```
+3. **Abra o arquivo HTML que você se interessou do projeto no navegador:**
 
 Todos os projetos são estáticos e podem ser executados diretamente no navegador sem necessidade de instalação adicional.
 
