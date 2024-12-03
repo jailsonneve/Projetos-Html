@@ -1,7 +1,7 @@
 const username = "jailsonneve"; // Seu username no GitHub
 const repoName = "Projetos-Html"; // Nome do repositório
 const folderName = "Projetos"; // Nome da pasta principal
-const token = ""; // Seu token de autenticação
+const token = "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 "; // Token de autenticação
 
 async function fetchProjects() {
     const baseURL = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
@@ -64,20 +64,20 @@ async function fetchHTMLFile(projectURL) {
     }
 }
 
-function showAlert(onde, projectName, link) {
+window.showAlert = function(onde, projectName, link) {
     Swal.fire({
-    title: `Acessar ${projectName}`,
-    text: `Você deseja abrir o projeto "${projectName}" no ${onde}?`,
-    icon: 'info',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Abrir'
+        title: `Acessar ${projectName}`,
+        text: `Você deseja abrir o projeto "${projectName}" no ${onde}?`,
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Abrir'
     }).then((result) => {
-    if (result.isConfirmed) {
-        window.open(link, '_blank');
-    }
+        if (result.isConfirmed) {
+            window.open(link, '_blank');
+        }
     });
-}
+};
 
 fetchProjects();
