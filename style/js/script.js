@@ -1,7 +1,7 @@
 const username = "jailsonneve"; // Seu username no GitHub
 const repoName = "Projetos-Html"; // Nome do repositório
 const folderName = "Projetos"; // Nome da pasta principal
-const token = "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"; // Token de autenticação
+const token = "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"; // Token de autenticação
 
 async function fetchProjects() {
     const baseURL = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
