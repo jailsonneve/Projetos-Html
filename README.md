@@ -44,7 +44,7 @@ Aqui estão as principais tecnologias usadas em cada projeto:
    Ferramenta para gerenciar tarefas, incluindo funcionalidades como adicionar, editar e excluir itens.
 
 5. **[Lista de Tarefas com Melhorias](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2)**  
-   Uma versão avançada da lista de tarefas, com novos recursos sendo um desses um banco de dados e melhorias no design e usabilidade.
+   Uma versão avançada da lista de tarefas, com novos recursos sendo um desses um banco de dados([Firestore Database](https://firebase.google.com/)) e melhorias no design e usabilidade.
 
 ---
 
