@@ -24,6 +24,8 @@ Aqui estão as principais tecnologias usadas em cada projeto:
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript logo" title="JavaScript" />
     <img width="12" />
     <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="40" alt="Bootstrap logo" title="Bootstrap" />
+    <img width="12" />
+    <img src="https://img.icons8.com/?size=100&id=SQEEoDcpUD6c&format=png&color=000000" height="40" alt="Firestore logo" title="Firestore" />
 </div>
 
 ---
