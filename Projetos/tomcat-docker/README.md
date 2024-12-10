@@ -16,7 +16,7 @@ Antes de começar, você precisará ter o Docker e o Docker Compose instalados n
 Após baixar o repositório entre na pasta:
 
 ```bash
-cd Trab4B/tomcat-docker/
+cd Projetos-Html/Projetos/tomcat-docker
 ```
 
 ### 2. Suba os containers Docker
