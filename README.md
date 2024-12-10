@@ -48,6 +48,9 @@ Aqui estão as principais tecnologias usadas em cada projeto:
 5. **[Lista de Tarefas com Melhorias](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2)**  
    Uma versão avançada da lista de tarefas, com novos recursos sendo um desses um banco de dados( [Firestore Database](https://firebase.google.com/) ) e melhorias no design e usabilidade.
 
+6. **[Página de Filmes Usando o Tomcat Web server com Docker](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/tomcat-docker)** 
+   Uma Página web simples que exibe titulos de séries, filmes e animes, com opção de pesquisar pelo nome. Leia o ( [README.md](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/tomcat-docker/README.md) ).
+
 ---
 
 ## ⚡ Como Executar os Projetos
