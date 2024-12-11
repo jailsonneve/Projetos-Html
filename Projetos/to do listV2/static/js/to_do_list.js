@@ -30,9 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const entradaTarefa = document.getElementById("entradaTarefa");
   const entradaPrioridade = document.getElementById("entradaPrioridade");
   const botaoAdicionar = document.getElementById("botaoAdicionar");
-  const botaoRemoverTodasConcluidas = document.getElementById(
-    "botaoRemoverConcluidas"
-  );
+  const botaoRemoverTodasConcluidas = document.getElementById("botaoRemoverConcluidas");
   const botaoRemoverTodas = document.getElementById("botaoRemoverTodas");
   const listaTarefas = document.getElementById("listaTarefas");
   const tarefas = [];
