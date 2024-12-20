@@ -15,27 +15,44 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Meus Projetos</a>
+      <a class="navbar-brand" href="#projetos">Meus Projetos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
         </ul>
+        <form class="d-flex" id="search-form">
+          <input 
+            class="form-control me-2" 
+            type="search" 
+            placeholder="Buscar projeto" 
+            aria-label="Pesquisar" 
+            id="search-input"
+          >
+          <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </form>
       </div>
     </div>
   </nav>
 
-  <!-- Conteúdo -->
-  <div class="container my-4">
+
+  <!-- Sobre -->
+  <section class="container my-4" id="sobre">
+    <h2 class="text-center">Sobre a Página</h2>
+    <p class="text-center">Esta página foi criada para apresentar de forma visual e organizada os projetos e tecnologias usadas em nosso repositório GitHub. Explore os projetos disponíveis e veja detalhes, como descrições e links diretos para os códigos e deploys.</p>
+  </section>
+
+  <!-- Projetos -->
+  <div class="container my-4" id="projetos">
     <h1 class="text-center mb-4">Projetos no Repositório</h1>
     <div id="project-list"></div>
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer id="contact">
     <div class="container">
       <p>Desenvolvido por <a href="https://github.com/jailsonneve" class="text-white fw-bold" target="_blank">JailsonNeve</a>. Todos os direitos reservados &copy; 2024.</p>
     </div>
@@ -49,4 +66,3 @@
   <script type="module" src="style/js/script.js"></script>
 </body>
 </html>
-<!-- asd -->

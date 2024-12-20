@@ -24,3 +24,12 @@ body {
   footer a:hover {
     text-decoration: underline;
   }
+  #sobre {
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+#search-form input {
+    max-width: 300px;
+}
