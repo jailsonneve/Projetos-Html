@@ -8,7 +8,7 @@ async function fetchProjects() {
     try {
     const response = await fetch(baseURL, {
         headers: {
-        'Authorization': `Bearer ${token}"` // Cabeçalho de autenticação
+        'Authorization': `Token ${token}"` // Cabeçalho de autenticação
         }
     });
     if (!response.ok) throw new Error("Erro ao buscar dados do repositório.");
