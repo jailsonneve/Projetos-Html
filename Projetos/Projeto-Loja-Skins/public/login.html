@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Skinder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-dark text-light">
+
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="min-width: 350px;">
+      <h2 class="text-center mb-4">Entrar no Skinder</h2>
+
+      <div class="mb-3">
+        <input type="email" id="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="mb-3">
+        <input type="password" id="senha" class="form-control" placeholder="Senha">
+      </div>
+
+      <button class="btn btn-primary w-100 mb-2" onclick="loginEmail()">Entrar</button>
+      <button class="btn btn-secondary w-100 mb-3" onclick="registrarEmail()">Cadastrar</button>
+
+      <hr>
+
+      <button class="btn btn-danger w-100" onclick="loginGoogle()">
+        <i class="bi bi-google"></i> Entrar com Google
+      </button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

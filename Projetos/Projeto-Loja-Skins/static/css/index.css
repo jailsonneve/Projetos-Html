@@ -1,0 +1,17 @@
+/* CDN do BootStrap Icons */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+.card-img-top {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: auto;
+    margin-top: 15px;
+}
+.card {
+    border-radius: 15px;
+}
+.star {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: gray;
+}

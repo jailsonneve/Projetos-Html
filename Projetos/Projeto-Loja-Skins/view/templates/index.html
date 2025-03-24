@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skinder - Loja</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Link do CSS -->
+  <link rel="stylesheet" href="../../static/css/index.css">
+  <!-- Link do SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- JavaScript do Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 p-3">
+    <h1 class="navbar-brand">Skinder</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">Avaliação de Rosto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#Itens">Mais Vendidos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="text-white me-3" id="cart-count" style="cursor: pointer;" data-bs-toggle="modal" onclick="verCarrinho()">
+          <i class="bi bi-cart"></i> <span id="quantCart">(0)</span>
+        </span>
+        <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
+        <a href="perfil.html"><button class="btn btn-outline-primary me-2"><i class="bi bi-person-circle"></i></button></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal Login/Cadastro -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="modal-header text-center">
+          <h4 class="text-center mb-4">Entrar no Skinder</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <input type="email" class="form-control" id="loginEmail" placeholder="Email" required>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <input type="password" class="form-control" id="loginSenha" placeholder="Senha" required>
+              <button class="btn btn-outline-secondary" type="button" id="toggleSenha">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+          <button class="btn btn-primary w-100 mb-2" onclick="fazerLogin()">Entrar</button>
+          <button class="btn btn-secondary w-100 mb-3" onclick="fazerCadastro()">Cadastrar</button>
+          <hr>
+          <button class="btn btn-danger w-100" onclick="entrarComGoogle()">Entrar com Google</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <!-- Modal Carrinho -->
+  <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Carrinho de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="carrinho-conteudo">
+          <!-- Itens do carrinho serão listados aqui -->
+        </div>
+        <div class="modal-footer">
+          <h5 class="me-auto">Total: R$ <span id="carrinho-total">0.00</span></h5>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button class="btn btn-success">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main>
+    <div class="container mt-4">
+      <h1 class="text-center mb-4" id="Itens">Itens disponíveis</h1>
+      <div id="carouselItens" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" id="itensContainer"></div>
+      
+        <!-- Botões de navegação com bolinha e ícone de seta -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselItens" data-bs-slide="prev" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); left: 10px;">
+          <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
+            <i class="bi bi-chevron-left" style="color: white;"></i>
+          </span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselItens" data-bs-slide="next" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); right: 10px;">
+          <span class="carousel-control-next-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
+            <i class="bi bi-chevron-right" style="color: white;"></i>
+          </span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>            
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3" id="footer">
+    <div class="container-fluid">
+      <p>&copy; 2025 Skinder. Todos os direitos reservados.</p>
+      <div>
+        <a href="https://www.facebook.com" target="_blank" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.twitter.com" target="_blank" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" class="text-white"><i class="bi bi-instagram"></i></a>
+      </div>
+      <p class="mt-2">Entre em contato: <a href="mailto:contato@example.com" class="text-white">contato@example.com</a> ou +55 (45)12345-6789</p>
+    </div>
+  </footer>
+  <script>
+    const itens = [
+      {
+        id: 1,
+        nome: "AWP | Dragon Lore",
+        descricao: "Edição rara com acabamento em dragão.",
+        preco: 4999.90,
+        imagem: "../../static/imagens/AWP.webp",
+        numVendas: 500
+      },
+      {
+        id: 2,
+        nome: "AK-47 | Redline",
+        descricao: "Design agressivo e moderno.",
+        preco: 899.99,
+        imagem: "../../static/imagens/AK47.webp",
+        numVendas: 450
+      },
+      {
+        id: 3,
+        nome: "M4A4 | Howl",
+        descricao: "Skin lendária com visual feroz.",
+        preco: 2999.50,
+        imagem: "../../static/imagens/M4A4.webp",
+        numVendas: 1700
+      },
+      {
+        id: 4,
+        nome: "Desert Eagle | Blaze",
+        descricao: "Clássica e mortal em fogo.",
+        preco: 1299.90,
+        imagem: "../../static/imagens/Deagle.webp",
+        numVendas: 890
+      },
+      {
+        id: 5,
+        nome: "USP-S | Kill Confirmed",
+        descricao: "Confirmando abates com estilo.",
+        preco: 699.99,
+        imagem: "../../static/imagens/USP.webp",
+        numVendas: 1350
+      },
+      {
+        id: 6,
+        nome: "Glock-18 | Fade",
+        descricao: "Arco-íris mortal para primeiros rounds.",
+        preco: 599.99,
+        imagem: "../../static/imagens/Glock.webp",
+        numVendas: 950
+      }
+    ];
+
+    const carrinho = [];
+
+    function gerarItens() {
+      const container = document.getElementById("itensContainer");
+      container.innerHTML = "";
+
+      // Ordenar os itens por número de vendas (do maior para o menor)
+      const itensOrdenados = [...itens].sort((a, b) => b.numVendas - a.numVendas);
+      
+      const grupoTamanho = 3; // 3 itens por slide
+      const totalSlides = Math.ceil(itensOrdenados.length / grupoTamanho); // Quantidade total de slides
+
+      for (let i = 0; i < totalSlides; i++) {
+        const grupo = itensOrdenados.slice(i * grupoTamanho, (i + 1) * grupoTamanho);
+        
+        const slideAtivo = i === 0 ? "active" : ""; // Primeira slide será a ativa por padrão
+
+        const slideHTML = `
+          <div class="carousel-item ${slideAtivo}">
+            <div class="row">
+              ${grupo.map(item => `
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 text-center shadow-sm">
+                    <img src="${item.imagem}" class="card-img-top" alt="${item.nome}">
+                    <div class="card-body">
+                      <h5 class="card-title">${item.nome}</h5>
+                      <p class="card-text text-muted">${item.descricao}</p>
+                      <p class="text-success fw-semibold fs-5">R$ ${item.preco.toFixed(2)}</p>
+                      <button class="btn btn-warning" onclick="avaliarItem(${item.id})"><i class="bi bi-star-fill"></i> Avaliar</button>
+                      <button class="btn btn-primary ms-1" onclick="adicionarCarrinho(${item.id})"><i class="bi bi-cart-plus"></i> Adicionar ao Carrinho</button>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+
+        container.innerHTML += slideHTML;
+      }
+    }
+
+    const divCart = document.getElementById("quantCart");
+
+    function avaliarItem(id) {
+      const item = itens.find(i => i.id === id);
+
+      Swal.fire({
+        title: `Avaliar ${item.nome}`,
+        html:
+          `<div id="stars" style="font-size: 1.5rem; margin-bottom: 10px;">
+            ${[1,2,3,4,5].map(i => `<i class="star" data-star="${i}">★</i>`).join('')}
+          </div>
+          <textarea id="comentario" class="swal2-textarea" placeholder="Comentário"></textarea>`,
+        showCancelButton: true,
+        confirmButtonText: "Enviar",
+        didOpen: () => {
+          const stars = document.querySelectorAll(".star");
+          stars.forEach((star, index) => {
+            star.addEventListener("click", () => {
+              stars.forEach((s, i) => s.style.color = i <= index ? "#ffc107" : "gray");
+              document.getElementById("stars").setAttribute("data-nota", index + 1);
+            });
+          });
+        },
+        preConfirm: () => {
+          const nota = parseInt(document.getElementById("stars").getAttribute("data-nota") || 0);
+          const comentario = document.getElementById("comentario").value.trim();
+
+          if (!nota) {
+            Swal.showValidationMessage("Por favor, selecione uma nota.");
+          }
+
+          return { nota, comentario };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(`Avaliação para ${item.nome}: ${result.value.nota} estrelas - ${result.value.comentario}`);
+          Swal.fire("Obrigado!", "Sua avaliação foi enviada.", "success");
+        }
+      });
+    }
+
+    function adicionarCarrinho(id) {
+      const item = itens.find(i => i.id === id);
+      carrinho.push(item);
+      divCart.innerHTML = `(${carrinho.length})`
+      Swal.fire("Adicionado!", `${item.nome} foi adicionado ao carrinho.`, "success");
+    }
+
+    function verCarrinho() {
+      if (carrinho.length === 0) {
+        Swal.fire("Carrinho vazio", "Nenhum item adicionado ainda.", "info");
+        return;
+      }
+
+      let html = "<ul style='text-align:left;'>";
+      let total = 0;
+
+      carrinho.forEach(item => {
+        html += `<li><strong>${item.nome}</strong> - R$ ${item.preco.toFixed(2)}</li>`;
+        total += item.preco;
+      });
+
+      html += "</ul>";
+
+      Swal.fire({
+        title: "Itens no Carrinho",
+        html: html + `<hr><strong>Total: R$ ${total.toFixed(2)}</strong>`,
+        confirmButtonText: "Fechar"
+      });
+    }
+
+      // Função de login
+  function fazerLogin() {
+    // Obtendo os valores dos campos
+    const email = document.getElementById("loginEmail").value;
+    const senha = document.getElementById("loginSenha").value;
+
+    // Validação simples
+    if (!email || !senha || !email.includes("@")) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro!',
+        text: 'Por favor, preencha os campos corretamente!',
+      });
+      return;
+    }
+
+    // Aqui você pode adicionar sua lógica de autenticação
+    // Exemplo de uma validação simples no cliente (idealmente, seria feito no servidor)
+    if (email === "usuario@exemplo.com" && senha === "senha123") {
+      document.getElementById("loginEmail").value = ""; document.getElementById("loginSenha").value = "";
+      Swal.fire({
+        icon: 'success',
+        title: 'Login realizado!',
+        text: 'Bem-vindo ao Skinder!',
+      }).then(() => {
+        // Fechar o modal após o login
+        var modal = bootstrap.Modal.getInstance(document.getElementById('modalLogin'));
+        modal.hide();
+      });
+      window.location.href = "perfil.html"
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro no login!',
+        text: 'Email ou senha incorretos.',
+      });
+    }
+  }
+
+  // Função de cadastro (caso necessário)
+  function fazerCadastro() {
+    // Obtendo os valores dos campos
+    const email = document.getElementById("loginEmail").value;
+    const senha = document.getElementById("loginSenha").value;
+
+    // Validação simples
+    if (!email || !senha || !email.includes("@")) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro!',
+        text: 'Por favor, preencha os campos corretamente!',
+      });
+      return;
+    }else{
+      Swal.fire({
+        title: 'Cadastro',
+        text: 'Função de cadastro ainda não implementada.',
+        icon: 'info',
+      });
+    }
+  }
+
+  function entrarComGoogle() {
+    Swal.fire({
+        title: 'Entrar com o Google',
+        text: 'Função de entrar com o Google ainda não implementada.',
+        icon: 'info',
+    });
+  }
+
+  // Função para mostrar/ocultar a senha
+  document.getElementById("toggleSenha").addEventListener("click", function () {
+      const senhaField = document.getElementById("loginSenha");
+      const icon = this.querySelector("i");
+      
+      if (senhaField.type === "password") {
+        senhaField.type = "text";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+      } else {
+        senhaField.type = "password";
+        icon.classList.remove("bi-eye-slash");
+        icon.classList.add("bi-eye");
+      }
+    });
+    gerarItens();
+  </script>
+</body>
+</html>
