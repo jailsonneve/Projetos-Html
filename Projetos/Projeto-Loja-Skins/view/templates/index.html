@@ -91,26 +91,40 @@
 
   <!-- Main -->
   <main>
-    <div class="container mt-4">
-      <h1 class="text-center mb-4" id="Itens">Itens disponíveis</h1>
-      <div id="carouselItens" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner" id="itensContainer"></div>
-      
-        <!-- Botões de navegação com bolinha e ícone de seta -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselItens" data-bs-slide="prev" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); left: 10px;">
-          <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
-            <i class="bi bi-chevron-left" style="color: white;"></i>
-          </span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselItens" data-bs-slide="next" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); right: 10px;">
-          <span class="carousel-control-next-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
-            <i class="bi bi-chevron-right" style="color: white;"></i>
-          </span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>            
-    </div>
+    <!-- Sobre Nós -->
+    <section id="sobreNos" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-4">Sobre Nós</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula turpis vitae velit ullamcorper, eget sollicitudin leo consectetur. Phasellus gravida leo sit amet ante fermentum, in sollicitudin purus viverra. Integer ut ante vitae ipsum luctus facilisis eu et enim. Nam suscipit purus vel velit cursus, non vehicula purus tincidunt. Nulla at efficitur felis. Curabitur euismod augue non lorem auctor, in vulputate arcu fermentum. Cras euismod sapien ut orci consectetur, ac tincidunt nunc aliquet. Donec tempor lacus purus, id tristique purus ullamcorper sed. Fusce nec augue eget libero malesuada venenatis.
+        </p>
+        <p>
+          Vivamus maximus neque purus, eu tristique ex ultricies a. Integer ac sollicitudin ligula, ac fringilla arcu. Phasellus convallis quam at venenatis hendrerit. Aliquam quis nisi eget purus fringilla fermentum nec non ipsum. Donec non est in libero rutrum scelerisque eget non elit. Nunc ac interdum velit. Etiam viverra sollicitudin risus, eget interdum arcu varius sed. Donec venenatis et odio nec porttitor. Ut sit amet mauris erat. Suspendisse a felis ex.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="container mt-4">
+        <h1 class="text-center mb-4" id="Itens">Itens disponíveis</h1>
+        <div id="carouselItens" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner" id="itensContainer"></div>
+        
+          <!-- Botões de navegação com bolinha e ícone de seta -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselItens" data-bs-slide="prev" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); left: 10px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
+              <i class="bi bi-chevron-left" style="color: white;"></i>
+            </span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselItens" data-bs-slide="next" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); right: 10px;">
+            <span class="carousel-control-next-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
+              <i class="bi bi-chevron-right" style="color: white;"></i>
+            </span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>            
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -133,7 +147,10 @@
         descricao: "Edição rara com acabamento em dragão.",
         preco: 4999.90,
         imagem: "../../static/imagens/AWP.webp",
-        numVendas: 500
+        numVendas: 500,
+        numAvaliacao: 0,
+        valorEstrela: [1,4,3,2,5],
+        comentarios: []
       },
       {
         id: 2,
@@ -141,7 +158,10 @@
         descricao: "Design agressivo e moderno.",
         preco: 899.99,
         imagem: "../../static/imagens/AK47.webp",
-        numVendas: 450
+        numVendas: 450,
+        numAvaliacao: 0,
+        valorEstrela: [5,3,2,4,1],
+        comentarios: []
       },
       {
         id: 3,
@@ -149,7 +169,10 @@
         descricao: "Skin lendária com visual feroz.",
         preco: 2999.50,
         imagem: "../../static/imagens/M4A4.webp",
-        numVendas: 1700
+        numVendas: 1700,
+        numAvaliacao: 0,
+        valorEstrela: [5,5,5,5,5],
+        comentarios: []
       },
       {
         id: 4,
@@ -157,7 +180,10 @@
         descricao: "Clássica e mortal em fogo.",
         preco: 1299.90,
         imagem: "../../static/imagens/Deagle.webp",
-        numVendas: 890
+        numVendas: 890,
+        numAvaliacao: 0,
+        valorEstrela: [4,3,5,1,2],
+        comentarios: []
       },
       {
         id: 5,
@@ -165,7 +191,10 @@
         descricao: "Confirmando abates com estilo.",
         preco: 699.99,
         imagem: "../../static/imagens/USP.webp",
-        numVendas: 1350
+        numVendas: 1350,
+        numAvaliacao: 0,
+        valorEstrela: [5,1,4,4,2],
+        comentarios: []
       },
       {
         id: 6,
@@ -173,7 +202,10 @@
         descricao: "Arco-íris mortal para primeiros rounds.",
         preco: 599.99,
         imagem: "../../static/imagens/Glock.webp",
-        numVendas: 950
+        numVendas: 950,
+        numAvaliacao: 0,
+        valorEstrela: [3,2,1,5,1],
+        comentarios: []
       }
     ];
 
@@ -182,18 +214,18 @@
     function gerarItens() {
       const container = document.getElementById("itensContainer");
       container.innerHTML = "";
-
+    
       // Ordenar os itens por número de vendas (do maior para o menor)
       const itensOrdenados = [...itens].sort((a, b) => b.numVendas - a.numVendas);
-      
+    
       const grupoTamanho = 3; // 3 itens por slide
       const totalSlides = Math.ceil(itensOrdenados.length / grupoTamanho); // Quantidade total de slides
-
+    
       for (let i = 0; i < totalSlides; i++) {
         const grupo = itensOrdenados.slice(i * grupoTamanho, (i + 1) * grupoTamanho);
-        
+    
         const slideAtivo = i === 0 ? "active" : ""; // Primeira slide será a ativa por padrão
-
+    
         const slideHTML = `
           <div class="carousel-item ${slideAtivo}">
             <div class="row">
@@ -204,7 +236,10 @@
                     <div class="card-body">
                       <h5 class="card-title">${item.nome}</h5>
                       <p class="card-text text-muted">${item.descricao}</p>
-                      <p class="text-success fw-semibold fs-5">R$ ${item.preco.toFixed(2)}</p>
+                      <p class="text-success fw-semibold fs-5">R$ ${item.preco.toFixed(2)} <span class="text-warning fw-semibold fs-5">${calcularEstrelas(item)}</span></p>
+                      <div class="comentarios">
+                        ${mostrarUltimosComentarios(item)}
+                      </div>
                       <button class="btn btn-warning" onclick="avaliarItem(${item.id})"><i class="bi bi-star-fill"></i> Avaliar</button>
                       <button class="btn btn-primary ms-1" onclick="adicionarCarrinho(${item.id})"><i class="bi bi-cart-plus"></i> Adicionar ao Carrinho</button>
                     </div>
@@ -214,10 +249,10 @@
             </div>
           </div>
         `;
-
+    
         container.innerHTML += slideHTML;
       }
-    }
+    }    
 
     const divCart = document.getElementById("quantCart");
 
@@ -254,7 +289,10 @@
         }
       }).then((result) => {
         if (result.isConfirmed) {
-          console.log(`Avaliação para ${item.nome}: ${result.value.nota} estrelas - ${result.value.comentario}`);
+          item.comentarios.push(result.value.comentario);
+          item.valorEstrela.push(result.value.nota);
+          
+          gerarItens();
           Swal.fire("Obrigado!", "Sua avaliação foi enviada.", "success");
         }
       });
@@ -290,7 +328,7 @@
       });
     }
 
-      // Função de login
+    // Função de login
   function fazerLogin() {
     // Obtendo os valores dos campos
     const email = document.getElementById("loginEmail").value;
@@ -375,7 +413,58 @@
         icon.classList.add("bi-eye");
       }
     });
-    gerarItens();
+    // Função para calcular as estrelas médias
+  function calcularEstrelas(item) {
+    // Verifica se existem avaliações
+    if (item.valorEstrela.length === 0) {
+      return "Nenhuma avaliação"; // Caso o item não tenha avaliações
+    }
+
+    // Calcula a média das estrelas
+    const totalEstrelas = item.valorEstrela.reduce((acc, curr) => acc + curr, 0);
+    const mediaEstrelas = totalEstrelas / item.valorEstrela.length;
+
+    // Gera as estrelas de acordo com a média
+    let estrelas = '';
+    for (let i = 1; i <= 5; i++) {
+      if (i <= Math.floor(mediaEstrelas)) {
+        estrelas += '★'; // Estrela cheia
+      } else if (i === Math.ceil(mediaEstrelas) && mediaEstrelas % 1 !== 0) {
+        estrelas += '☆'; // Estrela vazia
+      } else {
+        estrelas += '☆'; // Estrela vazia
+      }
+    }
+
+    return estrelas; // Retorna as estrelas como string
+  }
+
+  function mostrarUltimosComentarios(item) {
+    // Limitar os comentários aos 5 mais recentes
+    const ultimosComentarios = item.comentarios.slice(-5); 
+
+    // Se não houver comentários, exibe uma mensagem padrão
+    if (ultimosComentarios.length === 0) {
+      return "Nenhum comentário ainda.";
+    }
+
+    // Exibir os comentários com estrelas associadas
+    return ultimosComentarios.map((comentario, index) => {
+        // Estrelas para cada comentário
+        const estrelasComentario = item.valorEstrela[index];
+        let estrelasHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= estrelasComentario) {
+                estrelasHTML += '★'; // Estrela cheia
+            } else {
+                estrelasHTML += '☆'; // Estrela vazia
+            }
+        }
+
+        return `<p class="text-black">User: ${comentario} (${estrelasHTML})</p>`;
+    }).join('');
+}
+  gerarItens();
   </script>
 </body>
 </html>

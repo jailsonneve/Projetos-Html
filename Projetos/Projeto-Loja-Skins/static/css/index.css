@@ -15,3 +15,13 @@
     cursor: pointer;
     color: gray;
 }
+.comentarios {
+    background-color: gray; /* Cor de fundo suave */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: black;
+}
+  
