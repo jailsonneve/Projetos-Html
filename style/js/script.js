@@ -5,7 +5,7 @@ const folderName = "Projetos"; // Nome da pasta principal
 async function fetchProjects() {
     const baseURL = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
     try {
-        const response = await fetch(baseURL); // Requisição sem autenticação
+        const response = await fetch(baseURL);
         if (!response.ok) throw new Error("Erro ao buscar dados do repositório.");
         const projects = await response.json();
 
@@ -14,7 +14,7 @@ async function fetchProjects() {
 
         for (const project of projects) {
             if (project.type === "dir") {
-                const projectURL = project.url; // URL para explorar a pasta
+                const projectURL = project.url;
                 const htmlFilePath = await fetchHTMLFile(projectURL);
 
                 if (htmlFilePath) {
@@ -37,6 +37,8 @@ async function fetchProjects() {
                 }
             }
         }
+        console.log("Projetos carregados:", document.querySelectorAll(".project").length); // Depuração
+
     } catch (error) {
         console.error("Erro:", error);
     }
@@ -44,15 +46,14 @@ async function fetchProjects() {
 
 async function fetchHTMLFile(projectURL) {
     try {
-        const response = await fetch(projectURL); // Requisição sem autenticação
+        const response = await fetch(projectURL);
         if (!response.ok) throw new Error("Erro ao buscar arquivos do projeto.");
         const files = await response.json();
 
         for (const file of files) {
             if (file.type === "file" && file.name.endsWith(".html")) {
-                return file.path; // Retorna o caminho completo do arquivo HTML
+                return file.path;
             } else if (file.type === "dir") {
-                // Busca recursiva em subdiretórios
                 const htmlFile = await fetchHTMLFile(file.url);
                 if (htmlFile) return htmlFile;
             }
@@ -80,19 +81,20 @@ window.showAlert = function (onde, projectName, link) {
 };
 
 document.getElementById("search-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    const searchQuery = document.getElementById("search-input").value.toLowerCase();
+    event.preventDefault();
+    console.log("Evento de pesquisa acionado!"); // Depuração
 
+    const searchQuery = document.getElementById("search-input").value.toLowerCase();
     const projects = document.querySelectorAll(".project");
     let found = false;
 
     projects.forEach((project) => {
         const projectName = project.querySelector("h5").textContent.toLowerCase();
         if (projectName.includes(searchQuery)) {
-            project.style.display = "block"; // Mostra projetos correspondentes
+            project.style.display = ""; // Mostra os projetos correspondentes
             found = true;
         } else {
-            project.style.display = "none"; // Esconde projetos não correspondentes
+            project.style.display = "none"; // Esconde os que não correspondem
         }
     });
 
@@ -105,5 +107,4 @@ document.getElementById("search-form").addEventListener("submit", function (even
         });
     }
 });
-
 fetchProjects();
