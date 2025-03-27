@@ -29,33 +29,34 @@ function renderProjects(projects) {
     const projectList = document.getElementById("project-list");
     projectList.innerHTML = "";
 
-    projects.forEach(async (project) => {
-        if (project.type === "dir") {
-            const projectURL = project.url;
-            const htmlFilePath = await fetchHTMLFile(projectURL);
+        for (const project of projects) {
+            if (project.type === "dir") {
+                const projectURL = project.url; // URL para explorar a pasta
+                const htmlFilePath = await fetchHTMLFile(projectURL);
 
             if (htmlFilePath) {
                 const githubIoLink = `https://${username}.github.io/${repoName}/${htmlFilePath}`;
                 const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project.name}`;
 
-                const projectDiv = document.createElement("div");
-                projectDiv.className = "project d-flex align-items-center justify-content-between";
-                projectDiv.innerHTML = `
-                    <div>
-                        <h5>${project.name}</h5>
-                        <p>Projeto hospedado no GitHub e GitHub Pages.</p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
-                    </div>
-                `;
-                projectList.appendChild(projectDiv);
+                    const projectDiv = document.createElement("div");
+                    projectDiv.className = "project d-flex align-items-center justify-content-between";
+                    projectDiv.innerHTML = `
+                        <div>
+                            <h5>${project.name}</h5>
+                            <p>Projeto hospedado no GitHub e GitHub Pages.</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
+                            <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
+                        </div>
+                    `;
+                    projectList.appendChild(projectDiv);
+                }
             }
         }
-    });
-
-    console.log("Projetos carregados:", document.querySelectorAll(".project").length); // Depuração
+    } catch (error) {
+        console.error("Erro:", error);
+    }
 }
 
 async function fetchHTMLFile(projectURL) {
@@ -99,8 +100,8 @@ document.getElementById("search-form").addEventListener("submit", function (even
     console.log("Evento de pesquisa acionado!"); // Depuração
 
     const searchQuery = document.getElementById("search-input").value.toLowerCase();
-    console.log("Pesquisa:", searchQuery); // Depuração
 
+    const projects = document.querySelectorAll(".project");
     let found = false;
 
     document.querySelectorAll(".project").forEach((project) => {
@@ -124,5 +125,4 @@ document.getElementById("search-form").addEventListener("submit", function (even
         });
     }
 });
-
 fetchProjects();
