@@ -1,47 +1,61 @@
+const API_PROXY_URL = "https://github-api-proxy-six.vercel.app/api/github";
 const username = "jailsonneve"; // Seu username no GitHub
 const repoName = "Projetos-Html"; // Nome do repositório
 const folderName = "Projetos"; // Nome da pasta principal
 
 async function fetchProjects() {
-    const baseURL = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
+    const baseURL = `https://github-api-proxy-six.vercel.app/api/github?path=repos/jailsonneve/Projetos-Html/contents/Projetos   `;
+
     try {
         const response = await fetch(baseURL);
         if (!response.ok) throw new Error("Erro ao buscar dados do repositório.");
         const projects = await response.json();
 
-        const projectList = document.getElementById("project-list");
-        projectList.innerHTML = "";
-
-        for (const project of projects) {
-            if (project.type === "dir") {
-                const projectURL = project.url;
-                const htmlFilePath = await fetchHTMLFile(projectURL);
-
-                if (htmlFilePath) {
-                    const githubIoLink = `https://${username}.github.io/${repoName}/${htmlFilePath}`;
-                    const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project.name}`;
-
-                    const projectDiv = document.createElement("div");
-                    projectDiv.className = "project d-flex align-items-center justify-content-between";
-                    projectDiv.innerHTML = `
-                        <div>
-                            <h5>${project.name}</h5>
-                            <p>Projeto hospedado no GitHub e GitHub Pages.</p>
-                        </div>
-                        <div>
-                            <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
-                            <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
-                        </div>
-                    `;
-                    projectList.appendChild(projectDiv);
-                }
-            }
-        }
-        console.log("Projetos carregados:", document.querySelectorAll(".project").length); // Depuração
+        globalThis.projects = projects; // Armazena globalmente os projetos para a pesquisa
+        renderProjects(projects);
 
     } catch (error) {
         console.error("Erro:", error);
+        Swal.fire({
+            title: "Erro ao carregar projetos",
+            text: "Ocorreu um problema ao buscar os projetos do GitHub. Tente novamente mais tarde.",
+            icon: "error",
+            confirmButtonText: "Ok"
+        });
     }
+}
+
+function renderProjects(projects) {
+    const projectList = document.getElementById("project-list");
+    projectList.innerHTML = "";
+
+    projects.forEach(async (project) => {
+        if (project.type === "dir") {
+            const projectURL = project.url;
+            const htmlFilePath = await fetchHTMLFile(projectURL);
+
+            if (htmlFilePath) {
+                const githubIoLink = `https://${username}.github.io/${repoName}/${htmlFilePath}`;
+                const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project.name}`;
+
+                const projectDiv = document.createElement("div");
+                projectDiv.className = "project d-flex align-items-center justify-content-between";
+                projectDiv.innerHTML = `
+                    <div>
+                        <h5>${project.name}</h5>
+                        <p>Projeto hospedado no GitHub e GitHub Pages.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
+                    </div>
+                `;
+                projectList.appendChild(projectDiv);
+            }
+        }
+    });
+
+    console.log("Projetos carregados:", document.querySelectorAll(".project").length); // Depuração
 }
 
 async function fetchHTMLFile(projectURL) {
@@ -85,11 +99,14 @@ document.getElementById("search-form").addEventListener("submit", function (even
     console.log("Evento de pesquisa acionado!"); // Depuração
 
     const searchQuery = document.getElementById("search-input").value.toLowerCase();
-    const projects = document.querySelectorAll(".project");
+    console.log("Pesquisa:", searchQuery); // Depuração
+
     let found = false;
 
-    projects.forEach((project) => {
+    document.querySelectorAll(".project").forEach((project) => {
         const projectName = project.querySelector("h5").textContent.toLowerCase();
+        console.log("Projeto:", projectName); // Depuração
+        console.log("Corresponde?", projectName.includes(searchQuery)); // Dep
         if (projectName.includes(searchQuery)) {
             project.style.display = ""; // Mostra os projetos correspondentes
             found = true;
@@ -107,4 +124,5 @@ document.getElementById("search-form").addEventListener("submit", function (even
         });
     }
 });
+
 fetchProjects();
