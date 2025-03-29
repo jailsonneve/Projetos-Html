@@ -28,14 +28,28 @@
         <li class="nav-item"><a class="nav-link" href="#">Avaliação de Rosto</a></li>
         <li class="nav-item"><a class="nav-link" href="#Itens">Mais Vendidos</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobreNos">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Devoluções e Pedidos</a></li>
       </ul>
+      <div class="search-container me-3">
+        <select class="search-select">
+            <option value="todos">Todos</option>
+            <option value="limpeza">Limpeza</option>
+            <option value="tonificacao">Tonificação</option>
+            <option value="serum">Sérum</option>
+            <option value="hidratacao">Hidratação</option>
+            <option value="protetor_solar">Proteção Solar</option>
+            <option value="esfoliacao">Esfoliação</option>
+            <option value="mascara_facial">Máscaras Faciais</option>
+            <option value="oleos">Óleos</option>
+            <option value="cremes_noturnos">Cremes Noturnos</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Pesquisar Skinder.com.br">
+        <button class="search-button"><i class="bi bi-search"></i></button>
+      </div>
       <div class="d-flex align-items-center">
-        <span class="text-white me-3" id="cart-count" style="cursor: pointer;" data-bs-toggle="modal" onclick="verCarrinho()">
-          <i class="bi bi-cart"></i> <span id="quantCart">(0)</span>
-        </span>
+        <a href="carrinho.html" class="carrinho"><span class="text-white me-3" id="cart-count" style="cursor: pointer;"><i class="bi bi-cart"></i> <span id="quantCart">(0)</span></span></a>
         <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
-        <a href="perfil.html"><button class="btn btn-outline-primary me-2"><i class="bi bi-person-circle"></i></button></a>
       </div>
     </div>
   </nav>
@@ -69,26 +83,6 @@
     </div>
   </div>  
 
-  <!-- Modal Carrinho -->
-  <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Carrinho de Compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body" id="carrinho-conteudo">
-          <!-- Itens do carrinho serão listados aqui -->
-        </div>
-        <div class="modal-footer">
-          <h5 class="me-auto">Total: R$ <span id="carrinho-total">0.00</span></h5>
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button class="btn btn-success">Finalizar Compra</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Main -->
   <main>
     <!-- Sobre Nós -->
@@ -105,7 +99,7 @@
     </section>
     <section>
       <div class="container mt-4">
-        <h1 class="text-center mb-4" id="Itens">Itens disponíveis</h1>
+        <h1 class="text-center mb-4" id="Itens">Produtos mais Vendidos</h1>
         <div id="carouselItens" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner" id="itensContainer"></div>
         
@@ -136,17 +130,17 @@
         <a href="https://www.twitter.com" target="_blank" class="text-white me-2"><i class="bi bi-twitter"></i></a>
         <a href="https://www.instagram.com" target="_blank" class="text-white"><i class="bi bi-instagram"></i></a>
       </div>
-      <p class="mt-2">Entre em contato: <a href="mailto:contato@example.com" class="text-white">contato@example.com</a> ou +55 (45)12345-6789</p>
+      <p class="mt-2">Entre em contato: <a href="mailto:contato@example.com" class="text-white">contato@example.com</a> ou <span class="fone"> +55 (45)12345-6789 </span> </p>
     </div>
   </footer>
   <script>
     const itens = [
       {
         id: 1,
-        nome: "AWP | Dragon Lore",
-        descricao: "Edição rara com acabamento em dragão.",
+        nome: "Creme Calmante Multirreparador 17,5% Mix de Ativos Principia CM-01",
+        descricao: "» Promover hidratação » Amenizar a irritação » Aliviar a ardência » Reduzir a descamação » Diminuir a vermelhidão » Melhorar assaduras»Aumentar a firmeza e elasticidade »Proporcionar maciez »Melhorar o viço.",
         preco: 4999.90,
-        imagem: "../../static/imagens/AWP.webp",
+        imagem: "../../static/imagens/Creme Calmante Multirreparador.webp",
         numVendas: 500,
         numAvaliacao: 0,
         valorEstrela: [1,4,3,2,5],
@@ -154,10 +148,10 @@
       },
       {
         id: 2,
-        nome: "AK-47 | Redline",
-        descricao: "Design agressivo e moderno.",
+        nome: "Espuma de limpeza Clean Beauty - Livia Diniz",
+        descricao: "A Espuma de Limpeza Clean Beauty da Livia Diniz é o segredo para uma rotina de skincare eficaz e refrescante. Formulada com ingredientes de origem natural e livre de substâncias nocivas, esta espuma proporciona uma limpeza suave, porém profunda, removendo impurezas, oleosidade e resíduos de maquiagem, sem agredir a barreira natural da pele.",
         preco: 899.99,
-        imagem: "../../static/imagens/AK47.webp",
+        imagem: "../../static/imagens/Espuma de limpeza Clean Beauty - Livia Diniz LIVBEAUTY.webp",
         numVendas: 450,
         numAvaliacao: 0,
         valorEstrela: [5,3,2,4,1],
@@ -165,10 +159,10 @@
       },
       {
         id: 3,
-        nome: "M4A4 | Howl",
-        descricao: "Skin lendária com visual feroz.",
-        preco: 2999.50,
-        imagem: "../../static/imagens/M4A4.webp",
+        nome: "GEL DE LIMPEZA GL-02 350G",
+        descricao: "Gel de limpeza com 11,5% de mix de tensoativos, 10% de glicerina e 1% de PCA sódio, com alta eficácia na melhora da oleosidade, poros dilatados e viço da pele. Indicado para peles sensíveis.",
+        preco: 44,
+        imagem: "../../static/imagens/GEL DE LIMPEZA GL-02 350G.webp",
         numVendas: 1700,
         numAvaliacao: 0,
         valorEstrela: [5,5,5,5,5],
@@ -176,10 +170,10 @@
       },
       {
         id: 4,
-        nome: "Desert Eagle | Blaze",
-        descricao: "Clássica e mortal em fogo.",
+        nome: "Máscara Facial de Algodão, Kiss New York Professional, Pepino",
+        descricao: "Calmante e antioxidanteInspirada no mundo inovador da beleza coreana, k-beauty.Proporciona uma pele ultra-hidratada, saudável e revitalizada.Dermatologicamente testada.Livre de parabenos e corantes artificias.",
         preco: 1299.90,
-        imagem: "../../static/imagens/Deagle.webp",
+        imagem: "../../static/imagens/Máscara Facial de Algodão, Kiss New York Professional, Pepino.webp",
         numVendas: 890,
         numAvaliacao: 0,
         valorEstrela: [4,3,5,1,2],
@@ -187,10 +181,10 @@
       },
       {
         id: 5,
-        nome: "USP-S | Kill Confirmed",
-        descricao: "Confirmando abates com estilo.",
+        nome: "Óleo de Limpeza Demaquilante OL-01",
+        descricao: "Óleo de limpeza demaquilante com 30% de óleo de girassol, 15% mix de tensoativos e 1% vitamina E, com alta eficácia na remoção de maquiagem, inclusive resistente a água, resíduos de protetor solar e impurezas da pele.",
         preco: 699.99,
-        imagem: "../../static/imagens/USP.webp",
+        imagem: "../../static/imagens/Óleo de Limpeza Demaquilante OL-01.webp",
         numVendas: 1350,
         numAvaliacao: 0,
         valorEstrela: [5,1,4,4,2],
@@ -198,17 +192,16 @@
       },
       {
         id: 6,
-        nome: "Glock-18 | Fade",
-        descricao: "Arco-íris mortal para primeiros rounds.",
+        nome: "Óleo De Rosa Mosqueta Mrfar 100% Puro 30ml Manchas E Estrias",
+        descricao: "O Hidratante Corporal Óleo de Rosa Mosqueta é a escolha ideal para quem busca uma pele suave e bem cuidada. Com uma consistência cremosa, este produto é formulado para atender todos os tipos de pele, proporcionando hidratação intensa e duradoura por até 24 horas. Sua fórmula hipoalergênica garante segurança e conforto, mesmo para as peles mais sensíveis.",
         preco: 599.99,
-        imagem: "../../static/imagens/Glock.webp",
+        imagem: "../../static/imagens/Óleo de Rosa Mosqueta.webp",
         numVendas: 950,
         numAvaliacao: 0,
         valorEstrela: [3,2,1,5,1],
         comentarios: []
       }
     ];
-
     const carrinho = [];
 
     function gerarItens() {
@@ -346,7 +339,7 @@
 
     // Aqui você pode adicionar sua lógica de autenticação
     // Exemplo de uma validação simples no cliente (idealmente, seria feito no servidor)
-    if (email === "usuario@exemplo.com" && senha === "senha123") {
+    if (email === "adm123@gmail.com" && senha === "adm123") {
       document.getElementById("loginEmail").value = ""; document.getElementById("loginSenha").value = "";
       Swal.fire({
         icon: 'success',
