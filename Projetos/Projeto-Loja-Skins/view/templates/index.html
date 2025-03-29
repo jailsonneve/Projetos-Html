@@ -28,14 +28,27 @@
         <li class="nav-item"><a class="nav-link" href="#">Avaliação de Rosto</a></li>
         <li class="nav-item"><a class="nav-link" href="#Itens">Mais Vendidos</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobreNos">Sobre Nós</a></li>
       </ul>
+      <div class="search-container me-3">
+        <select class="search-select">
+            <option value="todos">Todos</option>
+            <option value="limpeza">Limpeza</option>
+            <option value="tonificacao">Tonificação</option>
+            <option value="serum">Sérum</option>
+            <option value="hidratacao">Hidratação</option>
+            <option value="protetor_solar">Proteção Solar</option>
+            <option value="esfoliacao">Esfoliação</option>
+            <option value="mascara_facial">Máscaras Faciais</option>
+            <option value="oleos">Óleos</option>
+            <option value="cremes_noturnos">Cremes Noturnos</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Pesquisar Skinder.com.br">
+        <button class="search-button"><i class="bi bi-search"></i></button>
+      </div>
       <div class="d-flex align-items-center">
-        <span class="text-white me-3" id="cart-count" style="cursor: pointer;" data-bs-toggle="modal" onclick="verCarrinho()">
-          <i class="bi bi-cart"></i> <span id="quantCart">(0)</span>
-        </span>
+        <a href="carrinho.html" class="carrinho"><span class="text-white me-3" id="cart-count" style="cursor: pointer;"><i class="bi bi-cart"></i> <span id="quantCart">(0)</span></span></a>
         <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
-        <a href="perfil.html"><button class="btn btn-outline-primary me-2"><i class="bi bi-person-circle"></i></button></a>
       </div>
     </div>
   </nav>
@@ -69,26 +82,6 @@
     </div>
   </div>  
 
-  <!-- Modal Carrinho -->
-  <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Carrinho de Compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body" id="carrinho-conteudo">
-          <!-- Itens do carrinho serão listados aqui -->
-        </div>
-        <div class="modal-footer">
-          <h5 class="me-auto">Total: R$ <span id="carrinho-total">0.00</span></h5>
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button class="btn btn-success">Finalizar Compra</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Main -->
   <main>
     <!-- Sobre Nós -->
@@ -105,7 +98,7 @@
     </section>
     <section>
       <div class="container mt-4">
-        <h1 class="text-center mb-4" id="Itens">Itens disponíveis</h1>
+        <h1 class="text-center mb-4" id="Itens">Produtos mais Vendidos</h1>
         <div id="carouselItens" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner" id="itensContainer"></div>
         
@@ -136,7 +129,7 @@
         <a href="https://www.twitter.com" target="_blank" class="text-white me-2"><i class="bi bi-twitter"></i></a>
         <a href="https://www.instagram.com" target="_blank" class="text-white"><i class="bi bi-instagram"></i></a>
       </div>
-      <p class="mt-2">Entre em contato: <a href="mailto:contato@example.com" class="text-white">contato@example.com</a> ou +55 (45)12345-6789</p>
+      <p class="mt-2">Entre em contato: <a href="mailto:contato@example.com" class="text-white">contato@example.com</a> ou <span class="fone"> +55 (45)12345-6789 </span> </p>
     </div>
   </footer>
   <script>
@@ -346,7 +339,7 @@
 
     // Aqui você pode adicionar sua lógica de autenticação
     // Exemplo de uma validação simples no cliente (idealmente, seria feito no servidor)
-    if (email === "usuario@exemplo.com" && senha === "senha123") {
+    if (email === "adm123@gmail.com" && senha === "adm123") {
       document.getElementById("loginEmail").value = ""; document.getElementById("loginSenha").value = "";
       Swal.fire({
         icon: 'success',

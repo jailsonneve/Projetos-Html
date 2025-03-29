@@ -24,4 +24,44 @@
     font-size: 0.9rem;
     color: black;
 }
-  
+.fone{
+    color: white;
+    text-decoration: underline;
+}
+.carrinho{
+    text-decoration: none;
+}
+.search-container {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.search-select {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 24px 0 0 24px;
+    background-color: #f5f5f5;
+}
+
+.search-input {
+    border: none;
+    padding: 8px 12px;
+    width: 300px;
+    outline: none;
+}
+
+.search-button {
+    background-color: gray;
+    border: none;
+    border-radius: 0 24px 24px 0;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: rgb(75, 73, 73);
+}
