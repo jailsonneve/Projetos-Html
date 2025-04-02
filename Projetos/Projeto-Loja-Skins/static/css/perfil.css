@@ -4,7 +4,7 @@ body {
 .navbar { 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
-.container { 
+.main { 
     max-width: 600px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 .img-thumbnail { 
@@ -55,3 +55,21 @@ body {
 .search-button:hover {
     background-color: rgb(75, 73, 73);
 }
+select {
+    border: 1px solid black;
+    font-size: 16px;
+    padding: 5px;
+}
+#size-measure {
+    position: absolute;
+    visibility: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 5px;
+}
+hr {
+    border: 2px solid white; 
+    width: 100%; 
+    margin: 20px auto
+} 

@@ -65,3 +65,31 @@
 .search-button:hover {
     background-color: rgb(75, 73, 73);
 }
+select {
+    border: 1px solid black;
+    font-size: 16px;
+    padding: 5px;
+}
+#size-measure {
+    position: absolute;
+    visibility: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 5px;
+}
+.conteudo {
+    width: 382px; /* Largura da área */
+    height: 100px; /* Altura máxima antes do scroll */
+    overflow-y: auto; /* Habilita a rolagem vertical se o conteúdo for maior que a altura */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.carousel-item {
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+hr {
+    border: 2px solid white; 
+    width: 100%; 
+    margin: 20px auto
+}  
