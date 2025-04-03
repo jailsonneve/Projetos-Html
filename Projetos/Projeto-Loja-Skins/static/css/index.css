@@ -79,9 +79,8 @@ select {
     padding: 5px;
 }
 .conteudo {
-    width: 382px; /* Largura da área */
     height: 100px; /* Altura máxima antes do scroll */
-    overflow-y: auto; /* Habilita a rolagem vertical se o conteúdo for maior que a altura */
+    overflow: auto; /* Habilita a rolagem vertical se o conteúdo for maior que a altura */
     border: 1px solid #ccc;
     padding: 10px;
 }
