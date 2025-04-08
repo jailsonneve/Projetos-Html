@@ -73,3 +73,9 @@ hr {
     width: 100%; 
     margin: 20px auto
 } 
+.formulario-pagamento {
+    margin-top: 1rem;
+}
+.d-none {
+display: none !important;
+}

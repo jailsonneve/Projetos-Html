@@ -43,8 +43,8 @@
                     <button class="search-button"><i class="bi bi-search"></i></button>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="carrinho.html" class="carrinho"><span class="text-white me-3" id="cart-count" style="cursor: pointer;"><i class="bi bi-cart"></i> Carrinho<span id="quantCart"> (0)</a>
-                    <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
+                    <a href="carrinho.html" class="carrinho"><span class="text-white me-3" id="cart-count"><i class="bi bi-cart"></i> Carrinho<span id="quantCart"> (0)</a>
+                    <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin"><i class="bi bi-box-arrow-in-right"></i> Login</button>
                 </div>
             </div>
         </nav>
@@ -69,10 +69,10 @@
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-primary w-100 mb-2" onclick="fazerLogin()">Entrar</button>
-                    <button class="btn btn-secondary w-100 mb-3" onclick="fazerCadastro()">Cadastrar</button>
+                    <button id="btnLogin" class="btn btn-primary w-100 mb-2">Entrar</button>
+                    <button id="btnCadastro" class="btn btn-secondary w-100 mb-3">Cadastrar</button>
                     <hr>
-                    <button class="btn btn-danger w-100" onclick="entrarComGoogle()">Entrar com Google</button>
+                    <button id="btnGoogle" class="btn btn-danger w-100">Entrar com Google</button>
                 </div>
             </div>
         </div>
@@ -96,15 +96,15 @@
                 <div id="carouselItens" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
                     <div class="carousel-inner" id="itensContainer"></div>
                 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselItens" data-bs-slide="prev" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); left: 10px;">
-                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
-                            <i class="bi bi-chevron-left" style="color: white;"></i>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselItens" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true">
+                            <i class="bi bi-chevron-left"></i>
                         </span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselItens" data-bs-slide="next" style="border-radius: 50%; width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); position: absolute; top: 50%; transform: translateY(-50%); right: 10px;">
-                        <span class="carousel-control-next-icon" aria-hidden="true" style="width: 20px; height: 20px; background-image: none;">
-                            <i class="bi bi-chevron-right" style="color: white;"></i>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselItens" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true">
+                            <i class="bi bi-chevron-right"></i>
                         </span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -149,324 +149,6 @@
             </div>
         </div>
     </footer>     
-    <script>
-        const itens = [
-            {
-                id: 1,
-                nome: "Creme Calmante Multirreparador 17,5% Mix de Ativos Principia CM-01",
-                descricao: "» Promover hidratação » Amenizar a irritação » Aliviar a ardência » Reduzir a descamação » Diminuir a vermelhidão » Melhorar assaduras»Aumentar a firmeza e elasticidade »Proporcionar maciez »Melhorar o viço.",
-                preco: 4999.90,
-                imagem: "../../static/imagens/Creme Calmante Multirreparador.webp",
-                numVendas: 500,
-                valorEstrela: [1,4,3,2,5],
-                comentarios: []
-            },
-            {
-                id: 2,
-                nome: "Espuma de limpeza Clean Beauty - Livia Diniz",
-                descricao: "A Espuma de Limpeza Clean Beauty da Livia Diniz é o segredo para uma rotina de skincare eficaz e refrescante. Formulada com ingredientes de origem natural e livre de substâncias nocivas, esta espuma proporciona uma limpeza suave, porém profunda, removendo impurezas, oleosidade e resíduos de maquiagem, sem agredir a barreira natural da pele.",
-                preco: 899.99,
-                imagem: "../../static/imagens/Espuma de limpeza Clean Beauty - Livia Diniz LIVBEAUTY.webp",
-                numVendas: 450,
-                valorEstrela: [5,3,2,4,1],
-                comentarios: []
-            },
-            {
-                id: 3,
-                nome: "GEL DE LIMPEZA GL-02 350G",
-                descricao: "Gel de limpeza com 11,5% de mix de tensoativos, 10% de glicerina e 1% de PCA sódio, com alta eficácia na melhora da oleosidade, poros dilatados e viço da pele. Indicado para peles sensíveis.",
-                preco: 44,
-                imagem: "../../static/imagens/GEL DE LIMPEZA GL-02 350G.webp",
-                numVendas: 1700,
-                valorEstrela: [5,5,5,5,5],
-                comentarios: []
-            },
-            {
-                id: 4,
-                nome: "Máscara Facial de Algodão, Kiss New York Professional, Pepino",
-                descricao: "Calmante e antioxidanteInspirada no mundo inovador da beleza coreana, k-beauty.Proporciona uma pele ultra-hidratada, saudável e revitalizada.Dermatologicamente testada.Livre de parabenos e corantes artificias.",
-                preco: 1299.90,
-                imagem: "../../static/imagens/Máscara Facial de Algodão, Kiss New York Professional, Pepino.webp",
-                numVendas: 890,
-                valorEstrela: [4,3,5,1,2],
-                comentarios: []
-            },
-            {
-                id: 5,
-                nome: "Óleo de Limpeza Demaquilante OL-01",
-                descricao: "Óleo de limpeza demaquilante com 30% de óleo de girassol, 15% mix de tensoativos e 1% vitamina E, com alta eficácia na remoção de maquiagem, inclusive resistente a água, resíduos de protetor solar e impurezas da pele.",
-                preco: 699.99,
-                imagem: "../../static/imagens/Óleo de Limpeza Demaquilante OL-01.webp",
-                numVendas: 1350,
-                valorEstrela: [5,1,4,4,2],
-                comentarios: []
-            },
-            {
-                id: 6,
-                nome: "Óleo De Rosa Mosqueta Mrfar 100% Puro 30ml Manchas E Estrias",
-                descricao: "O Hidratante Corporal Óleo de Rosa Mosqueta é a escolha ideal para quem busca uma pele suave e bem cuidada. Com uma consistência cremosa, este produto é formulado para atender todos os tipos de pele, proporcionando hidratação intensa e duradoura por até 24 horas. Sua fórmula hipoalergênica garante segurança e conforto, mesmo para as peles mais sensíveis.",
-                preco: 599.99,
-                imagem: "../../static/imagens/Óleo de Rosa Mosqueta.webp",
-                numVendas: 950,
-                valorEstrela: [3,2,1,5,1],
-                comentarios: []
-            }
-        ];
-        const carrinho = [];
-
-        function gerarItens() {
-            const container = document.getElementById("itensContainer");
-            container.innerHTML = "";
-        
-            const itensOrdenados = [...itens].sort((a, b) => b.numVendas - a.numVendas);
-        
-            const grupoTamanho = 3;
-            const totalSlides = Math.ceil(itensOrdenados.length / grupoTamanho);
-        
-            for (let i = 0; i < totalSlides; i++) {
-                const grupo = itensOrdenados.slice(i * grupoTamanho, (i + 1) * grupoTamanho);
-        
-                const slideAtivo = i === 0 ? "active" : "";
-        
-                const slideHTML = `
-                    <div class="carousel-item ${slideAtivo}">
-                        <div class="row">
-                            ${grupo.map(item => `
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 text-center shadow-sm">
-                                        <img src="${item.imagem}" class="card-img-top" alt="${item.nome}">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${item.nome}</h5>
-                                            <p class="conteudo card-text text-muted">${item.descricao}</p>
-                                            <p class="text-success fw-semibold fs-5">R$ ${item.preco.toFixed(2)} <span class="text-warning fw-semibold fs-5">${calcularEstrelas(item)}</span></p>
-                                            <div class="comentarios">
-                                                ${mostrarUltimosComentarios(item)}
-                                            </div>
-                                            <button class="btn btn-warning" onclick="avaliarItem(${item.id})"><i class="bi bi-star-fill"></i> Avaliar</button>
-                                            <button class="btn btn-primary ms-1" onclick="adicionarCarrinho(${item.id})"><i class="bi bi-cart-plus"></i> Adicionar ao Carrinho</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-        
-                container.innerHTML += slideHTML;
-            }
-        }         
-
-        const divCart = document.getElementById("quantCart");
-
-        function avaliarItem(id) {
-            const item = itens.find(i => i.id === id);
-
-            Swal.fire({
-                title: `Avaliar ${item.nome}`,
-                html:
-                    `<div id="stars" style="font-size: 1.5rem; margin-bottom: 10px;">
-                        ${[1, 2, 3, 4, 5].map(i => `<i class="star" data-star="${i}">★</i>`).join('')}
-                    </div>
-                    <textarea id="comentario" class="swal2-textarea" placeholder="Comentário"></textarea>`,
-                showCancelButton: true,
-                confirmButtonText: "Enviar",
-                didOpen: () => {
-                    const stars = document.querySelectorAll(".star");
-                    stars.forEach((star, index) => {
-                        star.addEventListener("click", () => {
-                            stars.forEach((s, i) => s.style.color = i <= index ? "#ffc107" : "gray");
-                            document.getElementById("stars").setAttribute("data-nota", index + 1);
-                        });
-                    });
-                },
-                preConfirm: () => {
-                    const nota = parseInt(document.getElementById("stars").getAttribute("data-nota") || 0);
-                    console.log("nota: ", nota);
-                    const comentario = document.getElementById("comentario").value.trim();
-
-                    if (!nota) {
-                        Swal.showValidationMessage("Por favor, selecione uma nota.");
-                    }
-
-                    return { nota, comentario };
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    item.comentarios.push({
-                        comentario: result.value.comentario,
-                        nota: result.value.nota
-                    });
-                    item.valorEstrela.push(result.value.nota);
-                    console.log("item: ", item);
-                    gerarItens();
-                    Swal.fire("Obrigado!", "Sua avaliação foi enviada.", "success");
-                }
-            });
-        }
-
-        function adicionarCarrinho(id) {
-            const item = itens.find(i => i.id === id);
-            carrinho.push(item);
-            divCart.innerHTML = `(${carrinho.length})`
-            Swal.fire("Adicionado!", `${item.nome} foi adicionado ao carrinho.`, "success");
-        }
-
-        function verCarrinho() {
-            if (carrinho.length === 0) {
-                Swal.fire("Carrinho vazio", "Nenhum item adicionado ainda.", "info");
-                return;
-            }
-
-            let html = "<ul style='text-align:left;'>";
-            let total = 0;
-
-            carrinho.forEach(item => {
-                html += `<li><strong>${item.nome}</strong> - R$ ${item.preco.toFixed(2)}</li>`;
-                total += item.preco;
-            });
-
-            html += "</ul>";
-
-            Swal.fire({
-                title: "Itens no Carrinho",
-                html: html + `<hr><strong>Total: R$ ${total.toFixed(2)}</strong>`,
-                confirmButtonText: "Fechar"
-            });
-        }
-
-        function fazerLogin() {
-            const email = document.getElementById("loginEmail").value;
-            const senha = document.getElementById("loginSenha").value;
-
-            if (!email || !senha || !email.includes("@")) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Por favor, preencha os campos corretamente!',
-                });
-                return;
-            }
-            if (email === "adm123@gmail.com" && senha === "adm123") {
-                document.getElementById("loginEmail").value = ""; document.getElementById("loginSenha").value = "";
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Login realizado!',
-                    text: 'Bem-vindo ao Skinder!',
-                }).then(() => {
-                    var modal = bootstrap.Modal.getInstance(document.getElementById('modalLogin'));
-                    modal.hide();
-                });
-                window.location.href = "perfil.html"
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro no login!',
-                    text: 'Email ou senha incorretos.',
-                });
-            }
-        }
-
-        function fazerCadastro() {
-            const email = document.getElementById("loginEmail").value;
-            const senha = document.getElementById("loginSenha").value;
-
-            if (!email || !senha || !email.includes("@")) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Por favor, preencha os campos corretamente!',
-                });
-                return;
-            }else{
-                Swal.fire({
-                    title: 'Cadastro',
-                    text: 'Função de cadastro ainda não implementada.',
-                    icon: 'info',
-                });
-            }
-        }
-
-        function entrarComGoogle() {
-            Swal.fire({
-                    title: 'Entrar com o Google',
-                    text: 'Função de entrar com o Google ainda não implementada.',
-                    icon: 'info',
-            });
-        }
-
-        document.getElementById("toggleSenha").addEventListener("click", function () {
-            const senhaField = document.getElementById("loginSenha");
-            const icon = this.querySelector("i");
-            
-            if (senhaField.type === "password") {
-                senhaField.type = "text";
-                icon.classList.remove("bi-eye");
-                icon.classList.add("bi-eye-slash");
-            } else {
-                senhaField.type = "password";
-                icon.classList.remove("bi-eye-slash");
-                icon.classList.add("bi-eye");
-            }
-        });
-
-        function calcularEstrelas(item) {
-            if (item.valorEstrela.length === 0) {
-                return "Nenhuma avaliação";
-            }
-
-            const totalEstrelas = item.valorEstrela.reduce((acc, curr) => acc + curr, 0);
-            const mediaEstrelas = totalEstrelas / item.valorEstrela.length;
-
-            let estrelas = '';
-            for (let i = 1; i <= 5; i++) {
-                if (i <= Math.floor(mediaEstrelas)) {
-                    estrelas += '★';
-                } else if (i === Math.ceil(mediaEstrelas) && mediaEstrelas % 1 !== 0) {
-                    estrelas += '☆';
-                } else {
-                    estrelas += '☆';
-                }
-            }
-
-            return estrelas;
-        }
-
-        function mostrarUltimosComentarios(item) {
-            const ultimosComentarios = item.comentarios.slice(-5);
-
-            if (ultimosComentarios.length === 0) {
-                return "Nenhum comentário ainda.";
-            }
-
-            return ultimosComentarios.map((avaliacao) => {
-                let estrelasHTML = '';
-
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= avaliacao.nota) {
-                        estrelasHTML += '★';
-                    } else {
-                        estrelasHTML += '☆';
-                    }
-                }
-
-                return `<p class="text-black">User: ${avaliacao.comentario} (${estrelasHTML})</p>`;
-            }).join('');
-        }
-
-        const select = document.getElementById("dynamic-select");
-        const sizeMeasure = document.getElementById("size-measure");
-
-        function updateSelectWidth() {
-            const selectedOption = select.options[select.selectedIndex].text;
-            sizeMeasure.textContent = selectedOption;
-
-            select.style.width = `${sizeMeasure.offsetWidth + 46}px`;
-        }
-
-        select.addEventListener("change", updateSelectWidth);
-        updateSelectWidth();
-
-        gerarItens();
-    </script>
+    <script type="module" src="../../controller/controllerIndex.js"></script>
 </body>
 </html>
