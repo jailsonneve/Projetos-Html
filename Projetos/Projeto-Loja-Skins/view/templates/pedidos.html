@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../static/css/pedidos.css">
+    <title>Pedidos do Usuário</title>
+</head>
+<body>
+  <header id="inicio">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 p-3">
+        <a href="index.html" class="carrinho"><h1 class="navbar-brand">Skinder</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="agendamento.html">Avaliação de Rosto</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#Itens">Mais Vendidos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#sobreNos">Sobre Nós</a></li>
+                <li class="nav-item"><a class="nav-link" href="pedidos.html">Devoluções e Pedidos</a></li>
+            </ul>
+            <div class="search-container me-3">
+                <select class="search-select" id="dynamic-select" onchange="updateSelectWidth()">
+                    <option value="todos">Todos</option>
+                    <option value="limpeza">Limpeza</option>
+                    <option value="tonificacao">Tonificação</option>
+                    <option value="serum">Sérum</option>
+                    <option value="hidratacao">Hidratação</option>
+                    <option value="protetor_solar">Proteção Solar</option>
+                    <option value="esfoliacao">Esfoliador</option>
+                    <option value="mascara_facial">Máscaras Faciais</option>
+                    <option value="oleos">Óleos</option>
+                    <option value="cremes_noturnos">Cremes Noturnos</option>
+                </select>
+                <span id="size-measure"></span>
+                <input type="text" class="search-input" placeholder="Pesquisar Skinder.com.br">
+                <button class="search-button"><i class="bi bi-search"></i></button>
+            </div>
+            <div class="d-flex align-items-center">
+                <a href="carrinho.html" class="carrinho"><span class="text-white me-3" id="cart-count" style="cursor: pointer;"><i class="bi bi-cart"></i> Carrinho<span id="quantCart"> (0)</a>
+                <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin"><i class="bi bi-box-arrow-in-right"></i> Login</button>
+            </div>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+
+  </main>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <a href="index.html" class="text-white text-decoration-none"><h5 class="fw-bold">Skinder</h5></a>
+                <p>&copy; 2025 Skinder. Todos os direitos reservados.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Navegação</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Avaliação de Rosto</a></li>
+                    <li><a href="index.html#Itens" class="text-white text-decoration-none">Mais Vendidos</a></li>
+                    <li><a href="#index.html#sobreNos" class="text-white text-decoration-none">Sobre Nós</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Devoluções e Pedidos</a></li>
+                    <li><a href="#inicio" class="text-white text-decoration-none">Inicio</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Contato</h5>
+                <p>Email: <a href="mailto:contato@example.com" class="text-white">contato@example.com</a></p>
+                <p>Telefone: <span class="fone">+55 (45) 12345-6789</span></p>
+            </div>
+        </div>
+        <div class="mt-3">
+            <a href="https://www.facebook.com" target="_blank" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="text-white me-3 fs-4"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+        </div>
+        <hr>
+        <div>
+            <h5>Formas de Pagamento</h5>
+            <div>
+              <img width="40" height="40" src="https://img.icons8.com/color/48/pix.png" alt="pix" title="PIX"/>
+            </div>
+        </div>
+    </div>
+  </footer>
+  <script type="module" src="../../controller/controllerPedido.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
