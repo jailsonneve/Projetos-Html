@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/prova.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>prova</title>
+</head>
+<body>
+    <!-- Barra de Navegação --> 
+    <header id="inicio">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Meu Site</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#inicio">Inicio do Site</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#objetivo">Objetivo do Site</a>
+            </li>
+            <li class="nav-item">
+                <a href="#imagens" class="nav-link">Imagens em Destaque</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#cadastro">Cadastre-se</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contato">Contate-nos</a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main class="container my-5" id="imagens">
+        <h2 class="mb-4">Meus Portfólios</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="imagens/images.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p class="card-text">Imagem 01</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="imagens/imagem2.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p class="card-text">Imagem 02</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="imagens/imagem3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p class="card-text">Imagem 03</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img4 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="imagens/imagem4.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p class="card-text">Imagem 04</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="imagens/imagem5.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p class="card-text">Imagem 05</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <hr>
+        <form id="cadastro">
+            <div class="form-group row">
+            <label for="nomeUser" class="col-4 col-form-label">Nome</label> 
+            <div class="col-8">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <i class="fa fa-address-book-o"></i>
+                    </div>
+                </div> 
+                <input id="nomeUser" name="nomeUser" placeholder="Digite seu nome" type="text" class="form-control" required="required">
+                </div>
+            </div>
+            </div>
+            <div class="form-group row">
+            <label for="emailUser" class="col-4 col-form-label">Email</label> 
+            <div class="col-8">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <i class="fa fa-envelope-o"></i>
+                    </div>
+                </div> 
+                <input id="emailUser" name="emailUser" placeholder="Digite seu email" type="text" class="form-control" required="required">
+                </div>
+            </div>
+            </div>
+            <div class="form-group row">
+            <label for="foneUser" class="col-4 col-form-label">Telefone</label> 
+            <div class="col-8">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <i class="fa fa-phone"></i>
+                    </div>
+                </div> 
+                <input id="foneUser" name="foneUser" placeholder="Digite seu Telefone" type="text" class="form-control">
+                </div>
+            </div>
+            </div>
+            <div class="form-group row">
+            <label for="senhaUser" class="col-4 col-form-label">Senha</label> 
+            <div class="col-8">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <i class="fa fa-key"></i>
+                    </div>
+                </div> 
+                <input id="senhaUser" name="senhaUser" placeholder="Digite sua Senha" type="text" class="form-control" required="required">
+                </div>
+            </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-4 col-8">
+                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+        </form>
+    <hr>
+    <!-- Rodapé -->
+  <footer id="contato" class="py-5 bg-dark text-white text-center">
+    <div class="container">
+        <p class="m-0">Feito por Arthur,2024,©</p>
+        <i class="bi bi-twitter-x"></i>
+        <i class="bi bi-twitch"></i>
+        <i class="bi bi-tiktok"></i>
+        <i class="bi bi-instagram"></i>
+    </div>
+  </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

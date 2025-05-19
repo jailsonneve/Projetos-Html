@@ -1,0 +1,10 @@
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+h1{
+    margin: 15px auto;
+}
+i{
+    margin: 5px;
+}

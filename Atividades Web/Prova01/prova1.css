@@ -1,0 +1,112 @@
+body{
+    align-items: center;
+    align-content: center;
+    background-color: #540085;
+}
+.varela-regular {
+    font-family: "Varela", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1{
+    color: white;
+    text-align: center;
+}
+img{
+    position: absolute;
+    left:55%;
+	top:38.4%;
+	margin-left:-110px;
+	margin-top:-40px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 45vw;
+    height: 45.2vh;
+}
+.face{
+    color: blue;
+    margin: 10px;
+    margin-left: 50px;
+}
+.twit{
+    color: black;
+    margin: 10px;
+    margin-left: 50px;
+}
+.insta{
+    color: rgb(255, 0, 170);
+    margin: 10px;
+    margin-left: 50px;
+}
+section{
+    align-items: center;
+    background-color: white;
+    align-content: center;
+    border-radius: 20px;
+    padding: 20px;
+    width: 45vw;
+    height: 40vh;
+    margin: 50px;
+    margin-top: 200px;
+}
+.email{
+    border-width: 4px;
+    border-style: solid;
+    background-color: rgb(129, 204, 158);
+    border-radius: 5px;
+    width: 20vw;
+    height: 3vh;
+    margin: 2.5px;
+    border-color: #460746;
+}
+.senha{
+    background-color: rgb(129, 204, 158);
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 5px;
+    width: 20vw;
+    height: 3vh;
+    margin: 2.5px;
+    border-color: #460746;
+}
+.bts{
+    margin: 2.5px;
+    background-color: rgb(73, 136, 97);
+    color: white;
+    width: 20.8vw;
+    height: 3.5vh;
+    border-radius: 5px;
+}
+.btn{
+    margin: 2.5px;
+    background-color: white;
+    color: green;
+    border-color: green;
+    width: 20.8vw;
+    height: 3.5vh;
+    border-radius: 5px;
+}
+h2{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+.icon-key{
+    position: absolute;
+    left: 5%;
+    top: 55.5%;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: #460746;
+}
+.icon-user{
+    position: absolute;
+    left: 5%;
+    top: 49.4%;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #460746;
+}

@@ -1,0 +1,11 @@
+<script>
+    // Construa um algoritmo para calcular a distância entre dois pontos do plano cartesiano. Cada ponto é um par ordenado (x,y).
+    let x1 = parseFloat(prompt("Digite o valor de x do primeiro ponto: "));
+    let y1 = parseFloat(prompt("Digite o valor de y do primeiro ponto: "));
+    let x2 = parseFloat(prompt("Digite o valor de x do segundo ponto: "));
+    let y2 = parseFloat(prompt("Digite o valor de y do segundo ponto: "));
+    let distancia = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+    alert("Distância entre os pontos: " + distancia.toFixed(2));
+    console.log("Distância entre os pontos: " + distancia.toFixed(2));
+</script>

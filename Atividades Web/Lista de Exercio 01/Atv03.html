@@ -1,0 +1,12 @@
+<script>
+    // A padaria Hotpão vende uma certa quantidade de pães franceses e uma quantidade de broas a cada dia. Cada pãozinho custa R$ 0,12 e a broa custa R$ 1,50. Ao final do dia, o dono quer saber quanto arrecadou com a venda dos pães e broas (juntos), e quanto deve guardar numa conta de poupança (10% do total arrecadado). Você foi contratado para fazer os cálculos para o dono. Com base nestes fatos, faça um algoritmo para ler as quantidades de pães e de broas, e depois calcular os dados solicitados.
+    let quantidadePãesFranceses = parseFloat(prompt("Informe a quantidade de pães franceses vendidas:"));
+    let quantidadeBroas = parseFloat(prompt("Informe a quantidade de broas vendidas:"));
+    let totalArrecadado = (quantidadePãesFranceses * 0.12) + (quantidadeBroas * 1.50);
+    let valorPoupança = totalArrecadado * 0.10;
+
+    alert("Total arrecadado: R$ " + totalArrecadado.toFixed(2));
+    alert("Valor para guardar na poupança: R$ " + valorPoupança.toFixed(2));
+    console.log("Total arrecadado: R$ " + totalArrecadado.toFixed(2));
+    console.log("Valor para guardar na poupança: R$ " + valorPoupança.toFixed(2));
+</script>
