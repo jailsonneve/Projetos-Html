@@ -4,7 +4,7 @@ const repoName = "Projetos-Html"; // Nome do repositório
 const folderName = "Projetos"; // Nome da pasta principal
 
 async function fetchProjects() {
-    const baseURL = `https://github-api-proxy-six.vercel.app/api/github?path=repos/jailsonneve/Projetos-Html/contents/Projetos`;
+    const baseURL = `https://github-api-proxy-six.vercel.app/api/github?path=repos/${username}/${repoName}/contents/${folderName}`;
 
     try {
         const response = await fetch(baseURL);
