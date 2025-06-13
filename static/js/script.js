@@ -1,128 +1,127 @@
 const API_PROXY_URL = "https://github-api-proxy-six.vercel.app/api/github";
-const username = "jailsonneve"; // Seu username no GitHub
-const repoName = "Projetos-Html"; // Nome do repositório
-const folderName = "Projetos"; // Nome da pasta principal
+const username = "jailsonneve";
+const repoName = "Projetos-Html";
+const folderName = "Projetos";
+const levels = ["Basico", "Intermediario", "Avancado"];
+const projectList = document.getElementById("project-list");
+const searchInput = document.getElementById("search-input");
+const searchForm = document.getElementById("search-form");
 
-async function fetchProjects() {
-    const baseURL = `https://github-api-proxy-six.vercel.app/api/github?path=repos/${username}/${repoName}/contents/${folderName}`;
+const ignoredFolders = ["node_modules", "dist", ".git", ".vscode", "vendor", "__MACOSX"];
+let allProjects = [];
 
-    try {
-        const response = await fetch(baseURL);
-        if (!response.ok) throw new Error("Erro ao buscar dados do repositório.");
-        const projects = await response.json();
-        console.log("Projetos:", projects); // Depuração
-
-        globalThis.projects = projects; // Armazena globalmente os projetos para a pesquisa
-        renderProjects(projects);
-
-    } catch (error) {
-        console.error("Erro:", error);
-        Swal.fire({
-            title: "Erro ao carregar projetos",
-            text: "Ocorreu um problema ao buscar os projetos do GitHub. Tente novamente mais tarde.",
-            icon: "error",
-            confirmButtonText: "Ok"
-        });
-    }
+async function fetchProjectsByLevel(level) {
+  const path = `${folderName}/${level}`;
+  // const baseURL = `https://github-api-proxy-six.vercel.app/api/github?path=repos/jailsonneve/Projetos-Html/contents/Projetos`;
+  const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
+  try {
+    const response = await fetch(baseURL);
+    if (!response.ok) throw new Error(`Erro ao buscar projetos do nível ${level}`);
+    const projects = await response.json();
+    return projects.map(p => ({ ...p, _nivel: level }));
+  } catch (e) {
+    console.warn(e);
+    return [];
+  }
 }
 
-function renderProjects(projects) {
-    const projectList = document.getElementById("project-list");
-    projectList.innerHTML = "";
-
-    projects.forEach(async (project) => {
-        if (project.type === "dir") {
-            const projectURL = project.url;
-            const htmlFilePath = await fetchHTMLFile(projectURL);
-
-            if (htmlFilePath) {
-                const githubIoLink = `https://${username}.github.io/${repoName}/${htmlFilePath}`;
-                const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project.name}`;
-
-                const projectDiv = document.createElement("div");
-                projectDiv.className = "project d-flex align-items-center justify-content-between";
-                projectDiv.innerHTML = `
-                    <div>
-                        <h5>${project.name}</h5>
-                        <p>Projeto hospedado no GitHub e GitHub Pages.</p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
-                    </div>
-                `;
-                projectList.appendChild(projectDiv);
-            }
-        }
-    });
-
-    console.log("Projetos carregados:", document.querySelectorAll(".project").length); // Depuração
+async function fetchAllProjects() {
+  const promises = levels.map(fetchProjectsByLevel);
+  const nested = await Promise.all(promises);
+  allProjects = nested.flat();
+  renderProjects(allProjects);
 }
 
-async function fetchHTMLFile(projectURL) {
-    try {
-        const response = await fetch(projectURL);
-        if (!response.ok) throw new Error("Erro ao buscar arquivos do projeto.");
-        const files = await response.json();
+async function renderProjects(projects) {
+  projectList.innerHTML = "";
+  for (const project of projects) {
+    if (project.type === "dir" && !ignoredFolders.includes(project.name)) {
+      const htmlFilePath = await fetchHTMLFile(project.url);
+      if (htmlFilePath) {
+        const githubIoLink = `https://${username}.github.io/${repoName}/${htmlFilePath}`;
+        const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project._nivel}/${project.name}`;
 
-        for (const file of files) {
-            if (file.type === "file" && file.name.endsWith(".html")) {
-                return file.path;
-            } else if (file.type === "dir") {
-                const htmlFile = await fetchHTMLFile(file.url);
-                if (htmlFile) return htmlFile;
-            }
-        }
-    } catch (error) {
-        console.error("Erro ao buscar arquivo HTML:", error);
+        const projectDiv = document.createElement("div");
+        projectDiv.className = "project";
+        projectDiv.innerHTML = `
+          <div>
+            <h5>${project.name}</h5>
+            <p>Nível: ${project._nivel}</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
+              <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
+            </div>
+          </div>`;
+        projectList.appendChild(projectDiv);
+      }
     }
-    return null;
+  }
+}
+
+async function fetchHTMLFile(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const files = await response.json();
+    for (const file of files) {
+      if (ignoredFolders.includes(file.name)) continue;
+      if (file.type === "file" && file.name.endsWith(".html")) {
+        return file.path;
+      } else if (file.type === "dir") {
+        const result = await fetchHTMLFile(file.url);
+        if (result) return result;
+      }
+    }
+  } catch (e) {
+    console.warn("Erro ao buscar arquivo HTML", e);
+  }
+  return null;
 }
 
 window.showAlert = function (onde, projectName, link) {
-    Swal.fire({
-        title: `Acessar ${projectName}`,
-        text: `Você deseja abrir o projeto "${projectName}" no ${onde}?`,
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Abrir'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.open(link, '_blank');
-        }
-    });
+  Swal.fire({
+    title: `Acessar ${projectName}`,
+    text: `Você deseja abrir o projeto "${projectName}" no ${onde}?`,
+    icon: 'info',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Abrir'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.open(link, '_blank');
+    }
+  });
 };
 
-document.getElementById("search-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    console.log("Evento de pesquisa acionado!"); // Depuração
-
-    const searchQuery = document.getElementById("search-input").value.toLowerCase();
-    console.log("Pesquisa:", searchQuery); // Depuração
-
-    let found = false;
-
-    document.querySelectorAll(".project").forEach((project) => {
-        const projectName = project.querySelector("h5").textContent.toLowerCase();
-        if (projectName.includes(searchQuery)) {
-            project.style.display = ""; // Mostra os projetos correspondentes
-            found = true;
-            console.log("Projeto encontrado:", projectName); // Depuração
-        } else {
-            project.style.display = "none"; // Esconde os que não correspondem
-        }
+searchForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const query = searchInput.value.toLowerCase();
+  let found = false;
+  document.querySelectorAll(".project").forEach((project) => {
+    const name = project.querySelector("h5").textContent.toLowerCase();
+    const match = name.includes(query);
+    project.style.display = match ? "" : "none";
+    if (match) found = true;
+  });
+  if (!found) {
+    Swal.fire({
+      title: "Nenhum projeto encontrado",
+      text: `Nenhum projeto corresponde a "${query}"`,
+      icon: "warning",
+      confirmButtonText: "Ok"
     });
-
-    if (!found) {
-        Swal.fire({
-            title: "Nenhum projeto encontrado",
-            text: `Não foi possível encontrar um projeto relacionado a "${searchQuery}".`,
-            icon: "warning",
-            confirmButtonText: "Ok"
-        });
-    }
+  }
 });
 
-fetchProjects();
+document.getElementById("category-filter").addEventListener("change", function () {
+  const selected = this.value;
+  if (!selected) {
+    renderProjects(allProjects);
+  } else {
+    const filtered = allProjects.filter(p => p._nivel === selected);
+    renderProjects(filtered);
+  }
+});
+
+fetchAllProjects();
