@@ -44,3 +44,11 @@ footer a:hover {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 15px;
 }
+
+#sobre img {
+  transition: transform 0.3s ease;
+}
+
+#sobre img:hover {
+  transform: scale(1.05);
+}
