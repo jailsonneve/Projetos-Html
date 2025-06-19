@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canal do Aylon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/yt-style.css" />
+</head>
+
+<body>
+  <span id="inicio"></span>
+
+  <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand logo-text" href="#">Canal do Aylon</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light rounded"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link menu-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link menu-link" href="#videos">Vídeos</a></li>
+          <li class="nav-item"><a class="nav-link menu-link" href="#sobre">Sobre Mim</a></li>
+          <li class="nav-item"><a class="nav-link menu-link" href="#contato">Contato</a></li>
+        </ul>
+        <form class="d-flex" id="search-form">
+          <input class="form-control me-2 pe-5" type="search" placeholder="Buscar vídeo..." id="searchInput">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="sobre" class="hero-banner text-white text-center d-flex align-items-center justify-content-center">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+      <img id="canalFoto" src="" class="rounded-circle mb-3" width="120" />
+      <h1 id="canalNome" class="display-4 fw-bold animate-fade-in">
+        Canal do Aylon
+      </h1>
+      <p id="canalDescricao" class="lead animate-fade-in delay-1">
+        Carregando descrição...
+      </p>
+      <a href="#contato" class="btn btn-outline-light btn-lg px-4 animate-fade-in delay-2 mt-3">Fale com a gente</a>
+    </div>
+  </section>
+
+  <!-- Vídeos -->
+  <section id="videos" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center section-title text-dark">Todos os vídeos</h2>
+      <div class="row" id="videoList"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contato" class="text-white py-4 mt-3">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">Canal do Aylon</h5>
+          <p>Bem-vindo ao Canal do Aylon, onde você encontra edição e muito mais!</p>
+          <p>Conecte-se conosco nas redes sociais e fique por dentro de todas as novidades!</p>
+          <p>&copy; 2025 Canal do Aylon. Todos os direitos reservados.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">Navegação</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#inicio" class="text-white text-decoration-none">Início</a>
+            </li>
+            <li>
+              <a href="#videos" class="text-white text-decoration-none">Vídeos</a>
+            </li>
+            <li>
+              <a href="#sobre" class="text-white text-decoration-none">Sobre Mim</a>
+            </li>
+            <li>
+              <a href="#contato" class="text-white text-decoration-none">Contato</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">Contato</h5>
+          <p>Email:
+            <a href="mailto:contato@aylon.com" class="text-white">contato@aylon.com</a>
+          </p>
+          <p>Telefone: <span class="fone">+55 (45) 91234-5678</span></p>
+          <a href="https://www.youtube.com/@aylon.editor" target="_blank" class="text-white me-3 fs-4"><i class="bi bi-youtube"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+
+      <hr class="bg-secondary" />
+
+      <div>
+        <h6 class="mb-2">Formas de Apoio</h6>
+        <img width="40" height="40" src="https://img.icons8.com/color/48/pix.png" alt="PIX" title="Doações via PIX" />
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/yt-script.js"></script>
+</body>
+
+</html>
