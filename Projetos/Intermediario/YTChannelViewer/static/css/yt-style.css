@@ -161,3 +161,8 @@ footer {
     font-size: 0.8rem;
   }
 }
+.badge.bg-danger {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
