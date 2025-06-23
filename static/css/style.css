@@ -33,13 +33,6 @@ footer a:hover {
   text-decoration: underline;
 }
 
-#sobre {
-  padding: 20px;
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
 #search-form input {
   max-width: 300px;
 }
@@ -50,6 +43,57 @@ footer a:hover {
   gap: 15px;
 }
 
-form input{
+form input {
   width: 300px !important;
+}
+
+/* HERO CUSTOMIZADO - SOBRE */
+#sobre {
+  position: relative;
+  min-height: 90vh;
+  background: linear-gradient(to right, #2d2d44, #041b91);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+#sobre .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #2d2d44, #031366);
+  z-index: 1;
+}
+
+#sobre .container {
+  position: relative;
+  z-index: 2;
+}
+
+#sobre img {
+  max-width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Animações */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+.delay-4 { animation-delay: 2s; }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
