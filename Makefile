@@ -42,4 +42,4 @@ avancado:
 # Limpar processos antigos (manual)
 stop:
 	@echo "Finalizando Servidor...."
-	pkill -f 'http.server'
+	pkill -f http.server
