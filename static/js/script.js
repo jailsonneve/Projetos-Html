@@ -12,24 +12,93 @@ let allProjects = [];
 
 async function fetchProjectsByLevel(level) {
   const path = `${folderName}/${level}`;
-  // const baseURL = `https://github-api-proxy-six.vercel.app/api/github?path=repos/jailsonneve/Projetos-Html/contents/Projetos`;
   const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
   try {
     const response = await fetch(baseURL);
-    if (!response.ok) throw new Error(`Erro ao buscar projetos do nível ${level}`);
+    if (!response.ok) {
+      throw new Error(`Erro ao buscar projetos do nível ${level}. Status: ${response.status}`);
+    }
     const projects = await response.json();
     return projects.map(p => ({ ...p, _nivel: level }));
   } catch (e) {
-    console.warn(e);
+    console.error(e);
+    Swal.fire({
+      title: `Erro ao carregar projetos`,
+      text: `Não foi possível carregar os projetos do nível "${level}".\n\nDetalhes: ${e.message}`,
+      icon: "error",
+      confirmButtonText: "OK"
+    });
     return [];
   }
 }
 
+async function fetchHTMLFile(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      console.warn(`Erro ao buscar arquivos no diretório: ${url}`);
+      return null;
+    }
+    const files = await response.json();
+    for (const file of files) {
+      if (ignoredFolders.includes(file.name)) continue;
+      if (file.type === "file" && file.name.endsWith(".html")) {
+        return file.path;
+      } else if (file.type === "dir") {
+        const result = await fetchHTMLFile(file.url);
+        if (result) return result;
+      }
+    }
+  } catch (e) {
+    console.warn("Erro ao buscar arquivo HTML", e);
+    Swal.fire({
+      title: "Erro ao carregar arquivos",
+      text: "Não foi possível encontrar um arquivo HTML válido neste diretório.",
+      icon: "error",
+      confirmButtonText: "Entendi"
+    });
+  }
+  return null;
+}
+
 async function fetchAllProjects() {
-  const promises = levels.map(fetchProjectsByLevel);
-  const nested = await Promise.all(promises);
-  allProjects = nested.flat();
-  renderProjects(allProjects);
+  Swal.fire({
+    title: 'Carregando projetos...',
+    text: 'Aguarde enquanto buscamos os dados do GitHub.',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  try {
+    const promises = levels.map(fetchProjectsByLevel);
+    const nested = await Promise.all(promises);
+    allProjects = nested.flat();
+
+    Swal.close();
+
+    if (allProjects.length === 0) {
+      Swal.fire({
+        title: "Nenhum projeto encontrado",
+        text: "Não foi possível carregar nenhum projeto. Verifique sua conexão ou tente novamente mais tarde.",
+        icon: "warning",
+        confirmButtonText: "Ok"
+      });
+    }
+
+    renderProjects(allProjects);
+  } catch (e) {
+    Swal.close();
+    console.error("Erro ao carregar todos os projetos:", e);
+    Swal.fire({
+      title: "Erro geral",
+      text: "Ocorreu um erro inesperado ao carregar os projetos.",
+      icon: "error",
+      confirmButtonText: "Ok"
+    });
+  }
 }
 
 async function renderProjects(projects) {
@@ -56,26 +125,6 @@ async function renderProjects(projects) {
       }
     }
   }
-}
-
-async function fetchHTMLFile(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) return null;
-    const files = await response.json();
-    for (const file of files) {
-      if (ignoredFolders.includes(file.name)) continue;
-      if (file.type === "file" && file.name.endsWith(".html")) {
-        return file.path;
-      } else if (file.type === "dir") {
-        const result = await fetchHTMLFile(file.url);
-        if (result) return result;
-      }
-    }
-  } catch (e) {
-    console.warn("Erro ao buscar arquivo HTML", e);
-  }
-  return null;
 }
 
 window.showAlert = function (onde, projectName, link) {
