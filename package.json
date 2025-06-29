@@ -1,0 +1,25 @@
+{
+  "name": "projetos-html",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Projetos HTML5 - Desenvolvidos com Criatividade e Eficiência</h1>",
+  "main": "proxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jailsonneve/Projetos-Html.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jailsonneve/Projetos-Html/issues"
+  },
+  "homepage": "https://github.com/jailsonneve/Projetos-Html#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  }
+}
