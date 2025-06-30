@@ -40,6 +40,7 @@ app.post('/run-java', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('✅ Proxy rodando em http://localhost:3000');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`✅ Proxy rodando na porta ${port}`);
 });

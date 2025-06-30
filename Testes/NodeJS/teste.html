@@ -17,7 +17,6 @@
   <h1>Editor de Código Online</h1>
 
   <div class="tabs">
-    <button onclick="switchLang('js')">JavaScript</button>
     <button onclick="switchLang('py')">Python</button>
     <button onclick="switchLang('java')">Java</button>
   </div>
@@ -38,17 +37,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
 
   <script>
-    let lang = 'js';
+    let lang = 'java';
     let editor = CodeMirror(document.getElementById('editor'), {
       value: '// Digite seu código aqui',
-      mode: "javascript",
+      mode: "text/x-java",
       lineNumbers: true
     });
 
     function switchLang(newLang) {
       lang = newLang;
       let mode = {
-        js: 'javascript',
         py: 'python',
         java: 'text/x-java'
       }[lang];
@@ -74,20 +72,13 @@
       const output = document.getElementById('output');
       output.textContent = "Executando...";
 
-      if (lang === 'js') {
-        try {
-          const result = eval(code);
-          output.textContent = result ?? 'Executado com sucesso!';
-        } catch (e) {
-          output.textContent = "Erro: " + e.message;
-        }
-      } else if (lang === 'py') {
+      if (lang === 'py') {
         output.textContent = '';
         Sk.configure({ output: (text) => output.textContent += text });
         Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
           .catch(err => output.textContent = err.toString());
       } else if (lang === 'java') {
-        fetch("http://localhost:3000/run-java", {
+        fetch("https://node-js-jailsonneve-jailsonneves-projects.vercel.app/run-java", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -98,9 +89,9 @@
         })
         .then(res => res.json())
         .then(data => {
-          if(data.output) {
+          if (data.output) {
             output.textContent = data.output;
-          } else if(data.error) {
+          } else if (data.error) {
             output.textContent = "Erro: " + data.error;
           } else {
             output.textContent = "Nenhuma saída recebida.";
@@ -110,8 +101,14 @@
       }
     }
 
-    // Inicializa com JS
-    switchLang('js');
+    switchLang('java');
   </script>
 </body>
 </html>
+<!-- 
+  Comandos para instalar o vercel e iniciar
+    npm i -g vercel
+    vercel login
+    vercel
+    vercel --prod --force
+-->
