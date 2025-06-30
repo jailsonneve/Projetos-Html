@@ -43,7 +43,3 @@ avancado:
 stop:
 	@echo "Finalizando Servidor...."
 	pkill -f http.server
-
-teste:
-	@echo "Executando teste.html..."
-	@python3 -m http.server 8020 teste.html &

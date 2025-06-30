@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "<h1 align=\"center\">Projetos HTML5 - Desenvolvidos com Criatividade e Eficiência</h1>",
   "main": "proxy.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

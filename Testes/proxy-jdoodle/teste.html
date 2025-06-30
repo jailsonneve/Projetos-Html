@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editor de Código</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css"/>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; }
+    .tabs button { margin-right: 10px; }
+    #editor, #output { border: 1px solid #ccc; padding: 10px; min-height: 200px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h1>Editor de Código Online</h1>
+
+  <div class="tabs">
+    <button onclick="switchLang('js')">JavaScript</button>
+    <button onclick="switchLang('py')">Python</button>
+    <button onclick="switchLang('java')">Java</button>
+  </div>
+
+  <div id="editor"></div>
+  <button onclick="runCode()">Executar</button>
+  <h3>Saída:</h3>
+  <pre id="output"></pre>
+
+  <!-- Skulpt para Python -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt-stdlib.js"></script>
+
+  <!-- CodeMirror -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+
+  <script>
+    let lang = 'js';
+    let editor = CodeMirror(document.getElementById('editor'), {
+      value: '// Digite seu código aqui',
+      mode: "javascript",
+      lineNumbers: true
+    });
+
+    function switchLang(newLang) {
+      lang = newLang;
+      let mode = {
+        js: 'javascript',
+        py: 'python',
+        java: 'text/x-java'
+      }[lang];
+      editor.setOption('mode', mode);
+      editor.setValue(getTemplate(lang));
+      document.getElementById('output').textContent = '';
+    }
+
+    function getTemplate(lang) {
+      return {
+        js: 'console.log("Olá mundo!");',
+        py: 'print("Olá mundo!")',
+        java: `public class Main {
+  public static void main(String[] args) {
+    System.out.println("Olá mundo!");
+  }
+}`
+      }[lang];
+    }
+
+    function runCode() {
+      const code = editor.getValue();
+      const output = document.getElementById('output');
+      output.textContent = "Executando...";
+
+      if (lang === 'js') {
+        try {
+          const result = eval(code);
+          output.textContent = result ?? 'Executado com sucesso!';
+        } catch (e) {
+          output.textContent = "Erro: " + e.message;
+        }
+      } else if (lang === 'py') {
+        output.textContent = '';
+        Sk.configure({ output: (text) => output.textContent += text });
+        Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
+          .catch(err => output.textContent = err.toString());
+      } else if (lang === 'java') {
+        fetch("https://proxy-jdoodle-oqhtpo0c5-jailsonneves-projects.vercel.app/api/run-java", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ script: code })
+        })
+        .then(res => res.json())
+        .then(data => output.textContent = data.output)
+        .catch(err => output.textContent = "Erro ao executar: " + err);
+      }
+    }
+
+    // Inicializa com JS
+    switchLang('js');
+  </script>
+</body>
+</html>
