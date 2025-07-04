@@ -124,7 +124,9 @@ async function renderProjects(projects) {
     projectList.innerHTML = "";
 
     const excecoesHTML = {
-        "Tomcat-docker": "webapps/myapp/index.html",
+        // Projetos/Avancado/Tomcat-docker/webapps/my-web-app
+        "Tomcat-docker": "webapps/my-web-app/index.html",
+        // Projetos/Avancado/Projeto-Loja-Skins/site/view/templates
         "Projeto-Loja-Skins": "site/view/templates/index.html"
     };
 
