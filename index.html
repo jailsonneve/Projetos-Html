@@ -18,7 +18,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top">
     <div class="container ms-3 me-3">
       <a class="navbar-brand" href="#projetos">Meus Projetos HTML 5</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Abrir navegação" aria-label="Abrir navegação">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -42,7 +42,7 @@
     <div class="container position-relative text-center">
       <div class="row justify-content-center align-items-center">
         <div class="col-md-4 mb-4 mb-md-0 border border-light border-3 p-4">
-            <img src="static/img/fotoPerfil.jpeg" alt="Foto de Jailson" class="img-fluid rounded-circle shadow" style="max-width: 300px;">      
+            <img src="static/img/fotoPerfil.jpeg" alt="Foto de Jailson" class="img-fluid rounded-circle shadow fotoPerfil">      
         </div>
         <div class="col-md-8">
           <h1 class="display-4 fw-bold animate-fade-in">Olá, eu sou o JailsonNeve 👋</h1>
@@ -55,7 +55,7 @@
           <p class="animate-fade-in delay-3">
             Cada projeto representa um passo na minha jornada. Fico feliz em compartilhá-los com você.
           </p>
-          <a href="https://github.com/jailsonneve" target="_blank" class="btn btn-outline-light btn-lg px-4 animate-fade-in delay-4">
+          <a href="https://github.com/jailsonneve" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg px-4 animate-fade-in delay-4">
             <i class="bi bi-github"></i> Ver meu GitHub
           </a>
         </div>
@@ -70,7 +70,8 @@
     <!-- Filtro por nível -->
     <div class="row mb-3">
       <div class="col-md-6 offset-md-3">
-        <select id="category-filter" class="form-select">
+        <label for="category-filter" class="form-label visually-hidden">Filtrar por nível</label>
+        <select id="category-filter" class="form-select" aria-label="Filtrar por nível">
           <option value="">Todos os Níveis</option>
           <option value="Basico">Básico</option>
           <option value="Intermediario">Intermediário</option>
@@ -87,7 +88,7 @@
   <!-- Footer -->
   <footer id="contact">
     <div class="container">
-      <p>Desenvolvido por <a href="https://github.com/jailsonneve" class="text-white fw-bold" target="_blank">JailsonNeve</a>. Todos os direitos reservados &copy; 2025.</p>
+      <p>Desenvolvido por <a href="https://github.com/jailsonneve" class="text-white fw-bold" target="_blank" rel="noopener">JailsonNeve</a>. Todos os direitos reservados &copy; 2025.</p>
     </div>
   </footer>
 

@@ -10,8 +10,7 @@ const ignoredFolders = ["node_modules", "dist", ".git", ".vscode", "vendor", "__
 
 let allProjects = [];
 
-// ----- Funções de Cache -----
-
+// ----- Cache -----
 function salvarCacheProjetos(projetos) {
     const dados = {
         projetos: projetos,
@@ -46,8 +45,7 @@ function limparCache() {
     });
 }
 
-// ----- Busca de Projetos -----
-
+// ----- Buscar projetos por nível -----
 async function fetchProjectsByLevel(level) {
     const path = `${folderName}/${level}`;
     const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
@@ -55,7 +53,7 @@ async function fetchProjectsByLevel(level) {
         const response = await fetch(baseURL);
         if (!response.ok) throw new Error(`Erro ao buscar projetos do nível ${level}. Status: ${response.status}`);
         const projects = await response.json();
-        return projects.map(p => ({...p, _nivel: level }));
+        return projects.map(p => ({ ...p, _nivel: level }));
     } catch (e) {
         console.error(e);
         Swal.fire({
@@ -68,37 +66,7 @@ async function fetchProjectsByLevel(level) {
     }
 }
 
-async function fetchHTMLFile(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            console.warn(`Erro ao buscar arquivos no diretório: ${url}`);
-            return null;
-        }
-        const files = await response.json();
-        for (const file of files) {
-            if (ignoredFolders.includes(file.name)) continue;
-            if (file.type === "file" && file.name.toLowerCase().endsWith(".html")) {
-                return file.path;
-            } else if (file.type === "dir") {
-                const result = await fetchHTMLFile(file.url);
-                if (result) return result;
-            }
-        }
-    } catch (e) {
-        console.warn("Erro ao buscar arquivo HTML", e);
-        Swal.fire({
-            title: "Erro ao carregar arquivos",
-            text: "Não foi possível encontrar um arquivo HTML válido neste diretório.",
-            icon: "error",
-            confirmButtonText: "Entendi"
-        });
-    }
-    return null;
-}
-
-// ----- Buscar todos os projetos (com cache) -----
-
+// ----- Buscar todos os projetos -----
 async function fetchAllProjects() {
     const projetosDoCache = carregarCacheProjetos();
     if (projetosDoCache) {
@@ -129,7 +97,7 @@ async function fetchAllProjects() {
         salvarCacheProjetos(allProjects);
         Swal.close();
 
-        if (allProjects.length === 0) {
+        if (allProjects.length == 0) {
             Swal.fire({
                 title: "Nenhum projeto encontrado",
                 text: "Não foi possível carregar nenhum projeto. Verifique sua conexão ou tente novamente mais tarde.",
@@ -151,37 +119,46 @@ async function fetchAllProjects() {
     }
 }
 
-// ----- Renderizar Projetos -----
-
+// ----- Renderizar projetos -----
 async function renderProjects(projects) {
     projectList.innerHTML = "";
+
+    const excecoesHTML = {
+        "ProjetoComMyApp": "webapps/myapp/Index.html",
+        "ProjetoComTemplates": "site/view/templates/Index.html"
+    };
+
     for (const project of projects) {
         if (project.type === "dir" && !ignoredFolders.includes(project.name)) {
-            const htmlFilePath = await fetchHTMLFile(project.url);
-            if (htmlFilePath) {
-                const githubIoLink = `https://${username}.github.io/${repoName}/${htmlFilePath}`;
-                const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project._nivel}/${project.name}`;
+            let htmlPath;
 
-                const projectDiv = document.createElement("div");
-                projectDiv.className = "project";
-                projectDiv.innerHTML = `
-          <div>
-            <h5>${project.name}</h5>
-            <p>Nível: ${project._nivel}</p>
-            <div class="d-flex justify-content-between">
-              <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
-              <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
-            </div>
-          </div>`;
-                projectList.appendChild(projectDiv);
+            if (excecoesHTML[project.name]) {
+                htmlPath = `${folderName}/${project._nivel}/${project.name}/${excecoesHTML[project.name]}`;
+            } else {
+                htmlPath = `${folderName}/${project._nivel}/${project.name}/index.html`;
             }
+
+            const githubIoLink = `https://${username}.github.io/${repoName}/${htmlPath}`;
+            const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project._nivel}/${project.name}`;
+
+            const projectDiv = document.createElement("div");
+            projectDiv.className = "project";
+            projectDiv.innerHTML = `
+                <div>
+                    <h5>${project.name}</h5>
+                    <p>Nível: ${project._nivel}</p>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
+                    </div>
+                </div>`;
+            projectList.appendChild(projectDiv);
         }
     }
 }
 
-// ----- Alertas e Filtros -----
-
-window.showAlert = function(onde, projectName, link) {
+// ----- Alertas e filtros -----
+window.showAlert = function (onde, projectName, link) {
     Swal.fire({
         title: `Acessar ${projectName}`,
         text: `Você deseja abrir o projeto "${projectName}" no ${onde}?`,
@@ -197,7 +174,7 @@ window.showAlert = function(onde, projectName, link) {
     });
 };
 
-searchForm.addEventListener("submit", function(event) {
+searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const query = searchInput.value.toLowerCase();
     let found = false;
@@ -217,7 +194,7 @@ searchForm.addEventListener("submit", function(event) {
     }
 });
 
-document.getElementById("category-filter").addEventListener("change", function() {
+document.getElementById("category-filter").addEventListener("change", function () {
     const selected = this.value;
     if (!selected) {
         renderProjects(allProjects);

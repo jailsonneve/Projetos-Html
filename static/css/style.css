@@ -43,6 +43,10 @@ footer a:hover {
   gap: 15px;
 }
 
+.fotoPerfil { 
+  max-width: 300px; 
+}
+
 form input {
   width: 300px !important;
 }
