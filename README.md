@@ -17,15 +17,15 @@ Este repositório contém projetos desenvolvidos para praticar e aprimorar minha
 Aqui estão as principais tecnologias usadas em cada projeto:
 
 <div align="center">
-    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" height="20" alt="HTML5 logo" title="HTML5" />
+    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" height="40" alt="HTML5 logo" title="HTML5" />
     <img width="12" />
-    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" height="20" alt="CSS3 logo" title="CSS3" />
+    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" height="40" alt="CSS3 logo" title="CSS3" />
     <img width="12" />
-    <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" height="20" alt="JavaScript logo" title="JavaScript" />
+    <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" height="40" alt="JavaScript logo" title="JavaScript" />
     <img width="12" />
-    <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="20" alt="Bootstrap logo" title="Bootstrap" />
+    <img src="https://img.icons8.com/?size=100&id=EzPCiQUqWWEa&format=png&color=000000" height="40" alt="Bootstrap logo" title="Bootstrap" />
     <img width="12" />
-    <img src="https://img.icons8.com/?size=100&id=SQEEoDcpUD6c&format=png&color=000000" height="20" alt="Firestore logo" title="Firestore" />
+    <img src="https://img.icons8.com/?size=100&id=SQEEoDcpUD6c&format=png&color=000000" height="40" alt="Firestore logo" title="Firestore" />
 </div>
 
 ---
