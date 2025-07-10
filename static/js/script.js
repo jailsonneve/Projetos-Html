@@ -176,7 +176,7 @@ window.showAlert = function (onde, projectName, link) {
     });
 };
 
-searchForm.addEventListener("submit", function (event) {
+searchForm.addEventListener("input", function (event) {
     event.preventDefault();
     const query = searchInput.value.toLowerCase();
     let found = false;
