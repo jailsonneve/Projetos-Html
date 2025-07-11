@@ -16,11 +16,11 @@ function salvarCacheProjetos(projetos) {
         projetos: projetos,
         timestamp: Date.now()
     };
-    localStorage.setItem('cacheProjetos', JSON.stringify(dados));
+    localStorage.setItem('cacheProjetosHtml5', JSON.stringify(dados));
 }
 
 function carregarCacheProjetos() {
-    const cache = localStorage.getItem('cacheProjetos');
+    const cache = localStorage.getItem('cacheProjetosHtml5');
     if (!cache) return null;
 
     const dados = JSON.parse(cache);
@@ -30,13 +30,13 @@ function carregarCacheProjetos() {
     if (agora - dados.timestamp < tempoLimite) {
         return dados.projetos;
     } else {
-        localStorage.removeItem('cacheProjetos');
+        localStorage.removeItem('cacheProjetosHtml5');
         return null;
     }
 }
 
 function limparCache() {
-    localStorage.removeItem('cacheProjetos');
+    localStorage.removeItem('cacheProjetosHtml5');
     Swal.fire({
         title: 'Cache limpo!',
         text: 'Os dados serão buscados novamente da próxima vez.',

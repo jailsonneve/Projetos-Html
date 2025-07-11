@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.project {
+  padding: 15px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+.form-select {
+  border-color: #000000;
+  border-radius: 5px;
+}
+
+footer a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+#search-form input {
+  max-width: 300px;
+}
+
+#project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.fotoPerfil { 
+  max-width: 300px; 
+}
+
+form input {
+  width: 300px !important;
+}
+
+/* HERO CUSTOMIZADO - SOBRE */
+#sobre {
+  position: relative;
+  min-height: 90vh;
+  background: linear-gradient(to right, #2d2d44, #041b91);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding-top: 150px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+#sobre .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #2d2d44, #031366);
+  z-index: 1;
+}
+
+#sobre .container {
+  position: relative;
+  z-index: 2;
+}
+
+#sobre img {
+  max-width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Animações */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+.delay-4 { animation-delay: 2s; }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
