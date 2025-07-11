@@ -1,6 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
 }
 
 .project {
@@ -9,19 +11,27 @@ body {
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+/* LISTA DE PROJETOS - GRID RESPONSIVO E UNIFORME */
+#project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  padding: 10px;
+}
+
+/* ELEMENTOS GERAIS */
 footer {
   background-color: #343a40;
   color: white;
   text-align: center;
   padding: 10px 0;
   margin-top: 30px;
-}
-
-.form-select {
-  border-color: #000000;
-  border-radius: 5px;
 }
 
 footer a {
@@ -33,20 +43,20 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.form-select {
+  border-color: #000000;
+  border-radius: 5px;
+}
+
 #search-form input {
   max-width: 300px;
 }
 
-#project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px;
+.fotoPerfil {
+  max-width: 300px;
 }
 
-.fotoPerfil { 
-  max-width: 300px; 
-}
-
+/* Força inputs do formulário a se manterem uniformes */
 form input {
   width: 300px !important;
 }
@@ -93,6 +103,7 @@ form input {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
 }
+
 .delay-1 { animation-delay: 0.5s; }
 .delay-2 { animation-delay: 1s; }
 .delay-3 { animation-delay: 1.5s; }

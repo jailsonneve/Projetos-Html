@@ -10,6 +10,19 @@ const ignoredFolders = ["node_modules", "ClinicaMultidisciplinar", "dist", ".git
 
 let allProjects = [];
 
+// Função para carregar exemplos de entrada do GitHub
+async function carregarExemplosEntrada() {
+  const url = `https://raw.githubusercontent.com/${username}/${repoName}/main/IOExemplos/entradasExemploPy.json`;
+  try {
+    const res = await fetch(url);
+    return await res.json();
+  } catch (e) {
+    console.warn("⚠️ Não foi possível carregar exemplos de entrada:", e);
+    return {};
+  }
+}
+
+// Cache local
 function salvarCacheProjetos(projetos) {
   const dados = { projetos: projetos, timestamp: Date.now() };
   localStorage.setItem("cacheProjetosPy", JSON.stringify(dados));
@@ -29,6 +42,7 @@ function carregarCacheProjetos() {
   }
 }
 
+// Buscar projetos por nível
 async function fetchProjectsByLevel(level) {
   const path = `${folderName}/${level}`;
   const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
@@ -43,11 +57,21 @@ async function fetchProjectsByLevel(level) {
   }
 }
 
+// Buscar todos os projetos e renderizar
 async function fetchAllProjects() {
   const projetosDoCache = carregarCacheProjetos();
+  const exemplosEntrada = await carregarExemplosEntrada();
+
   if (projetosDoCache) {
     allProjects = projetosDoCache;
-    return renderProjects(allProjects);
+    Swal.fire({
+      title: 'Projetos carregados do cache',
+      text: 'Evitei novas requisições ao GitHub.',
+      icon: 'success',
+      timer: 1500,
+      showConfirmButton: false
+    });
+    return renderProjects(allProjects, exemplosEntrada);
   }
 
   try {
@@ -55,13 +79,14 @@ async function fetchAllProjects() {
     const nested = await Promise.all(promises);
     allProjects = nested.flat();
     salvarCacheProjetos(allProjects);
-    renderProjects(allProjects);
+    renderProjects(allProjects, exemplosEntrada);
   } catch (e) {
     console.error("Erro ao carregar todos os projetos:", e);
   }
 }
 
-async function renderProjects(projects) {
+// Renderizar lista de projetos
+async function renderProjects(projects, exemplosEntrada = {}) {
   projectList.innerHTML = "";
   const githubRawBase = `https://raw.githubusercontent.com/${username}/${repoName}/main`;
 
@@ -69,7 +94,8 @@ async function renderProjects(projects) {
     if (project.type === "dir" && !ignoredFolders.includes(project.name)) {
       const appPath = `${folderName}/${project._nivel}/${project.name}/app.py`;
       const rawUrl = `${githubRawBase}/${appPath}`;
-      const executarLink = `executarComInput.html?raw=${encodeURIComponent(rawUrl)}`;
+      const inputExample = exemplosEntrada[project.name] || "";
+      const executarLink = `executarComInput.html?raw=${encodeURIComponent(rawUrl)}&input=${encodeURIComponent(inputExample)}`;
       const githubLink = `https://github.com/${username}/${repoName}/tree/main/${folderName}/${project._nivel}/${project.name}`;
 
       const projectDiv = document.createElement("div");
@@ -80,7 +106,7 @@ async function renderProjects(projects) {
           <p>Nível: ${project._nivel}</p>
           <div class="d-flex justify-content-between">
             <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')">Ver no GitHub</button>
-            <button class="btn btn-outline-success btn-sm" onclick="window.open('${executarLink}', '_blank')">Executar Código</button>
+            <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${executarLink}', '_blank')">Executar Código</button>
           </div>
         </div>`;
       projectList.appendChild(projectDiv);
@@ -88,6 +114,7 @@ async function renderProjects(projects) {
   }
 }
 
+// Filtro por nome
 searchForm.addEventListener("input", function (event) {
   event.preventDefault();
   const query = searchInput.value.toLowerCase();
@@ -98,10 +125,14 @@ searchForm.addEventListener("input", function (event) {
   });
 });
 
+// Filtro por nível
 document.getElementById("category-filter").addEventListener("change", function () {
   const selected = this.value;
   const filtered = !selected ? allProjects : allProjects.filter(p => p._nivel === selected);
-  renderProjects(filtered);
+  carregarExemplosEntrada().then(exemplos => {
+    renderProjects(filtered, exemplos);
+  });
 });
 
+// Inicialização
 fetchAllProjects();
