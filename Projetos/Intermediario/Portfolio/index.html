@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🚀 Jailson Dev</title>
+  <title>Jailson Dev</title>
 
   <!-- Bootstrap e ícones -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="stylesheet" href="style/css/portfolio.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="icon" href="../../../static/img/fotoPerfil.jpeg" type="image/jpeg" />
 </head>
 <body>
@@ -16,7 +17,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-3">
     <div class="container">
-      <a class="navbar-brand" href="#">🚀 Jailson Dev</a>
+      <a class="navbar-brand" href="#sobre"><i class="bi bi-rocket-takeoff"></i> Jailson Dev</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -40,9 +41,9 @@
           <img src="../../../static/img/fotoPerfil.jpeg" alt="Foto de Jailson" class="img-fluid rounded-circle shadow fotoPerfil" />
         </div>
         <div class="col-md-8">
-          <h1 class="display-4 fw-bold animate-fade-in">🔮 Arthur — Desenvolvedor Web</h1>
+          <h1 class="display-4 fw-bold animate-fade-in"><i class="bi bi-laptop"></i> Arthur — Desenvolvedor Web</h1>
           <p class="lead animate-fade-in delay-1">
-            Olá! Meu nome é <strong>Jailson</strong> e sou um desenvolvedor web apaixonado por tecnologia, inovação e criação de soluções interativas.  
+            Olá! Meu nome é <strong>Arthur</strong> e sou um desenvolvedor web apaixonado por tecnologia, inovação e criação de soluções interativas.  
             </p>
             <p class="animate-fade-in delay-2">
             Tenho experiência sólida em <strong>HTML5, CSS3, JavaScript</strong> e também desenvolvo com <strong>Java</strong> e <strong>Python</strong>, utilizando conceitos de arquitetura moderna como <em>MVC</em>, APIs e banco de dados em nuvem.
@@ -67,8 +68,7 @@
   <!-- Habilidades -->
   <section class="skill-section" id="habilidades">
     <div class="container">
-      <h2 class="text-neon">🛠️ Minhas Habilidades</h2>
-      <p class="section-subtitle">🌟 Tenho experiência em:</p>
+      <h2 class="text-neon"><i class="bi bi-mortarboard"></i> Minhas Experiências</h2>
       <div class="skill-grid">
         <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/><p>HTML</p></div>
         <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><p>CSS</p></div>
@@ -84,7 +84,7 @@
         <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/><p>VS Code</p></div>
       </div>
 
-      <p class="section-subtitle mt-5">📚 Estou aprendendo:</p>
+      <h2 class="text-neon mt-5"><i class="bi bi-book"></i> Estou Aprendendo</h2>
       <div class="skill-grid">
         <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"/><p>PHP</p></div>
         <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/><p>Docker</p></div>
@@ -98,15 +98,59 @@
   </section>
 
   <!-- Repositórios -->
-  <section class="container my-5" id="projetos">
-    <h2 class="text-center text-neon mb-4">📂 Meus Repositórios</h2>
+  <section class="container mt-1" id="projetos">
+    <h2 class="text-center text-neon mb-4"><i class="bi bi-folder"></i> Meus Repositórios</h2>
     <div id="repo-list" class="repo-grid"></div>
   </section>
 
+  <!-- Contato -->
+  <section class="contact-icons-section py-5" id="contact">
+    <div class="container text-center">
+      <h2 class="text-neon mb-4"><i class="bi bi-mailbox-flag"></i> Contato</h2>
+      <div class="row justify-content-center">
+        <div class="col-6 col-md-3 mb-4">
+          <a href="mailto:daiarthur053@gmail.com">
+            <div class="contact-icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h6 class="fw-bold mt-2">E-mail</h6>
+            <p>daiarthur053@gmail.com</p>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <a href="https://linkedin.com/in/arthur-dai-98a47634a" target="_blank">
+            <div class="contact-icon">
+              <i class="bi bi-linkedin"></i>
+            </div>
+            <h6 class="fw-bold mt-2">LinkedIn</h6>
+            <p>@Arthur Dai</p>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <a href="https://github.com/jailsonneve" target="_blank">
+            <div class="contact-icon">
+              <i class="bi bi-github"></i>
+            </div>
+            <h6 class="fw-bold mt-2">GitHub</h6>
+            <p>@jailsonneve</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer id="contact" class="bg-dark text-white text-center py-3">
-    <p>Desenvolvido por <a href="https://github.com/jailsonneve" class="text-info" target="_blank">JailsonNeve</a> &copy; 2025</p>
-  </footer>
+  <footer class="site-footer py-4">
+    <div class="container text-center">
+      <p class="mb-2">Desenvolvido por <strong>JailsonNeve</strong></p>
+      <div class="footer-icons mb-2">
+        <a href="https://github.com/jailsonneve" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="mailto:daiarthur053@gmail.com" target="_blank" aria-label="E-mail"><i class="bi bi-envelope-fill"></i></a>
+        <a href="https://linkedin.com/in/arthur-dai-98a47634a" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <small class="text-white">&copy; 2025 - Todos os direitos reservados.</small>
+    </div>
+  </footer> 
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
