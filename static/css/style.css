@@ -27,7 +27,7 @@ body {
 
 /* ELEMENTOS GERAIS */
 footer {
-  background-color: #343a40;
+  opacity: 1;
   color: white;
   text-align: center;
   padding: 10px 0;
