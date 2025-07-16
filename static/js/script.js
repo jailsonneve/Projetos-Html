@@ -150,8 +150,8 @@ async function renderProjects(projects) {
                     <h5>${project.name}</h5>
                     <p>Nível: ${project._nivel}</p>
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')">Ver no GitHub</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')">Abrir no GitHub.io</button>
+                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')"><i class="bi bi-eye"></i> Ver no GitHub</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')"><i class="bi bi-box-arrow-up-right"></i> Abrir no GitHub.io</button>
                     </div>
                 </div>`;
             projectList.appendChild(projectDiv);

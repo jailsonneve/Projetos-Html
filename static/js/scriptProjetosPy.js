@@ -105,8 +105,8 @@ async function renderProjects(projects, exemplosEntrada = {}) {
           <h5>${project.name}</h5>
           <p>Nível: ${project._nivel}</p>
           <div class="d-flex justify-content-between">
-            <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')">Ver no GitHub</button>
-            <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${executarLink}', '_blank')">Executar Código</button>
+            <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')"><i class="bi bi-eye"></i> Ver no GitHub</button>
+            <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${executarLink}', '_blank')"><i class="bi bi-box-arrow-up-right"></i> Executar Código</button>
           </div>
         </div>`;
       projectList.appendChild(projectDiv);

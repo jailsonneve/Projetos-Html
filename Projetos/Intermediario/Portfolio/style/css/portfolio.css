@@ -52,7 +52,7 @@ body {
 /* Habilidades */
 .skill-section {
   background-color: #0d1117;
-  padding: 60px 20px;
+  padding: 30px 20px;
   color: #c9d1d9;
   text-align: center;
 }
@@ -94,7 +94,22 @@ h1{
   color: #00ffc8;
 }
 
+/* Projetos */
+.sites-section{
+  align-items: center;
+  text-align: center;
+  background-color: #0d1117;
+  padding: 30px 20px;
+}
+
+
 /* Repositórios */
+.repo-section{
+  align-items: center;
+  text-align: center;
+  background-color: #0d1117;
+  padding: 30px 20px;
+}
 .repo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
