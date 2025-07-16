@@ -33,14 +33,14 @@ Aqui estão as principais tecnologias usadas em cada projeto:
 ## 📂 Projetos Disponíveis
 
 ### Exemplos de Projetos
-1. **[Portfólio Pessoal](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/portfolio)**  
+1. **[Portfólio Pessoal](https://jailsonneve.github.io/Projetos-Html/Projetos/Intermediario/Portfolio/index.html)**  
    Um site responsivo que exibe minhas habilidades e projetos, desenvolvido com CSS e Bootstrap.
 
-2. **[Lista de Tarefas com Melhorias](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2)**  
-   Uma versão avançada da lista de tarefas, com novos recursos sendo um desses um banco de dados( [Firestore Database](https://firebase.google.com/) ) e melhorias no design e usabilidade.
+2. **[Lista de Tarefas com Melhorias]([https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/to%20do%20listV2](https://jailsonneve.github.io/Projetos-Html/Projetos/Intermediario/ToDoListV2/index.html))**  
+   Uma versão avançada da lista de tarefas, com novos recursos sendo um desses um banco de dados( [Firestore Database](https://firebase.google.com/) ), terá melhorias no design e usabilidade.
 
-3. **[Página de Filmes Usando o Tomcat Web server com Docker](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/tomcat-docker)** 
-   Uma Página web simples que exibe titulos de séries, filmes e animes, com opção de pesquisar pelo nome. Leia o ( [README.md](https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/tomcat-docker/README.md) ).
+3. **[Página de Filmes Usando o Tomcat Web server com Docker]([https://github.com/jailsonneve/Projetos-Html/tree/main/Projetos/tomcat-docker](https://jailsonneve.github.io/Projetos-Html/Projetos/Avancado/Projeto-Loja-Skins/site/view/templates/index.html))** 
+   Uma Página web simples de vendas de produtos de skinker, com recursos como bootstrap, html, css, js, firestore database, entre outros. terá melhorias no design e usabilidade.
 
 4. **[Página com Todos os Projetos Html5 Deste Repositório](https://jailsonneve.github.io/Projetos-Html/index.html)** Uma Página Web simples, feita apenas com o intuito de navegar de melhor maneira pelos projetos.
 ---
