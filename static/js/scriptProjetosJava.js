@@ -3,204 +3,139 @@ const username = "jailsonneve";
 const repoName = "Projetos-Java";
 const folderName = "Projetos";
 const levels = ["Basico", "Intermediario", "Avancado"];
+const inputJsonPath = "IOExemplos/entradasExemploJava.json";
+
 const projectList = document.getElementById("project-list");
 const searchInput = document.getElementById("search-input");
 const searchForm = document.getElementById("search-form");
-const ignoredFolders = ["node_modules", "ClinicaMultidisciplinar", "dist", ".git", ".vscode", "vendor", "__MACOSX", "controller", "model", "routers", "static", "scripts", "styles"];
+const ignoredFolders = ["node_modules", ".git", ".vscode", "vendor", "__MACOSX", "static", "scripts", "styles"];
 
 let allProjects = [];
 
-// ----- Cache -----
+// Função para carregar entradas de exemplo do GitHub
+async function carregarExemplosEntrada() {
+  const url = `https://raw.githubusercontent.com/${username}/${repoName}/main/${inputJsonPath}`;
+  try {
+    const res = await fetch(url);
+    return await res.json();
+  } catch (e) {
+    console.warn("⚠️ Não foi possível carregar exemplos de entrada:", e);
+    return {};
+  }
+}
+
+// Cache local
 function salvarCacheProjetos(projetos) {
-    const dados = {
-        projetos: projetos,
-        timestamp: Date.now()
-    };
-    localStorage.setItem('cacheProjetosJava', JSON.stringify(dados));
+  const dados = { projetos: projetos, timestamp: Date.now() };
+  localStorage.setItem("cacheProjetosJava", JSON.stringify(dados));
 }
 
 function carregarCacheProjetos() {
-    const cache = localStorage.getItem('cacheProjetosJava');
-    if (!cache) return null;
-
-    const dados = JSON.parse(cache);
-    const agora = Date.now();
-    const tempoLimite = 60 * 60 * 1000; // 1 hora
-
-    if (agora - dados.timestamp < tempoLimite) {
-        return dados.projetos;
-    } else {
-        localStorage.removeItem('cacheProjetosJava');
-        return null;
-    }
+  const cache = localStorage.getItem("cacheProjetosJava");
+  if (!cache) return null;
+  const dados = JSON.parse(cache);
+  const agora = Date.now();
+  const tempoLimite = 60 * 60 * 1000;
+  if (agora - dados.timestamp < tempoLimite) {
+    return dados.projetos;
+  } else {
+    localStorage.removeItem("cacheProjetosJava");
+    return null;
+  }
 }
 
-function limparCache() {
-    localStorage.removeItem('cacheProjetosJava');
-    Swal.fire({
-        title: 'Cache limpo!',
-        text: 'Os dados serão buscados novamente da próxima vez.',
-        icon: 'info',
-        confirmButtonText: 'OK'
-    });
-}
-
-// ----- Buscar projetos por nível -----
+// Buscar projetos por nível
 async function fetchProjectsByLevel(level) {
-    const path = `${folderName}/${level}`;
-    const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
-    try {
-        const response = await fetch(baseURL);
-        if (!response.ok) throw new Error(`Erro ao buscar projetos do nível ${level}. Status: ${response.status}`);
-        const projects = await response.json();
-        return projects.map(p => ({ ...p, _nivel: level }));
-    } catch (e) {
-        console.error(e);
-        Swal.fire({
-            title: `Erro ao carregar projetos`,
-            text: `Não foi possível carregar os projetos do nível "${level}".\n\nDetalhes: ${e.message}`,
-            icon: "error",
-            confirmButtonText: "OK"
-        });
-        return [];
-    }
+  const path = `${folderName}/${level}`;
+  const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
+  try {
+    const response = await fetch(baseURL);
+    if (!response.ok) throw new Error(`Erro ao buscar projetos do nível ${level}. Status: ${response.status}`);
+    const projects = await response.json();
+    return projects.map(p => ({ ...p, _nivel: level }));
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
 }
 
-// ----- Buscar todos os projetos -----
+// Buscar todos os projetos e renderizar
 async function fetchAllProjects() {
-    const projetosDoCache = carregarCacheProjetos();
-    if (projetosDoCache) {
-        allProjects = projetosDoCache;
-        Swal.fire({
-            title: 'Projetos carregados do cache',
-            text: 'Evitei novas requisições ao GitHub.',
-            icon: 'success',
-            timer: 1500,
-            showConfirmButton: false
-        });
-        return renderProjects(allProjects);
-    }
+  const projetosDoCache = carregarCacheProjetos();
+  const exemplosEntrada = await carregarExemplosEntrada();
 
+  if (projetosDoCache) {
+    allProjects = projetosDoCache;
     Swal.fire({
-        title: 'Carregando projetos do GitHub...',
-        text: 'Aguarde enquanto buscamos os dados mais recentes.',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        didOpen: () => Swal.showLoading()
+      title: 'Projetos carregados do cache',
+      text: 'Evitei novas requisições ao GitHub.',
+      icon: 'success',
+      timer: 1500,
+      showConfirmButton: false
     });
+    return renderProjects(allProjects, exemplosEntrada);
+  }
 
-    try {
-        const promises = levels.map(fetchProjectsByLevel);
-        const nested = await Promise.all(promises);
-        allProjects = nested.flat();
-
-        salvarCacheProjetos(allProjects);
-        Swal.close();
-
-        if (allProjects.length == 0) {
-            Swal.fire({
-                title: "Nenhum projeto encontrado",
-                text: "Não foi possível carregar nenhum projeto. Verifique sua conexão ou tente novamente mais tarde.",
-                icon: "warning",
-                confirmButtonText: "Ok"
-            });
-        }
-
-        renderProjects(allProjects);
-    } catch (e) {
-        Swal.close();
-        console.error("Erro ao carregar todos os projetos:", e);
-        Swal.fire({
-            title: "Erro geral",
-            text: "Ocorreu um erro inesperado ao carregar os projetos.",
-            icon: "error",
-            confirmButtonText: "Ok"
-        });
-    }
+  try {
+    const promises = levels.map(fetchProjectsByLevel);
+    const nested = await Promise.all(promises);
+    allProjects = nested.flat();
+    salvarCacheProjetos(allProjects);
+    renderProjects(allProjects, exemplosEntrada);
+  } catch (e) {
+    console.error("Erro ao carregar todos os projetos:", e);
+  }
 }
 
-// ----- Renderizar projetos -----
-async function renderProjects(projects) {
-    projectList.innerHTML = "";
+// Renderizar lista de projetos
+async function renderProjects(projects, exemplosEntrada = {}) {
+  projectList.innerHTML = "";
+  const githubRawBase = `https://raw.githubusercontent.com/${username}/${repoName}/main`;
 
-    const excecoesHTML = {};
+  for (const project of projects) {
+    if (project.type === "dir" && !ignoredFolders.includes(project.name)) {
+      const javaPath = `${folderName}/${project._nivel}/${project.name}/Main.java`;
+      const rawUrl = `${githubRawBase}/${javaPath}`;
+      console.log(project.name)
+      const inputExample = exemplosEntrada[project.name] || "";
+      const executarLink = `executarJava.html?raw=${encodeURIComponent(rawUrl)}&input=${encodeURIComponent(inputExample)}`;
+      const githubLink = `https://github.com/${username}/${repoName}/tree/main/${folderName}/${project._nivel}/${project.name}`;
 
-    for (const project of projects) {
-        if (project.type === "dir" && !ignoredFolders.includes(project.name)) {
-            let htmlPath;
-
-            if (excecoesHTML[project.name]) {
-                htmlPath = `${folderName}/${project._nivel}/${project.name}/${excecoesHTML[project.name]}`;
-            } else {
-                htmlPath = `${folderName}/${project._nivel}/${project.name}/Main.java`;
-            }
-
-            // Logica para gerar o link que leva para a pagina que vai rodar o Main.java
-            const githubIoLink = `google.com`;
-            const githubLink = `https://github.com/${username}/${repoName}/blob/main/${folderName}/${project._nivel}/${project.name}`;
-
-            const projectDiv = document.createElement("div");
-            projectDiv.className = "project";
-            projectDiv.innerHTML = `
-                <div>
-                    <h5>${project.name}</h5>
-                    <p>Nível: ${project._nivel}</p>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-outline-primary btn-sm me-2" onclick="showAlert('Github', '${project.name}', '${githubLink}')"><i class="bi bi-eye"></i> Ver no GitHub</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="showAlert('Github Pages', '${project.name}', '${githubIoLink}')"><i class="bi bi-box-arrow-up-right"></i> Executar Código</button>
-                    </div>
-                </div>`;
-            projectList.appendChild(projectDiv);
-        }
+      const projectDiv = document.createElement("div");
+      projectDiv.className = "project";
+      projectDiv.innerHTML = `
+        <div>
+          <h5>${project.name}</h5>
+          <p>Nível: ${project._nivel}</p>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')"><i class="bi bi-eye"></i> Código Fonte</button>
+            <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${executarLink}', '_blank')"><i class="bi bi-play-circle"></i> Executar Código</button>
+          </div>
+        </div>`;
+      projectList.appendChild(projectDiv);
     }
+  }
 }
 
-// ----- Alertas e filtros -----
-window.showAlert = function (onde, projectName, link) {
-    Swal.fire({
-        title: `Acessar ${projectName}`,
-        text: `Você deseja abrir o projeto "${projectName}" no ${onde}?`,
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Abrir'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.open(link, '_blank');
-        }
-    });
-};
-
+// Filtro por nome
 searchForm.addEventListener("input", function (event) {
-    event.preventDefault();
-    const query = searchInput.value.toLowerCase();
-    let found = false;
-    document.querySelectorAll(".project").forEach((project) => {
-        const name = project.querySelector("h5").textContent.toLowerCase();
-        const match = name.includes(query);
-        project.style.display = match ? "" : "none";
-        if (match) found = true;
-    });
-    if (!found) {
-        Swal.fire({
-            title: "Nenhum projeto encontrado",
-            text: `Nenhum projeto corresponde a "${query}"`,
-            icon: "warning",
-            confirmButtonText: "Ok"
-        });
-    }
+  event.preventDefault();
+  const query = searchInput.value.toLowerCase();
+  document.querySelectorAll(".project").forEach((project) => {
+    const name = project.querySelector("h5").textContent.toLowerCase();
+    const match = name.includes(query);
+    project.style.display = match ? "" : "none";
+  });
 });
 
+// Filtro por nível
 document.getElementById("category-filter").addEventListener("change", function () {
-    const selected = this.value;
-    if (!selected) {
-        renderProjects(allProjects);
-    } else {
-        const filtered = allProjects.filter(p => p._nivel === selected);
-        renderProjects(filtered);
-    }
+  const selected = this.value;
+  const filtered = !selected ? allProjects : allProjects.filter(p => p._nivel === selected);
+  carregarExemplosEntrada().then(exemplos => {
+    renderProjects(filtered, exemplos);
+  });
 });
 
-// ----- Inicialização -----
+// Inicialização
 fetchAllProjects();

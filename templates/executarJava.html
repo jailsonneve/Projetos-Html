@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Executar Java com Input</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; background: #f0f0f0; }
+    textarea, input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    pre {
+      background: #111;
+      color: #0f0;
+      padding: 10px;
+      white-space: pre-wrap;
+      border-radius: 6px;
+      min-height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Executar Código Java do GitHub</h2>
+  <p><strong>Arquivo:</strong> <span id="codigo-url"></span></p>
+
+  <label for="codigo">Código Java:</label>
+  <textarea id="codigo" rows="15" placeholder="O código será carregado aqui..."></textarea>
+
+  <label for="stdin">Entrada simulada (input):</label>
+  <textarea id="stdin" rows="5" placeholder="Insira as entradas aqui..."></textarea>
+
+  <button onclick="executarCodigo()">Executar</button>
+
+  <h3>Saída:</h3>
+  <pre id="output">Aguardando execução...</pre>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawUrl = params.get("raw");
+    const inputKey = params.get("input");
+
+    const output = document.getElementById("output");
+    const inputTextarea = document.getElementById("stdin");
+    const codeTextarea = document.getElementById("codigo");
+
+    document.getElementById("codigo-url").textContent = rawUrl || "Nenhum código fornecido";
+
+    // Entradas de exemplo
+    const entradasExemplo = {
+      "NomeDoProjeto1": "3\n5\n",
+      "OutroProjeto": "10 20",
+      "ProjetoSemEntrada": ""
+      // Adicione manualmente ou carregue via fetch se preferir
+    };
+
+    async function carregarCodigoInicial() {
+      if (!rawUrl) {
+        output.textContent = "❌ Erro: parâmetro 'raw' ausente na URL.";
+        return;
+      }
+
+      try {
+        const res = await fetch(rawUrl);
+        if (!res.ok) {
+          output.textContent = `❌ Erro ao baixar código: ${res.status}`;
+          return;
+        }
+
+        const code = await res.text();
+        codeTextarea.value = code;
+      } catch (e) {
+        output.textContent = "❌ Erro ao carregar código: " + e.message;
+      }
+
+      if (inputKey && entradasExemplo[inputKey]) {
+        inputTextarea.value = entradasExemplo[inputKey];
+      }
+    }
+
+    async function executarCodigo() {
+      const code = codeTextarea.value;
+      const stdin = inputTextarea.value;
+
+      if (!code.trim()) {
+        output.textContent = "⚠️ O campo de código está vazio.";
+        return;
+      }
+
+      if (!stdin.trim()) {
+        output.textContent = "⚠️ Este projeto requer entradas via input(). Preencha o campo acima.";
+        return;
+      }
+
+      output.textContent = "⏳ Executando...";
+
+      try {
+        const response = await fetch("https://proxy-jdoodle-oqhtpo0c5-jailsonneves-projects.vercel.app/api/run-java", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code, stdin })
+        });
+
+        const data = await response.json();
+
+        if (data.output) {
+          output.textContent = data.output;
+        } else {
+          output.textContent = "❌ Resposta inesperada da API.";
+        }
+      } catch (err) {
+        output.textContent = "❌ Erro ao executar código: " + err.message;
+      }
+    }
+
+    carregarCodigoInicial();
+  </script>
+</body>
+</html>

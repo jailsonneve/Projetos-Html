@@ -95,7 +95,7 @@ async function renderProjects(projects, exemplosEntrada = {}) {
       const appPath = `${folderName}/${project._nivel}/${project.name}/app.py`;
       const rawUrl = `${githubRawBase}/${appPath}`;
       const inputExample = exemplosEntrada[project.name] || "";
-      const executarLink = `executarComInput.html?raw=${encodeURIComponent(rawUrl)}&input=${encodeURIComponent(inputExample)}`;
+      const executarLink = `executarPY.html?raw=${encodeURIComponent(rawUrl)}&input=${encodeURIComponent(inputExample)}`;
       const githubLink = `https://github.com/${username}/${repoName}/tree/main/${folderName}/${project._nivel}/${project.name}`;
 
       const projectDiv = document.createElement("div");
@@ -105,8 +105,8 @@ async function renderProjects(projects, exemplosEntrada = {}) {
           <h5>${project.name}</h5>
           <p>Nível: ${project._nivel}</p>
           <div class="d-flex justify-content-between">
-            <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')"><i class="bi bi-eye"></i> Ver no GitHub</button>
-            <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${executarLink}', '_blank')"><i class="bi bi-box-arrow-up-right"></i> Executar Código</button>
+            <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')"><i class="bi bi-eye"></i> Código Fonte</button>
+            <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${executarLink}', '_blank')"><i class="bi bi-play-circle"></i> Executar Código</button>
           </div>
         </div>`;
       projectList.appendChild(projectDiv);
