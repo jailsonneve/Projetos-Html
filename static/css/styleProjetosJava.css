@@ -51,6 +51,10 @@ form input {
   width: 300px !important;
 }
 
+.langPngs{
+  max-width: 50px;
+}
+
 /* HERO CUSTOMIZADO - SOBRE */
 #sobre {
   position: relative;

@@ -96,7 +96,6 @@ async function renderProjects(projects, exemplosEntrada = {}) {
     if (project.type === "dir" && !ignoredFolders.includes(project.name)) {
       const javaPath = `${folderName}/${project._nivel}/${project.name}/Main.java`;
       const rawUrl = `${githubRawBase}/${javaPath}`;
-      console.log(project.name)
       const inputExample = exemplosEntrada[project.name] || "";
       const executarLink = `executarJava.html?raw=${encodeURIComponent(rawUrl)}&input=${encodeURIComponent(inputExample)}`;
       const githubLink = `https://github.com/${username}/${repoName}/tree/main/${folderName}/${project._nivel}/${project.name}`;

@@ -4,22 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const repos = [
     {
-      name: "Projetos-Html",
+      name: "Projetos HTML 5",
       description: "Coleção de projetos front-end com HTML5, CSS3 e JS, incluindo buscador de filmes, CRUD, e muito mais.",
       url: "https://github.com/jailsonneve/Projetos-Html"
     },
     {
-      name: "Estacao_Meteorologica",
-      description: "Projeto de TCC com Arduino para monitoramento climático com sensores, LCD e integração via Serial.",
+      name: "Estação Meteorológica",
+      description: "Projeto de TCC com Arduino para monitoramento climático com sensores, LCD, integração via Serial e Página Web.",
       url: "https://github.com/jailsonneve/Estacao_Meteorologica_Arduino-Projeto_TCC"
     },
     {
-      name: "Projetos-Java",
+      name: "Projetos Java",
       description: "Algoritmos Java organizados por listas e desafios, com base em fluxogramas, MVC e exercícios escolares.",
       url: "https://github.com/jailsonneve/Projetos-Java"
     },
     {
-      name: "Projetos-PY",
+      name: "Projetos Python",
       description: "Repositório com scripts, mini apps e soluções Python: automação, cálculos matemáticos e lógica aplicada.",
       url: "https://github.com/jailsonneve/Projetos-PY"
     }

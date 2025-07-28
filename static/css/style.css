@@ -56,6 +56,10 @@ footer a:hover {
   max-width: 300px;
 }
 
+.langPngs{
+  max-width: 50px;
+}
+
 /* Força inputs do formulário a se manterem uniformes */
 form input {
   width: 300px !important;
