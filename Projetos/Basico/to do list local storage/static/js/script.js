@@ -70,12 +70,12 @@ function atualizarLista() {
       const divBotoes = document.createElement("div");
 
       const btnEditar = document.createElement("button");
-      btnEditar.textContent = "Editar";
+      btnEditar.textContent = "📝 Editar";
       btnEditar.className = "btn btn-warning btn-sm me-2";
       btnEditar.onclick = () => editarTarefa(index);
 
       const btnRemover = document.createElement("button");
-      btnRemover.textContent = "Remover";
+      btnRemover.textContent = "❌ Remover";
       btnRemover.className = "btn btn-danger btn-sm";
       btnRemover.onclick = () => removerTarefa(index, li);
 
