@@ -79,6 +79,16 @@ function atualizarLista() {
       btnRemover.className = "btn btn-danger btn-sm";
       btnRemover.onclick = () => removerTarefa(index, li);
 
+      if (tarefa.concluida) {
+        btnEditar.disabled = true;
+        btnEditar.classList.add("btn-secondary");
+        btnEditar.classList.remove("btn-warning");
+
+        btnRemover.disabled = true;
+        btnRemover.classList.add("btn-secondary");
+        btnRemover.classList.remove("btn-danger");
+      }
+
       divBotoes.appendChild(btnEditar);
       divBotoes.appendChild(btnRemover);
 
