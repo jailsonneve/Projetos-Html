@@ -1,7 +1,6 @@
 let tarefas = [];
 let filtroAtual = 'todas';
 
-// Carregar do localStorage ao iniciar
 document.addEventListener("DOMContentLoaded", () => {
   const dadosSalvos = localStorage.getItem("tarefasToDoList");
   if (dadosSalvos) {
@@ -50,21 +49,16 @@ function atualizarLista() {
       const divEsquerda = document.createElement("div");
       divEsquerda.className = "d-flex align-items-center";
 
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.className = "form-check-input me-2";
-      checkbox.checked = tarefa.concluida;
-      checkbox.addEventListener("change", () => {
-        tarefa.concluida = checkbox.checked;
-        salvarNoLocalStorage();
-        atualizarLista();
-      });
-
       const span = document.createElement("span");
       span.textContent = tarefa.texto;
+      span.addEventListener("click", () => {
+        tarefa.concluida = true;
+        salvarNoLocalStorage();
+        atualizarLista();
+      })
+      
       if (tarefa.concluida) span.classList.add("concluida");
 
-      divEsquerda.appendChild(checkbox);
       divEsquerda.appendChild(span);
 
       const divBotoes = document.createElement("div");
