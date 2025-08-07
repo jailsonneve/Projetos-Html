@@ -11,6 +11,11 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+.project:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+}
+
 footer {
   background-color: #343a40;
   color: white;
