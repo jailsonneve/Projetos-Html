@@ -64,6 +64,12 @@ button:hover {
     min-height: 80px;
 }
 
+#desafio:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    transform: scale(1.02);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }

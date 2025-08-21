@@ -37,7 +37,7 @@ const desafios = [
     "Fale algo íntimo em voz alta ou beba.",
     "Mostre seu último print de conversa ou beba.",
     "Simule uma cantada ao vivo ou beba.",
-    "Escolha alguém pra dar um selinho (se aceitar) ou beba.",
+    "Escolha alguém pra dar um selinho ou beba.",
     "Fale algo que ninguém da roda sabe sobre você ou beba.",
     "Fale se você já ficou com mais de uma pessoa no mesmo dia ou beba.",
     "Mostre a última música que escutou no Spotify ou beba.",
