@@ -27,15 +27,15 @@ function carregarCacheJogos() {
     return (agora - dados.timestamp < tempoLimite) ? dados.jogos : null;
 }
 
-// ----- Buscar jogos por nível -----
-async function fetchJogosByLevel(level) {
-    const path = `${folderName}/${level}`;
+// ----- Buscar jogos por linguagem -----
+async function fetchJogosByLanguage(language) {
+    const path = `${folderName}/${language}`;
     const baseURL = `${API_PROXY_URL}?path=repos/${username}/${repoName}/contents/${path}`;
     try {
         const response = await fetch(baseURL);
-        if (!response.ok) throw new Error(`Erro ao buscar jogos do nível ${level}. Status: ${response.status}`);
+        if (!response.ok) throw new Error(`Erro ao buscar jogos de ${language}. Status: ${response.status}`);
         const jogos = await response.json();
-        return jogos.map(j => ({ ...j, _nivel: level }));
+        return jogos.map(j => ({ ...j, _linguagem: language }));
     } catch (e) {
         console.error(e);
         Swal.fire("Erro ao carregar jogos", e.message, "error");
@@ -54,7 +54,7 @@ async function fetchAllJogos() {
     try {
         Swal.fire({ title: "Carregando jogos...", didOpen: () => Swal.showLoading() });
 
-        const promises = languages.map(fetchJogosByLevel);
+        const promises = languages.map(fetchJogosByLanguage);
         const nested = await Promise.all(promises);
         allJogos = nested.flat();
 
@@ -74,19 +74,51 @@ function renderJogos(jogos) {
 
     for (const jogo of jogos) {
         if (jogo.type === "dir" && !ignoredFolders.includes(jogo.name)) {
-            const htmlPath = `${folderName}/${jogo._nivel}/${jogo.name}/index.html`;
-            const githubIoLink = `https://${username}.github.io/${repoName}/${htmlPath}`;
-            const githubLink = `https://github.com/${username}/${repoName}/tree/main/${folderName}/${jogo._nivel}/${jogo.name}`;
+            let filePath;
+            let actionButton;
+
+            switch (jogo._linguagem) {
+                case "JavaScript":
+                    filePath = `${folderName}/${jogo._linguagem}/${jogo.name}/index.html`;
+                    const playLink = `https://${username}.github.io/${repoName}/${filePath}`;
+                    actionButton = `
+                        <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${playLink}', '_blank')">
+                            <i class="bi bi-box-arrow-up-right"></i> Jogar
+                        </button>`;
+                    break;
+
+                case "Java":
+                    filePath = `${folderName}/${jogo._linguagem}/${jogo.name}/main.java`;
+                    const javaRaw = `https://raw.githubusercontent.com/${username}/${repoName}/main/${filePath}`;
+                    actionButton = `
+                        <a class="btn btn-outline-success btn-sm" href="${javaRaw}" download>
+                            <i class="bi bi-download"></i> Baixar .java
+                        </a>`;
+                    break;
+
+                case "Python":
+                    filePath = `${folderName}/${jogo._linguagem}/${jogo.name}/app.py`;
+                    const pyRaw = `https://raw.githubusercontent.com/${username}/${repoName}/main/${filePath}`;
+                    actionButton = `
+                        <a class="btn btn-outline-warning btn-sm" href="${pyRaw}" download>
+                            <i class="bi bi-download"></i> Baixar .py
+                        </a>`;
+                    break;
+            }
+
+            const githubLink = `https://github.com/${username}/${repoName}/tree/main/${folderName}/${jogo._linguagem}/${jogo.name}`;
 
             const jogoDiv = document.createElement("div");
             jogoDiv.className = "jogo";
             jogoDiv.innerHTML = `
                 <div>
                     <h5>${jogo.name}</h5>
-                    <p>Linguagem: ${jogo._nivel}</p>
+                    <p>Linguagem: ${jogo._linguagem}</p>
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')"><i class="bi bi-eye"></i> Código Fonte</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="window.open('${githubIoLink}', '_blank')"><i class="bi bi-box-arrow-up-right"></i> Jogar</button>
+                        <button class="btn btn-outline-primary btn-sm me-2" onclick="window.open('${githubLink}', '_blank')">
+                            <i class="bi bi-eye"></i> Código Fonte
+                        </button>
+                        ${actionButton}
                     </div>
                 </div>`;
             jogosList.appendChild(jogoDiv);
@@ -110,7 +142,7 @@ document.getElementById("category-filter").addEventListener("change", function (
     if (!selected) {
         renderJogos(allJogos);
     } else {
-        renderJogos(allJogos.filter(j => j._nivel === selected));
+        renderJogos(allJogos.filter(j => j._linguagem === selected));
     }
 });
 
