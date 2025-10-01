@@ -1,6 +1,6 @@
 const apiKey = 'AIzaSyBkmoP3XUpoOla6hNGDZDgRPENplJ4rcEk';
 const channelId = 'UC8VKz15rOUKeQZ5qtt_HpXQ';
-const maxResults = 12;
+const maxResults = 24;
 const videoContainer = document.getElementById('videoList');
 const shortsContainer = document.getElementById('shortsList');
 const projetosContainer = document.getElementById('projetosList');
