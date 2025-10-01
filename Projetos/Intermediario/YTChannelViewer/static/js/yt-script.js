@@ -31,7 +31,7 @@ async function fetchVideos() {
     const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&type=video&order=date&maxResults=${maxResults}`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log("Itens: " + items);
+    console.log("Itens: " + data.items);
     return data.items || [];
   } catch (error) {
     console.error('Erro ao buscar vídeos:', error);
