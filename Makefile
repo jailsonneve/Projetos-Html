@@ -44,5 +44,4 @@ stop:
 	@echo "Finalizando Servidor...."
 	pkill -f http.server
 clean:
-	@echo "Limpando tela...."
 	@clear

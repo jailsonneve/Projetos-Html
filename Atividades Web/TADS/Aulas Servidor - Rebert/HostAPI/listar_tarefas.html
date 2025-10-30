@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    
+    <button onclick="carregarTarefas()">Atualizar Lista</button>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Data de Conclusão</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaTarefas">
+            <tr>
+                <td colspan="4">Carregando...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="services.js"></script>
+    <script>
+        // Função para carregar e exibir as tarefas
+        async function carregarTarefas() {
+            try {
+                const tarefas = await listarTarefas();
+                const tbody = document.getElementById('tabelaTarefas');
+                
+                // Limpar tabela
+                tbody.innerHTML = '';
+                
+                // Se não houver tarefas
+                if (tarefas.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4">Nenhuma tarefa encontrada</td></tr>';
+                    return;
+                }
+                
+                // Adicionar cada tarefa na tabela
+                tarefas.forEach(tarefa => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${tarefa.id}</td>
+                        <td>${tarefa.descricao}</td>
+                        <td>${tarefa.status || ''}</td>
+                        <td>${tarefa.dataConclusao || ''}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (erro) {
+                console.error('Erro ao carregar tarefas:', erro);
+                document.getElementById('tabelaTarefas').innerHTML = 
+                    '<tr><td colspan="4">Erro ao carregar tarefas. Verifique se o backend está rodando.</td></tr>';
+            }
+        }
+        
+        // Carregar tarefas ao abrir a página
+        carregarTarefas();
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Tarefa</title>
+</head>
+<body>
+    <h1>Cadastrar Tarefa</h1>
+
+    <form id="formTarefa">
+        <div>
+            <label for="descricao">Descrição:</label><br>
+            <input type="text" id="descricao" name="descricao" required>
+        </div>
+        <div>
+            <label for="status">Status:</label><br>
+            <input type="text" id="status" name="status">
+        </div>
+        <div>
+            <label for="dataConclusao">Data de Conclusão:</label><br>
+            <input type="date" id="dataConclusao" name="dataConclusao">
+        </div>
+        <div style="margin-top:8px;">
+            <!-- usar type="button" para evitar submissão por Enter; o script será executado somente ao clicar -->
+            <button type="button" id="btnCriar" onclick="onClickCreate(event)">Criar</button>
+            <button type="button" onclick="window.location.href='../HostAPI/listar_tarefas.html'">Voltar à lista</button>
+        </div>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script src="services.js"></script>
+    <script>
+        const form = document.getElementById('formTarefa');
+        const msg = document.getElementById('mensagem');
+
+        // Executa somente quando o botão 'Criar' é clicado
+        // Função executada pelo atributo onclick do botão 'Criar'
+        window.onClickCreate = async function(e) {
+            // prevenir comportamento padrão
+            if (e && e.preventDefault) e.preventDefault();
+            msg.textContent = '';
+
+            const descricao = document.getElementById('descricao').value.trim();
+            const status = document.getElementById('status').value.trim();
+            const dataConclusao = document.getElementById('dataConclusao').value || null;
+
+            if (!descricao) {
+                msg.textContent = 'A descrição é obrigatória.';
+                return;
+            }
+
+            const tarefa = {
+                descricao: descricao,
+                status: status || null,
+                dataConclusao: dataConclusao || null
+            };
+
+            try {
+                const criada = await criarTarefa(tarefa);
+                msg.textContent = `Tarefa criada com id ${criada.id}`;
+                form.reset();
+            } catch (err) {
+                console.error('Erro ao criar tarefa', err);
+                msg.textContent = 'Erro ao criar tarefa. Verifique o console.';
+            }
+    };
+    </script>
+</body>
+</html>
