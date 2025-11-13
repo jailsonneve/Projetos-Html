@@ -1,0 +1,22 @@
+/* Estilos customizados para sobrescrever ou complementar Bootstrap, se necessário */
+/* Remova este arquivo se quiser usar apenas Bootstrap puro */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: #495057;
+}
+
+form {
+    /* Bootstrap já cuida do layout; ajustes mínimos aqui se precisar */
+}
+
+table {
+    /* Bootstrap já estiliza a tabela */
+}
+
+.btn {
+    /* Ajustes para botões, se necessário */
+}
