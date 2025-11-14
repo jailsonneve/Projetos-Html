@@ -74,3 +74,24 @@ document.addEventListener("DOMContentLoaded", function () {
     siteList.appendChild(card);
   });
 });
+
+// === MODO CLARO / ESCURO ===
+const toggleBtn = document.getElementById("themeToggle");
+
+// Carrega configuração salva
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light-mode");
+  toggleBtn.innerHTML = `<i class="bi bi-moon-fill"></i>`;
+}
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  const isLight = document.body.classList.contains("light-mode");
+
+  toggleBtn.innerHTML = isLight
+    ? `<i class="bi bi-moon-fill"></i>`
+    : `<i class="bi bi-brightness-high-fill"></i>`;
+
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
