@@ -1,0 +1,73 @@
+/* Variáveis para cores consistentes */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+}
+
+/* Fundo com gradiente sutil */
+body {
+    background: var(--primary-gradient);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container centralizado */
+.container {
+    max-width: 900px;
+}
+
+/* Card com sombra e bordas arredondadas */
+.card {
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+}
+
+/* Header do card */
+.card-header {
+    background: var(--primary-gradient) !important;
+    border-bottom: none;
+}
+
+/* Campos de formulário com bordas arredondadas e transições */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-control[readonly], .form-control[disabled] {
+    background-color: #f8f9fa;
+    opacity: 0.8;
+}
+
+/* Botão com efeito hover */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* Labels em negrito para destaque */
+.form-label {
+    color: #495057;
+}
+
+/* Responsividade extra */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 2rem 1.5rem;
+    }
+}
