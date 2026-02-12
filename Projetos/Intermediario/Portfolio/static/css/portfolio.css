@@ -176,6 +176,7 @@ h1{
 .delay-3 { animation-delay: 1.5s; }
 .delay-4 { animation-delay: 2s; }
 .delay-5 { animation-delay: 2.5s; }
+.delay-6 { animation-delay: 3s; }
 
 @keyframes fadeIn {
   to {
@@ -264,6 +265,10 @@ body.light-mode {
   color: #222;
 }
 
+body.light-mode .nav-link:hover {
+  color: #0077cc;
+}
+
 body.light-mode .navbar {
   background-color: #ffffff !important;
   border-bottom: 2px solid #0077cc;
@@ -322,4 +327,8 @@ body.light-mode .site-footer {
 body.light-mode .site-footer strong,
 body.light-mode .footer-icons a {
   color: #0077cc;
+}
+
+body.light-mode .texto{
+  color: #000;
 }

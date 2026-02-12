@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== LISTAGEM DE REPOS =====
   const repoList = document.getElementById("repo-list");
   const siteList = document.getElementById("site-list");
 
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
-  const sitesPojects = [
+  const sitesProjects = [
     {
       name: "Projetos HTML 5",
       description: "Site com diversos projetos de front-end utilizando HTML5, CSS3 e JavaScript.",
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       description: "Site com diversos projetos usando Python, incluindo automação e lógica.",
       url: "https://jailsonneve.github.io/Projetos-Html/templates/projetosPython.html"
     }
-  ]
+  ];
 
   repos.forEach(repo => {
     const card = document.createElement("div");
@@ -61,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     repoList.appendChild(card);
   });
 
-  sitesPojects.forEach(site => {
+  sitesProjects.forEach(site => {
     const card = document.createElement("div");
     card.className = "repo-card";
     card.innerHTML = `
@@ -73,25 +75,79 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     siteList.appendChild(card);
   });
-});
 
-// === MODO CLARO / ESCURO ===
-const toggleBtn = document.getElementById("themeToggle");
+  // ===== MODO CLARO / ESCURO =====
+  const toggleBtn = document.getElementById("themeToggle");
+  const textoDireitos = document.querySelector("small");
+  const btnGithub = document.getElementById("btnGithub");
+  const navbar = document.querySelector(".navbar");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-// Carrega configuração salva
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light-mode");
-  toggleBtn.innerHTML = `<i class="bi bi-moon-fill"></i>`;
-}
 
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
+  if (!toggleBtn) {
+    console.error("Botão themeToggle não encontrado");
+    return;
+  }
 
-  const isLight = document.body.classList.contains("light-mode");
+  // Tema inicial
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  const isLight = savedTheme === "light";
+
+  document.body.classList.toggle("light-mode", isLight);
+  toggleBtn.classList.add("btn");
+  toggleBtn.classList.toggle("btn-outline-dark", isLight);
+  toggleBtn.classList.toggle("btn-outline-light", !isLight);
+
+  textoDireitos.classList.toggle("text-white", !isLight);
+  textoDireitos.classList.toggle("text-dark", isLight);
+
+  btnGithub.classList.add(
+    "btn",
+    "btn-lg",
+    "px-4",
+    "mt-3",
+    "animate-fade-in",
+    "delay-6"
+  );
+
+  btnGithub.classList.toggle("btn-outline-light", !isLight);
+  btnGithub.classList.toggle("btn-outline-dark", isLight);
+
+  navbar.classList.toggle("navbar-light", isLight);
+  navbar.classList.toggle("bg-light", isLight);
+
+  navbar.classList.toggle("navbar-dark", !isLight);
+  navbar.classList.toggle("bg-dark", !isLight);
+
 
   toggleBtn.innerHTML = isLight
     ? `<i class="bi bi-moon-fill"></i>`
     : `<i class="bi bi-brightness-high-fill"></i>`;
 
-  localStorage.setItem("theme", isLight ? "light" : "dark");
+  // Clique
+  toggleBtn.addEventListener("click", () => {
+    const lightModeAtivo = document.body.classList.toggle("light-mode");
+
+    toggleBtn.classList.toggle("btn-outline-dark", lightModeAtivo);
+    toggleBtn.classList.toggle("btn-outline-light", !lightModeAtivo);
+
+    textoDireitos.classList.toggle("text-white", !lightModeAtivo);
+    textoDireitos.classList.toggle("text-dark", lightModeAtivo);
+
+    btnGithub.classList.toggle("btn-outline-light", !lightModeAtivo);
+    btnGithub.classList.toggle("btn-outline-dark", lightModeAtivo);
+
+    navbar.classList.toggle("navbar-light", lightModeAtivo);
+    navbar.classList.toggle("bg-light", lightModeAtivo);
+
+    navbar.classList.toggle("navbar-dark", !lightModeAtivo);
+    navbar.classList.toggle("bg-dark", !lightModeAtivo);
+
+    toggleBtn.innerHTML = lightModeAtivo
+      ? `<i class="bi bi-moon-fill"></i>`
+      : `<i class="bi bi-brightness-high-fill"></i>`;
+
+    localStorage.setItem("theme", lightModeAtivo ? "light" : "dark");
+  });
+
 });
