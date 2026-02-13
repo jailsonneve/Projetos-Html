@@ -81,8 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const textoDireitos = document.querySelector("small");
   const btnGithub = document.getElementById("btnGithub");
   const navbar = document.querySelector(".navbar");
-  const navLinks = document.querySelectorAll(".nav-link");
-
+  const textosBold = document.querySelectorAll("#textoBold");
 
   if (!toggleBtn) {
     console.error("Botão themeToggle não encontrado");
@@ -100,6 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   textoDireitos.classList.toggle("text-white", !isLight);
   textoDireitos.classList.toggle("text-dark", isLight);
+
+  textosBold.forEach(el => {
+    el.classList.toggle("fw-bold-light", isLight);
+    el.classList.toggle("fw-bold", !isLight);
+  });
+
 
   btnGithub.classList.add(
     "btn",
@@ -142,6 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navbar.classList.toggle("navbar-dark", !lightModeAtivo);
     navbar.classList.toggle("bg-dark", !lightModeAtivo);
+
+    textosBold.forEach(el => {
+      el.classList.toggle("fw-bold-light", lightModeAtivo);
+      el.classList.toggle("fw-bold", !lightModeAtivo);
+    });
+
 
     toggleBtn.innerHTML = lightModeAtivo
       ? `<i class="bi bi-moon-fill"></i>`
