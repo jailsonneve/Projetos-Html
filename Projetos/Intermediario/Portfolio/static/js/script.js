@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== MODO CLARO / ESCURO =====
   const toggleBtn = document.getElementById("themeToggle");
+  const toggleBtnMobile = document.getElementById("themeToggleMobile");
   const textoDireitos = document.querySelector("small");
   const btnGithub = document.getElementById("btnGithub");
   const navbar = document.querySelector(".navbar");
@@ -88,6 +89,44 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Função para atualizar tema
+  const updateTheme = (lightModeAtivo) => {
+    document.body.classList.toggle("light-mode", lightModeAtivo);
+
+    toggleBtn.classList.toggle("btn-outline-dark", lightModeAtivo);
+    toggleBtn.classList.toggle("btn-outline-light", !lightModeAtivo);
+
+    if (toggleBtnMobile) {
+      toggleBtnMobile.classList.toggle("btn-outline-dark", lightModeAtivo);
+      toggleBtnMobile.classList.toggle("btn-outline-light", !lightModeAtivo);
+    }
+
+    textoDireitos.classList.toggle("text-white", !lightModeAtivo);
+    textoDireitos.classList.toggle("text-dark", lightModeAtivo);
+
+    btnGithub.classList.toggle("btn-outline-light", !lightModeAtivo);
+    btnGithub.classList.toggle("btn-outline-dark", lightModeAtivo);
+
+    navbar.classList.toggle("navbar-light", lightModeAtivo);
+    navbar.classList.toggle("bg-light", lightModeAtivo);
+
+    navbar.classList.toggle("navbar-dark", !lightModeAtivo);
+    navbar.classList.toggle("bg-dark", !lightModeAtivo);
+
+    textosBold.forEach(el => {
+      el.classList.toggle("fw-bold-light", lightModeAtivo);
+      el.classList.toggle("fw-bold", !lightModeAtivo);
+    });
+
+    const icon = lightModeAtivo ? `<i class="bi bi-moon-fill"></i>` : `<i class="bi bi-brightness-high-fill"></i>`;
+    toggleBtn.innerHTML = icon;
+    if (toggleBtnMobile) {
+      toggleBtnMobile.innerHTML = icon + ' Alterar Tema';
+    }
+
+    localStorage.setItem("theme", lightModeAtivo ? "light" : "dark");
+  };
+
   // Tema inicial
   const savedTheme = localStorage.getItem("theme") || "dark";
   const isLight = savedTheme === "light";
@@ -97,6 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleBtn.classList.toggle("btn-outline-dark", isLight);
   toggleBtn.classList.toggle("btn-outline-light", !isLight);
 
+  if (toggleBtnMobile) {
+    toggleBtnMobile.classList.add("btn");
+    toggleBtnMobile.classList.toggle("btn-outline-dark", isLight);
+    toggleBtnMobile.classList.toggle("btn-outline-light", !isLight);
+  }
+
   textoDireitos.classList.toggle("text-white", !isLight);
   textoDireitos.classList.toggle("text-dark", isLight);
 
@@ -104,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
     el.classList.toggle("fw-bold-light", isLight);
     el.classList.toggle("fw-bold", !isLight);
   });
-
 
   btnGithub.classList.add(
     "btn",
@@ -124,41 +168,28 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar.classList.toggle("navbar-dark", !isLight);
   navbar.classList.toggle("bg-dark", !isLight);
 
-
   toggleBtn.innerHTML = isLight
     ? `<i class="bi bi-moon-fill"></i>`
     : `<i class="bi bi-brightness-high-fill"></i>`;
 
-  // Clique
+  if (toggleBtnMobile) {
+    toggleBtnMobile.innerHTML = isLight
+      ? `<i class="bi bi-moon-fill"></i> Alterar Tema`
+      : `<i class="bi bi-brightness-high-fill"></i> Alterar Tema`;
+  }
+
+  // Clique desktop
   toggleBtn.addEventListener("click", () => {
-    const lightModeAtivo = document.body.classList.toggle("light-mode");
-
-    toggleBtn.classList.toggle("btn-outline-dark", lightModeAtivo);
-    toggleBtn.classList.toggle("btn-outline-light", !lightModeAtivo);
-
-    textoDireitos.classList.toggle("text-white", !lightModeAtivo);
-    textoDireitos.classList.toggle("text-dark", lightModeAtivo);
-
-    btnGithub.classList.toggle("btn-outline-light", !lightModeAtivo);
-    btnGithub.classList.toggle("btn-outline-dark", lightModeAtivo);
-
-    navbar.classList.toggle("navbar-light", lightModeAtivo);
-    navbar.classList.toggle("bg-light", lightModeAtivo);
-
-    navbar.classList.toggle("navbar-dark", !lightModeAtivo);
-    navbar.classList.toggle("bg-dark", !lightModeAtivo);
-
-    textosBold.forEach(el => {
-      el.classList.toggle("fw-bold-light", lightModeAtivo);
-      el.classList.toggle("fw-bold", !lightModeAtivo);
-    });
-
-
-    toggleBtn.innerHTML = lightModeAtivo
-      ? `<i class="bi bi-moon-fill"></i>`
-      : `<i class="bi bi-brightness-high-fill"></i>`;
-
-    localStorage.setItem("theme", lightModeAtivo ? "light" : "dark");
+    const lightModeAtivo = document.body.classList.contains("light-mode") ? false : true;
+    updateTheme(lightModeAtivo);
   });
+
+  // Clique mobile
+  if (toggleBtnMobile) {
+    toggleBtnMobile.addEventListener("click", () => {
+      const lightModeAtivo = document.body.classList.contains("light-mode") ? false : true;
+      updateTheme(lightModeAtivo);
+    });
+  }
 
 });

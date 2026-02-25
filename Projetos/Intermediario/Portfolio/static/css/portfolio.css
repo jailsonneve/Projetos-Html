@@ -10,6 +10,12 @@ body {
   border-bottom: 2px solid #00ffcc;
 }
 
+.navbar-right-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .navbar-customized {
   color: white;
   font-weight: bold;
@@ -389,6 +395,15 @@ body.light-mode .fw-bold-light {
 
 body:not(.light-mode) .fw-bold-light {
   color: #f8f9fa; /* equivalente ao text-light */
+}
+
+body.light-mode .fotoPerfil {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0077cc;
+  box-shadow: 0 0 20px #0077cc;
 }
 
 /* ===== FOGUETE NAVBAR ===== */
