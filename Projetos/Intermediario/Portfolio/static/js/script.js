@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== LISTAGEM DE REPOS =====
-  const repoList = document.getElementById("repo-list");
-  const siteList = document.getElementById("site-list");
-
+  // ===== DATA =====
   const repos = [
     {
       name: "Projetos HTML 5",
@@ -50,33 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  repos.forEach(repo => {
-    const card = document.createElement("div");
-    card.className = "repo-card";
-    card.innerHTML = `
-      <h5><i class="bi bi-folder-fill"></i> ${repo.name}</h5>
-      <p>${repo.description}</p>
-      <a href="${repo.url}" class="btn btn-outline-success btn-sm" target="_blank">
-        <i class="bi bi-box-arrow-up-right"></i> Acessar Repositório
-      </a>
-    `;
-    repoList.appendChild(card);
-  });
-
-  sitesProjects.forEach(site => {
-    const card = document.createElement("div");
-    card.className = "repo-card";
-    card.innerHTML = `
-      <h5><i class="bi bi-diagram-3"></i> ${site.name}</h5>
-      <p>${site.description}</p>
-      <a href="${site.url}" class="btn btn-outline-success btn-sm" target="_blank">
-        <i class="bi bi-box-arrow-up-right"></i> Acessar Site
-      </a>
-    `;
-    siteList.appendChild(card);
-  });
-
-  // ===== MODO CLARO / ESCURO =====
+  // ===== ELEMENTS =====
+  const repoList = document.getElementById("repo-list");
+  const siteList = document.getElementById("site-list");
   const toggleBtn = document.getElementById("themeToggle");
   const toggleBtnMobile = document.getElementById("themeToggleMobile");
   const textoDireitos = document.querySelector("small");
@@ -84,112 +57,111 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".navbar");
   const textosBold = document.querySelectorAll("#textoBold");
 
-  if (!toggleBtn) {
-    console.error("Botão themeToggle não encontrado");
-    return;
-  }
-
-  // Função para atualizar tema
-  const updateTheme = (lightModeAtivo) => {
-    document.body.classList.toggle("light-mode", lightModeAtivo);
-
-    toggleBtn.classList.toggle("btn-outline-dark", lightModeAtivo);
-    toggleBtn.classList.toggle("btn-outline-light", !lightModeAtivo);
-
-    if (toggleBtnMobile) {
-      toggleBtnMobile.classList.toggle("btn-outline-dark", lightModeAtivo);
-      toggleBtnMobile.classList.toggle("btn-outline-light", !lightModeAtivo);
-    }
-
-    textoDireitos.classList.toggle("text-white", !lightModeAtivo);
-    textoDireitos.classList.toggle("text-dark", lightModeAtivo);
-
-    btnGithub.classList.toggle("btn-outline-light", !lightModeAtivo);
-    btnGithub.classList.toggle("btn-outline-dark", lightModeAtivo);
-
-    navbar.classList.toggle("navbar-light", lightModeAtivo);
-    navbar.classList.toggle("bg-light", lightModeAtivo);
-
-    navbar.classList.toggle("navbar-dark", !lightModeAtivo);
-    navbar.classList.toggle("bg-dark", !lightModeAtivo);
-
-    textosBold.forEach(el => {
-      el.classList.toggle("fw-bold-light", lightModeAtivo);
-      el.classList.toggle("fw-bold", !lightModeAtivo);
-    });
-
-    const icon = lightModeAtivo ? `<i class="bi bi-moon-fill"></i>` : `<i class="bi bi-brightness-high-fill"></i>`;
-    toggleBtn.innerHTML = icon;
-    if (toggleBtnMobile) {
-      toggleBtnMobile.innerHTML = icon + ' Alterar Tema';
-    }
-
-    localStorage.setItem("theme", lightModeAtivo ? "light" : "dark");
+  // ===== HELPERS =====
+  const createCard = (item, iconClass, isSite = false) => {
+    const card = document.createElement("div");
+    card.className = "repo-card";
+    card.innerHTML = `
+      <h5><i class="${iconClass}"></i> ${item.name}</h5>
+      <p>${item.description}</p>
+      <a href="${item.url}" class="btn btn-outline-success btn-sm" target="_blank">
+        <i class="bi bi-box-arrow-up-right"></i> ${isSite ? 'Acessar Site' : 'Acessar Repositório'}
+      </a>
+    `;
+    return card;
   };
 
-  // Tema inicial
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  const isLight = savedTheme === "light";
+  // ===== INIT CARDS =====
+  const initCards = () => {
+    if (repoList) {
+      repos.forEach(r => repoList.appendChild(createCard(r, 'bi bi-folder-fill')));
+    }
+    if (siteList) {
+      sitesProjects.forEach(s => siteList.appendChild(createCard(s, 'bi bi-diagram-3', true)));
+    }
+  };
 
-  document.body.classList.toggle("light-mode", isLight);
-  toggleBtn.classList.add("btn");
-  toggleBtn.classList.toggle("btn-outline-dark", isLight);
-  toggleBtn.classList.toggle("btn-outline-light", !isLight);
+  // ===== THEME MODULE =====
+  const Theme = (function () {
+    const defaultTheme = 'dark';
 
-  if (toggleBtnMobile) {
-    toggleBtnMobile.classList.add("btn");
-    toggleBtnMobile.classList.toggle("btn-outline-dark", isLight);
-    toggleBtnMobile.classList.toggle("btn-outline-light", !isLight);
-  }
+    const setIcon = (el, light) => {
+      if (!el) return;
+      el.innerHTML = light ? `<i class="bi bi-moon-fill"></i>` : `<i class="bi bi-brightness-high-fill"></i>`;
+      if (el === toggleBtnMobile) el.innerHTML += ' Alterar Tema';
+    };
 
-  textoDireitos.classList.toggle("text-white", !isLight);
-  textoDireitos.classList.toggle("text-dark", isLight);
+    const apply = (lightModeAtivo) => {
+      document.body.classList.toggle('light-mode', lightModeAtivo);
 
-  textosBold.forEach(el => {
-    el.classList.toggle("fw-bold-light", isLight);
-    el.classList.toggle("fw-bold", !isLight);
-  });
+      if (toggleBtn) {
+        toggleBtn.classList.toggle('btn-outline-dark', lightModeAtivo);
+        toggleBtn.classList.toggle('btn-outline-light', !lightModeAtivo);
+      }
+      if (toggleBtnMobile) {
+        toggleBtnMobile.classList.toggle('btn-outline-dark', lightModeAtivo);
+        toggleBtnMobile.classList.toggle('btn-outline-light', !lightModeAtivo);
+      }
 
-  btnGithub.classList.add(
-    "btn",
-    "btn-lg",
-    "px-4",
-    "mt-3",
-    "animate-fade-in",
-    "delay-6"
-  );
+      if (textoDireitos) {
+        textoDireitos.classList.toggle('text-white', !lightModeAtivo);
+        textoDireitos.classList.toggle('text-dark', lightModeAtivo);
+      }
 
-  btnGithub.classList.toggle("btn-outline-light", !isLight);
-  btnGithub.classList.toggle("btn-outline-dark", isLight);
+      if (btnGithub) {
+        btnGithub.classList.toggle('btn-outline-light', !lightModeAtivo);
+        btnGithub.classList.toggle('btn-outline-dark', lightModeAtivo);
+      }
 
-  navbar.classList.toggle("navbar-light", isLight);
-  navbar.classList.toggle("bg-light", isLight);
+      if (navbar) {
+        navbar.classList.toggle('navbar-light', lightModeAtivo);
+        navbar.classList.toggle('bg-light', lightModeAtivo);
+        navbar.classList.toggle('navbar-dark', !lightModeAtivo);
+        navbar.classList.toggle('bg-dark', !lightModeAtivo);
+      }
 
-  navbar.classList.toggle("navbar-dark", !isLight);
-  navbar.classList.toggle("bg-dark", !isLight);
+      if (textosBold && textosBold.length) {
+        textosBold.forEach(el => {
+          el.classList.toggle('fw-bold-light', lightModeAtivo);
+          el.classList.toggle('fw-bold', !lightModeAtivo);
+        });
+      }
 
-  toggleBtn.innerHTML = isLight
-    ? `<i class="bi bi-moon-fill"></i>`
-    : `<i class="bi bi-brightness-high-fill"></i>`;
+      setIcon(toggleBtn, lightModeAtivo);
+      setIcon(toggleBtnMobile, lightModeAtivo);
 
-  if (toggleBtnMobile) {
-    toggleBtnMobile.innerHTML = isLight
-      ? `<i class="bi bi-moon-fill"></i> Alterar Tema`
-      : `<i class="bi bi-brightness-high-fill"></i> Alterar Tema`;
-  }
+      localStorage.setItem('theme', lightModeAtivo ? 'light' : 'dark');
+    };
 
-  // Clique desktop
-  toggleBtn.addEventListener("click", () => {
-    const lightModeAtivo = document.body.classList.contains("light-mode") ? false : true;
-    updateTheme(lightModeAtivo);
-  });
+    const toggle = () => {
+      const light = !document.body.classList.contains('light-mode');
+      apply(light);
+    };
 
-  // Clique mobile
-  if (toggleBtnMobile) {
-    toggleBtnMobile.addEventListener("click", () => {
-      const lightModeAtivo = document.body.classList.contains("light-mode") ? false : true;
-      updateTheme(lightModeAtivo);
-    });
+    const init = () => {
+      const saved = localStorage.getItem('theme') || defaultTheme;
+      const isLight = saved === 'light';
+
+      // ensure btn classes exist
+      if (toggleBtn) toggleBtn.classList.add('btn');
+      if (toggleBtnMobile) toggleBtnMobile.classList.add('btn');
+
+      apply(isLight);
+
+      if (toggleBtn) toggleBtn.addEventListener('click', toggle);
+      if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggle);
+    };
+
+    return { init, apply, toggle };
+  })();
+
+  // ===== START =====
+  initCards();
+  Theme.init();
+
+  // preserve existing github button classes used previously
+  if (btnGithub) {
+    btnGithub.classList.add('btn','btn-lg','px-4','mt-3','animate-fade-in','delay-6');
   }
 
 });
